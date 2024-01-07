@@ -1,0 +1,49 @@
+/out/fuzz_demangle -rss_limit_mb=2560 -timeout=25 fuzz_demangle_poc/glog--fuzz_demangle--crash-7629c5bd7102fcc1fcd9cddb6b6631a5-2023-08-02-10:37:20 # /tmp/fuzz_demangle_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3074255527
+INFO: Loaded 1 modules   (1149 inline 8-bit counters): 1149 [0x6b3a38, 0x6b3eb5), 
+INFO: Loaded 1 PC tables (1149 PCs): 1149 [0x6b3eb8,0x6b8688), 
+/out/fuzz_demangle: Running 1 inputs 1 time(s) each.
+Running: fuzz_demangle_poc/glog--fuzz_demangle--crash-7629c5bd7102fcc1fcd9cddb6b6631a5-2023-08-02-10:37:20
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x7ffc0756f75d (pc 0x000000578663 bp 0x7ffc32b1dd90 sp 0x7ffc32b1dcc0 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+SCARINESS: 20 (wild-addr-read)
+    #0 0x578663 in ParseOneCharToken /src/glog/src/demangle.cc:162:7
+    #1 0x578663 in ParseCVQualifiers /src/glog/src/demangle.cc:938:24
+    #2 0x578663 in google::ParseType(google::State*) /src/glog/src/demangle.cc:883:7
+    #3 0x56f847 in OneOrMore /src/glog/src/demangle.cc:203:12
+    #4 0x56f847 in ParseBareFunctionType /src/glog/src/demangle.cc:980:7
+    #5 0x56f847 in google::ParseEncoding(google::State*) /src/glog/src/demangle.cc:443:27
+    #6 0x574117 in google::ParseLocalName(google::State*) /src/glog/src/demangle.cc:1188:40
+    #7 0x56f798 in ParseName /src/glog/src/demangle.cc:459:33
+    #8 0x56f798 in google::ParseEncoding(google::State*) /src/glog/src/demangle.cc:443:7
+    #9 0x574117 in google::ParseLocalName(google::State*) /src/glog/src/demangle.cc:1188:40
+    #10 0x570fb6 in google::ParseName(google::State*) /src/glog/src/demangle.cc:459:33
+    #11 0x579348 in ParseClassEnumType /src/glog/src/demangle.cc:991:10
+    #12 0x579348 in google::ParseType(google::State*) /src/glog/src/demangle.cc:912:7
+    #13 0x56f847 in OneOrMore /src/glog/src/demangle.cc:203:12
+    #14 0x56f847 in ParseBareFunctionType /src/glog/src/demangle.cc:980:7
+    #15 0x56f847 in google::ParseEncoding(google::State*) /src/glog/src/demangle.cc:443:27
+    #16 0x574117 in google::ParseLocalName(google::State*) /src/glog/src/demangle.cc:1188:40
+    #17 0x56f798 in ParseName /src/glog/src/demangle.cc:459:33
+    #18 0x56f798 in google::ParseEncoding(google::State*) /src/glog/src/demangle.cc:443:7
+    #19 0x574117 in google::ParseLocalName(google::State*) /src/glog/src/demangle.cc:1188:40
+    #20 0x570fb6 in google::ParseName(google::State*) /src/glog/src/demangle.cc:459:33
+    #21 0x56e1b0 in ParseEncoding /src/glog/src/demangle.cc:443:7
+    #22 0x56e1b0 in ParseMangledName /src/glog/src/demangle.cc:435:44
+    #23 0x56e1b0 in ParseTopLevelMangledName /src/glog/src/demangle.cc:1252:7
+    #24 0x56e1b0 in google::Demangle(char const*, char*, unsigned long) /src/glog/src/demangle.cc:1306:10
+    #25 0x56da74 in LLVMFuzzerTestOneInput /src/glog/src/fuzz_demangle.cc:30:3
+    #26 0x43ec13 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #27 0x42a372 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #28 0x42fc1c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #29 0x459152 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #30 0x7f6989f26082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #31 0x42053d in _start (/out/fuzz_demangle+0x42053d)
+
+DEDUP_TOKEN: ParseOneCharToken--ParseCVQualifiers--google::ParseType(google::State*)
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/glog/src/demangle.cc:162:7 in ParseOneCharToken
+==11==ABORTING

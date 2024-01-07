@@ -1,0 +1,97 @@
+/out/fuzz_parse -rss_limit_mb=2560 -timeout=25 fuzz_parse_poc/psqlparse--fuzz_parse--crash-a9e9d94344808167e74e67e5e123e289-2023-07-16-21:37:22 # /tmp/fuzz_parse_corpus < /dev/null
+INFO: Instrumenting psqlparse
+WARNING: It looks like this module is imported by a custom loader. Atheris has experimental support for this. However, it may be incompatible with certain libraries. If you experience unusual errors or poor coverage collection, try atheris.instrument_all() instead, add enable_loader_override=False to instrument_imports(), or file an issue on GitHub.
+INFO: Instrumenting six
+INFO: Instrumenting __future__
+INFO: Instrumenting psqlparse.nodes
+INFO: Instrumenting psqlparse.nodes.parsenodes
+INFO: Instrumenting psqlparse.nodes.utils
+INFO: Instrumenting psqlparse.nodes.nodes
+INFO: Instrumenting psqlparse.nodes.primnodes
+INFO: Instrumenting psqlparse.nodes.value
+INFO: Instrumenting psqlparse.exceptions
+INFO: Using preloaded libfuzzer
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 4171155965
+INFO: Loaded 1 modules   (729 inline 8-bit counters): 729 [0x7f2dea2eaaa0, 0x7f2dea2ead79), 
+INFO: Loaded 1 PC tables (729 PCs): 729 [0x7f2dea2ead80,0x7f2dea2edb10), 
+/out/fuzz_parse.pkg: Running 1 inputs 1 time(s) each.
+Running: fuzz_parse_poc/psqlparse--fuzz_parse--crash-a9e9d94344808167e74e67e5e123e289-2023-07-16-21:37:22
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==15==ERROR: AddressSanitizer: SEGV on unknown address 0x6250343f877f (pc 0x7f2dea1f2f3d bp 0x0000000000c8 sp 0x7ffe696d9e10 T0)
+[1m[0m==15==The signal is caused by a READ memory access.
+SCARINESS: 20 (wild-addr-read)
+    #0 0x7f2dea1f2f3d in scanner_yyerror /src/psqlparse/libpg_query/scan.l:1103:11
+    #1 0x7f2dea2099f7 in base_yyerror /src/psqlparse/libpg_query/gram.y:14138:2
+    #2 0x7f2dea2099f7 in base_yyparse /src/psqlparse/libpg_query/gram.c:40833:7
+    #3 0x7f2dea1ee10d in raw_parser /src/psqlparse/libpg_query/src/postgres/src_backend_parser_parser.c:60:13
+    #4 0x7f2dea1e05c4 in pg_query_raw_parse /src/psqlparse/libpg_query/src/pg_query_parse.c:45:17
+    #5 0x7f2dea1e064a in pg_query_parse /src/psqlparse/libpg_query/src/pg_query_parse.c:94:24
+    #6 0x7f2dea1dac25 in __pyx_pf_9psqlparse_6parser_parse_dict /src/psqlparse/psqlparse/parser.c:1589:20
+    #7 0x7f2dea1dac25 in __pyx_pw_9psqlparse_6parser_1parse_dict /src/psqlparse/psqlparse/parser.c:1399:13
+    #8 0x7f2dea1ddce6 in __Pyx_PyObject_CallMethO /src/psqlparse/psqlparse/parser.c:2773:14
+    #9 0x7f2dea1ddce6 in __Pyx_PyObject_CallOneArg /src/psqlparse/psqlparse/parser.c:2804:20
+    #10 0x7f2dea1dedae in __pyx_pf_9psqlparse_6parser_2parse /src/psqlparse/psqlparse/parser.c:1865:93
+    #11 0x7f2dea1dedae in __pyx_pw_9psqlparse_6parser_3parse /src/psqlparse/psqlparse/parser.c:1822:13
+    #12 0x7f2dea895bd2 in cfunction_vectorcall_O /tmp/Python-3.8.3/Objects/methodobject.c:482:24
+    #13 0x7f2dea9186be in _PyObject_Vectorcall /tmp/Python-3.8.3/./Include/cpython/abstract.h:127:11
+    #14 0x7f2dea9186be in call_function /tmp/Python-3.8.3/Python/ceval.c:4963:13
+    #15 0x7f2dea9156e7 in _PyEval_EvalFrameDefault /tmp/Python-3.8.3/Python/ceval.c:3500:19
+    #16 0x7f2dea85a2e7 in function_code_fastcall /tmp/Python-3.8.3/Objects/call.c:283:14
+    #17 0x7f2dea859d14 in PyVectorcall_Call /tmp/Python-3.8.3/Objects/call.c:199:24
+    #18 0x7f2dea35bc90 in pybind11::detail::simple_collector<(pybind11::return_value_policy)1>::call(_object*) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1502:28
+    #19 0x7f2dea35bc90 in pybind11::object pybind11::detail::object_api<pybind11::handle>::operator()<(pybind11::return_value_policy)1, pybind11::bytes>(pybind11::bytes&&) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1672:75
+    #20 0x7f2dea35bb6f in pybind11::detail::type_caster<std::function<void (pybind11::bytes)>, void>::load(pybind11::handle, bool)::func_wrapper::operator()(pybind11::bytes) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/functional.h:109:24
+    #21 0x7f2dea35bb6f in std::_Function_handler<void (pybind11::bytes), pybind11::detail::type_caster<std::function<void (pybind11::bytes)>, void>::load(pybind11::handle, bool)::func_wrapper>::_M_invoke(std::_Any_data const&, pybind11::bytes&&) /usr/lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/bits/std_function.h:300:2
+    #22 0x7f2dea368018 in std::function<void (pybind11::bytes)>::operator()(pybind11::bytes) const /usr/lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/bits/std_function.h:688:14
+    #23 0x7f2dea368018 in void pybind11::detail::argument_loader<pybind11::bytes>::call_impl<void, std::function<void (pybind11::bytes)>&, 0ul, pybind11::detail::void_type>(std::function<void (pybind11::bytes)>&, std::integer_sequence<unsigned long, 0ul>, pybind11::detail::void_type&&) && /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1480:16
+    #24 0x7f2dea368018 in std::enable_if<std::is_void<void>::value, pybind11::detail::void_type>::type pybind11::detail::argument_loader<pybind11::bytes>::call<void, pybind11::detail::void_type, std::function<void (pybind11::bytes)>&>(std::function<void (pybind11::bytes)>&) && /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1454:35
+    #25 0x7f2dea367f81 in void pybind11::cpp_function::initialize<std::function<void (pybind11::bytes)>&, void, pybind11::bytes, pybind11::return_value_policy>(std::function<void (pybind11::bytes)>&, void (*)(pybind11::bytes), pybind11::return_value_policy const&)::'lambda'(pybind11::detail::function_call&)::operator()(pybind11::detail::function_call&) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:254:56
+    #26 0x7f2dea367f81 in void pybind11::cpp_function::initialize<std::function<void (pybind11::bytes)>&, void, pybind11::bytes, pybind11::return_value_policy>(std::function<void (pybind11::bytes)>&, void (*)(pybind11::bytes), pybind11::return_value_policy const&)::'lambda'(pybind11::detail::function_call&)::__invoke(pybind11::detail::function_call&) /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:224:21
+    #27 0x7f2dea352a4b in pybind11::cpp_function::dispatcher(_object*, _object*, _object*) /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:946:30
+    #28 0x7f2dea859f5f in cfunction_call_varargs /tmp/Python-3.8.3/Objects/call.c:742:18
+    #29 0x7f2dea0f01f0 in pybind11::detail::simple_collector<(pybind11::return_value_policy)1>::call(_object*) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1502:28
+    #30 0x7f2dea0f01f0 in pybind11::object pybind11::detail::object_api<pybind11::handle>::operator()<(pybind11::return_value_policy)1, pybind11::bytes>(pybind11::bytes&&) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1672:75
+    #31 0x7f2dea0f00cf in pybind11::detail::type_caster<std::function<void (pybind11::bytes)>, void>::load(pybind11::handle, bool)::func_wrapper::operator()(pybind11::bytes) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/functional.h:109:24
+    #32 0x7f2dea0f00cf in std::_Function_handler<void (pybind11::bytes), pybind11::detail::type_caster<std::function<void (pybind11::bytes)>, void>::load(pybind11::handle, bool)::func_wrapper>::_M_invoke(std::_Any_data const&, pybind11::bytes&&) /usr/lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/bits/std_function.h:300:2
+    #33 0x7f2dea0dd63c in std::function<void (pybind11::bytes)>::operator()(pybind11::bytes) const /usr/lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/bits/std_function.h:688:14
+    #34 0x7f2dea0dd63c in atheris::TestOneInput(unsigned char const*, unsigned long) /tmp/pip-install-js6ymtvg/atheris/src/native/core.cc:146:5
+    #35 0x7f2decb85263 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #36 0x7f2decb85d85 in fuzzer::Fuzzer::TryDetectingAMemoryLeak(unsigned char const*, unsigned long, bool) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:687:3
+    #37 0x7f2decb70a0e in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:329:8
+    #38 0x7f2decb7626c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #39 0x7f2decb76a18 in LLVMFuzzerRunDriver /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:925:10
+    #40 0x7f2dea0de21a in atheris::start_fuzzing(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&) /tmp/pip-install-js6ymtvg/atheris/src/native/core.cc:226:16
+    #41 0x7f2dea0ef34f in void pybind11::detail::argument_loader<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&>::call_impl<void, void (*&)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&), 0ul, 1ul, pybind11::detail::void_type>(void (*&)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&), std::integer_sequence<unsigned long, 0ul, 1ul>, pybind11::detail::void_type&&) && /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1480:16
+    #42 0x7f2dea0ef34f in std::enable_if<std::is_void<void>::value, pybind11::detail::void_type>::type pybind11::detail::argument_loader<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&>::call<void, pybind11::detail::void_type, void (*&)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&)>(void (*&)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&)) && /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1454:35
+    #43 0x7f2dea0ef34f in void pybind11::cpp_function::initialize<void (*&)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&), void, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&, pybind11::name, pybind11::scope, pybind11::sibling>(void (*&)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&), void (*)(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::function<void (pybind11::bytes)> const&), pybind11::name const&, pybind11::scope const&, pybind11::sibling const&)::'lambda'(pybind11::detail::function_call&)::operator()(pybind11::detail::function_call&) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:254:56
+    #44 0x7f2dea0e8dbb in pybind11::cpp_function::dispatcher(_object*, _object*, _object*) /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:946:30
+    #45 0x7f2dea859f5f in cfunction_call_varargs /tmp/Python-3.8.3/Objects/call.c:742:18
+    #46 0x7f2dea348bcb in pybind11::detail::simple_collector<(pybind11::return_value_policy)1>::call(_object*) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1502:28
+    #47 0x7f2dea348bcb in pybind11::object pybind11::detail::object_api<pybind11::detail::accessor<pybind11::detail::accessor_policies::str_attr> >::operator()<(pybind11::return_value_policy)1, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::function<void (pybind11::bytes)>&>(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::function<void (pybind11::bytes)>&) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/cast.h:1672:75
+    #48 0x7f2dea3464e7 in atheris::Fuzz() /tmp/pip-install-js6ymtvg/atheris/src/native/atheris.cc:249:3
+    #49 0x7f2dea35c016 in void pybind11::cpp_function::initialize<void (*&)(), void, pybind11::name, pybind11::scope, pybind11::sibling>(void (*&)(), void (*)(), pybind11::name const&, pybind11::scope const&, pybind11::sibling const&)::'lambda'(pybind11::detail::function_call&)::operator()(pybind11::detail::function_call&) const /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h
+    #50 0x7f2dea35c016 in void pybind11::cpp_function::initialize<void (*&)(), void, pybind11::name, pybind11::scope, pybind11::sibling>(void (*&)(), void (*)(), pybind11::name const&, pybind11::scope const&, pybind11::sibling const&)::'lambda'(pybind11::detail::function_call&)::__invoke(pybind11::detail::function_call&) /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:224:21
+    #51 0x7f2dea352a4b in pybind11::cpp_function::dispatcher(_object*, _object*, _object*) /tmp/pip-install-js6ymtvg/atheris/.eggs/pybind11-2.11.0-py3.8.egg/pybind11/include/pybind11/pybind11.h:946:30
+    #52 0x7f2dea859f5f in cfunction_call_varargs /tmp/Python-3.8.3/Objects/call.c:742:18
+    #53 0x7f2dea859a26 in _PyObject_MakeTpCall /tmp/Python-3.8.3/Objects/call.c:159:18
+    #54 0x7f2dea9187f8 in call_function /tmp/Python-3.8.3/./Include/cpython/abstract.h
+    #55 0x7f2dea915649 in _PyEval_EvalFrameDefault /tmp/Python-3.8.3/Python/ceval.c:3469:23
+    #56 0x7f2dea85a2e7 in function_code_fastcall /tmp/Python-3.8.3/Objects/call.c:283:14
+    #57 0x7f2dea9186be in _PyObject_Vectorcall /tmp/Python-3.8.3/./Include/cpython/abstract.h:127:11
+    #58 0x7f2dea9186be in call_function /tmp/Python-3.8.3/Python/ceval.c:4963:13
+    #59 0x7f2dea9156e7 in _PyEval_EvalFrameDefault /tmp/Python-3.8.3/Python/ceval.c:3500:19
+    #60 0x7f2dea9194ec in PyEval_EvalFrameEx /tmp/Python-3.8.3/Python/ceval.c:741:12
+    #61 0x7f2dea9194ec in _PyEval_EvalCodeWithName /tmp/Python-3.8.3/Python/ceval.c:4298:14
+    #62 0x7f2dea90f0ee in PyEval_EvalCodeEx /tmp/Python-3.8.3/Python/ceval.c:4327:12
+    #63 0x7f2dea90f0ee in PyEval_EvalCode /tmp/Python-3.8.3/Python/ceval.c:718:12
+    #64 0x403a62  (/out/fuzz_parse.pkg+0x403a62)
+    #65 0x403e67  (/out/fuzz_parse.pkg+0x403e67)
+    #66 0x7f2dec93b082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #67 0x40249d  (/out/fuzz_parse.pkg+0x40249d)
+
+DEDUP_TOKEN: scanner_yyerror--base_yyerror--base_yyparse
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/psqlparse/libpg_query/scan.l:1103:11 in scanner_yyerror
+==15==ABORTING

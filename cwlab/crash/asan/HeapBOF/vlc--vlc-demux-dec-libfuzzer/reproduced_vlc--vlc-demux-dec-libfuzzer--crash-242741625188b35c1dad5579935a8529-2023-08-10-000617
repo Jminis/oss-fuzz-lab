@@ -1,0 +1,94 @@
+/out/vlc-demux-dec-libfuzzer -rss_limit_mb=2560 -timeout=25 vlc-demux-dec-libfuzzer_poc/vlc--vlc-demux-dec-libfuzzer--crash-242741625188b35c1dad5579935a8529-2023-08-10-00:06:17 # /tmp/vlc-demux-dec-libfuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3762790613
+INFO: Loaded 1 modules   (63421 inline 8-bit counters): 63421 [0xe28860, 0xe3801d), 
+INFO: Loaded 1 PC tables (63421 PCs): 63421 [0xc18f20,0xd10af0), 
+/out/vlc-demux-dec-libfuzzer: Running 1 inputs 1 time(s) each.
+Running: vlc-demux-dec-libfuzzer_poc/vlc--vlc-demux-dec-libfuzzer--crash-242741625188b35c1dad5579935a8529-2023-08-10-00:06:17
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6130000006d8 at pc 0x00000052f9ec bp 0x7ffc124e0130 sp 0x7ffc124df900
+[1m[0m[1m[34mWRITE of size 248 at 0x6130000006d8 thread T0[1m[0m
+SCARINESS: 45 (multi-byte-write-heap-buffer-overflow)
+    #0 0x52f9eb in __asan_memcpy /src/llvm-project/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:22:3
+    #1 0xa24f5d in es_format_Copy /src/vlc/src/misc/es_format.c:441:12
+    #2 0x95f2bb in decoder_Init /src/vlc/src/input/decoder_helpers.c:49:5
+    #3 0x56d6d1 in decoder_load /src/vlc/test/src/input/decoder.c:95:5
+    #4 0x56d6d1 in test_decoder_create /src/vlc/test/src/input/decoder.c:187:9
+    #5 0x56c67e in EsOutAdd /src/vlc/test/src/input/demux-run.c:86:19
+    #6 0x5e28a0 in es_out_Add /src/vlc/modules/../include/vlc_es_out.h:150:12
+    #7 0x5e28a0 in Parse /src/vlc/modules/demux/mpeg/es.c:923:31
+    #8 0x5d13ea in OpenCommon /src/vlc/modules/demux/mpeg/es.c:486:13
+    #9 0x5cfcd0 in OpenAudio /src/vlc/modules/demux/mpeg/es.c:501:20
+    #10 0x961d02 in demux_Probe /src/vlc/src/input/demux.c:111:15
+    #11 0x92248a in vlc_module_load /src/vlc/src/modules/modules.c:243:19
+    #12 0x961428 in demux_NewAdvanced /src/vlc/src/input/demux.c:195:20
+    #13 0x960ac3 in demux_New /src/vlc/src/input/demux.c:76:12
+    #14 0x56b722 in demux_process_stream /src/vlc/test/src/input/demux-run.c:297:22
+    #15 0x56c2ce in libvlc_demux_process_memory /src/vlc/test/src/input/demux-run.c:379:12
+    #16 0x56b3f1 in LLVMFuzzerTestOneInput /src/vlc/test/vlc-demux-libfuzzer.c:54:5
+    #17 0x43f413 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #18 0x42ab72 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #19 0x43041c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #20 0x459952 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #21 0x7f5758fcf082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #22 0x420d3d in _start (/out/vlc-demux-dec-libfuzzer+0x420d3d)
+
+DEDUP_TOKEN: __asan_memcpy--es_format_Copy--decoder_Init
+[1m[32m0x6130000006d8 is located 0 bytes to the right of 344-byte region [0x613000000580,0x6130000006d8)
+[1m[0m[1m[35mallocated by thread T0 here:[1m[0m
+    #0 0x53077e in __interceptor_calloc /src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:77:3
+    #1 0xa44151 in vlc_custom_create /src/vlc/src/misc/objects.c:96:25
+    #2 0xa443d4 in vlc_object_create /src/vlc/src/misc/objects.c:106:12
+    #3 0x56d609 in test_decoder_create /src/vlc/test/src/input/decoder.c:136:18
+    #4 0x56c67e in EsOutAdd /src/vlc/test/src/input/demux-run.c:86:19
+    #5 0x5e28a0 in es_out_Add /src/vlc/modules/../include/vlc_es_out.h:150:12
+    #6 0x5e28a0 in Parse /src/vlc/modules/demux/mpeg/es.c:923:31
+    #7 0x5d13ea in OpenCommon /src/vlc/modules/demux/mpeg/es.c:486:13
+    #8 0x5cfcd0 in OpenAudio /src/vlc/modules/demux/mpeg/es.c:501:20
+    #9 0x961d02 in demux_Probe /src/vlc/src/input/demux.c:111:15
+    #10 0x92248a in vlc_module_load /src/vlc/src/modules/modules.c:243:19
+    #11 0x961428 in demux_NewAdvanced /src/vlc/src/input/demux.c:195:20
+    #12 0x960ac3 in demux_New /src/vlc/src/input/demux.c:76:12
+    #13 0x56b722 in demux_process_stream /src/vlc/test/src/input/demux-run.c:297:22
+    #14 0x56c2ce in libvlc_demux_process_memory /src/vlc/test/src/input/demux-run.c:379:12
+    #15 0x56b3f1 in LLVMFuzzerTestOneInput /src/vlc/test/vlc-demux-libfuzzer.c:54:5
+    #16 0x43f413 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #17 0x42ab72 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #18 0x43041c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #19 0x459952 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #20 0x7f5758fcf082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+
+DEDUP_TOKEN: __interceptor_calloc--vlc_custom_create--vlc_object_create
+SUMMARY: AddressSanitizer: heap-buffer-overflow /src/llvm-project/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:22:3 in __asan_memcpy
+Shadow bytes around the buggy address:
+  0x0c267fff8080: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m
+  0x0c267fff8090: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m
+  0x0c267fff80a0: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c267fff80b0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c267fff80c0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+=>0x0c267fff80d0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m[[1m[31mfa[1m[0m][1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c267fff80e0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c267fff80f0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c267fff8100: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c267fff8110: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c267fff8120: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           [1m[0m00[1m[0m
+  Partially addressable: [1m[0m01[1m[0m [1m[0m02[1m[0m [1m[0m03[1m[0m [1m[0m04[1m[0m [1m[0m05[1m[0m [1m[0m06[1m[0m [1m[0m07[1m[0m 
+  Heap left redzone:       [1m[31mfa[1m[0m
+  Freed heap region:       [1m[35mfd[1m[0m
+  Stack left redzone:      [1m[31mf1[1m[0m
+  Stack mid redzone:       [1m[31mf2[1m[0m
+  Stack right redzone:     [1m[31mf3[1m[0m
+  Stack after return:      [1m[35mf5[1m[0m
+  Stack use after scope:   [1m[35mf8[1m[0m
+  Global redzone:          [1m[31mf9[1m[0m
+  Global init order:       [1m[36mf6[1m[0m
+  Poisoned by user:        [1m[34mf7[1m[0m
+  Container overflow:      [1m[34mfc[1m[0m
+  Array cookie:            [1m[31mac[1m[0m
+  Intra object redzone:    [1m[33mbb[1m[0m
+  ASan internal:           [1m[33mfe[1m[0m
+  Left alloca redzone:     [1m[34mca[1m[0m
+  Right alloca redzone:    [1m[34mcb[1m[0m
+==11==ABORTING

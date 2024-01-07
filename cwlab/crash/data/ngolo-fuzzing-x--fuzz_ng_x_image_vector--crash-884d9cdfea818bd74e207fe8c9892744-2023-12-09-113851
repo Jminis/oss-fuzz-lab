@@ -1,0 +1,10 @@
+list {
+  NewRasterizer {
+    w: 1099511627776
+    h: -9223370937343148032
+  }
+}
+list {
+  RasterizerNgdotPen {
+  }
+}

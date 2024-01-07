@@ -1,0 +1,31 @@
+Using seed corpus: bpf-object-fuzzer_seed_corpus.zip
+/out/bpf-object-fuzzer -rss_limit_mb=2560 -timeout=25 bpf-object-fuzzer_poc/libbpf--bpf-object-fuzzer--crash-8d53890c81c099cca1c7da009bd38d5a-2023-07-20-06:36:52 # /tmp/bpf-object-fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3707633917
+INFO: Loaded 1 modules   (10892 inline 8-bit counters): 10892 [0x746410, 0x748e9c), 
+INFO: Loaded 1 PC tables (10892 PCs): 10892 [0x6b8430,0x6e2cf0), 
+/out/bpf-object-fuzzer: Running 1 inputs 1 time(s) each.
+Running: bpf-object-fuzzer_poc/libbpf--bpf-object-fuzzer--crash-8d53890c81c099cca1c7da009bd38d5a-2023-07-20-06:36:52
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==13==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000004c47b0 bp 0x7fff3dc0cbb0 sp 0x7fff3dc0c360 T0)
+[1m[0m==13==The signal is caused by a READ memory access.
+==13==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x4c47b0 in strcmp /src/llvm-project/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:461:25
+    #1 0x5ac443 in find_extern_btf_id /src/libbpf/src/libbpf.c:3600:7
+    #2 0x5ac443 in bpf_object__collect_externs /src/libbpf/src/libbpf.c:3808:17
+    #3 0x572f29 in bpf_object_open /src/libbpf/src/libbpf.c:7384:16
+    #4 0x57354d in bpf_object__open_mem /src/libbpf/src/libbpf.c:7423:20
+    #5 0x56c628 in LLVMFuzzerTestOneInput /src/libbpf/fuzz/bpf-object-fuzzer.c:16:8
+    #6 0x43df23 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #7 0x429682 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #8 0x42ef2c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #9 0x458462 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #10 0x7f2ede8a8082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #11 0x41f84d in _start (/out/bpf-object-fuzzer+0x41f84d)
+
+DEDUP_TOKEN: strcmp--find_extern_btf_id--bpf_object__collect_externs
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/llvm-project/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:461:25 in strcmp
+==13==ABORTING

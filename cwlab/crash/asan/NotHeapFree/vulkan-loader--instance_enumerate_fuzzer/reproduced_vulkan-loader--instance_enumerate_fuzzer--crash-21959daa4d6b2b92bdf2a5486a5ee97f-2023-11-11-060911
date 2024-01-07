@@ -1,0 +1,35 @@
+Using seed corpus: instance_enumerate_fuzzer_seed_corpus.zip
+/out/instance_enumerate_fuzzer -rss_limit_mb=2560 -timeout=25 instance_enumerate_fuzzer_poc/vulkan-loader--instance_enumerate_fuzzer--crash-21959daa4d6b2b92bdf2a5486a5ee97f-2023-11-11-06:09:11 # /tmp/instance_enumerate_fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3237878625
+INFO: Loaded 1 modules   (9498 inline 8-bit counters): 9498 [0x72a4a3, 0x72c9bd), 
+INFO: Loaded 1 PC tables (9498 PCs): 9498 [0x72c9c0,0x751b60), 
+/out/instance_enumerate_fuzzer: Running 1 inputs 1 time(s) each.
+Running: instance_enumerate_fuzzer_poc/vulkan-loader--instance_enumerate_fuzzer--crash-21959daa4d6b2b92bdf2a5486a5ee97f-2023-11-11-06:09:11
+=================================================================
+[1m[31m==12==ERROR: AddressSanitizer: attempting free on address which was not malloc()-ed: 0x7f970542a830 in thread T0
+[1m[0mSCARINESS: 40 (bad-free)
+    #0 0x52ed62 in free /src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:52:3
+    #1 0x60fdc3 in parse_layer_configurations /src/vulkan-loader/loader/settings.c:201:9
+    #2 0x6116ee in get_loader_settings /src/vulkan-loader/loader/settings.c:435:11
+    #3 0x611a7f in update_global_loader_settings /src/vulkan-loader/loader/settings.c:465:20
+    #4 0x56dc70 in vkEnumerateInstanceExtensionProperties /src/vulkan-loader/loader/trampoline.c:168:5
+    #5 0x56ca73 in LLVMFuzzerTestOneInput /src/instance_enumerate_fuzzer.c:77:3
+    #6 0x43de73 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #7 0x4295d2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #8 0x42ee7c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #9 0x4583b2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #10 0x7f97058a3082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+    #11 0x41f79d in _start (/out/instance_enumerate_fuzzer+0x41f79d)
+
+DEDUP_TOKEN: free--parse_layer_configurations--get_loader_settings
+[1m[32mAddress 0x7f970542a830 is located in stack of thread T0 at offset 48 in frame[1m[0m
+[1m[0m    #0 0x6119bf in update_global_loader_settings /src/vulkan-loader/loader/settings.c:463
+
+DEDUP_TOKEN: update_global_loader_settings
+  This frame has 1 object(s):
+    [32, 64) 'settings' (line 464)[1m[32m <== Memory access at offset 48 is inside this variable[1m[0m
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: bad-free /src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:52:3 in free
+==12==ABORTING

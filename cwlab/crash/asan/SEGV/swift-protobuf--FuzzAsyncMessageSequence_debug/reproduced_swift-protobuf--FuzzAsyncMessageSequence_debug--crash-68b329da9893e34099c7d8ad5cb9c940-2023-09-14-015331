@@ -1,0 +1,30 @@
+/out/FuzzAsyncMessageSequence_debug -rss_limit_mb=2560 -timeout=25 FuzzAsyncMessageSequence_debug_poc/swift-protobuf--FuzzAsyncMessageSequence_debug--crash-68b329da9893e34099c7d8ad5cb9c940-2023-09-14-01:53:31 # /tmp/FuzzAsyncMessageSequence_debug_corpus -dict=FuzzAsyncMessageSequence_debug.dict < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1930059383
+INFO: Loaded 1 modules   (165427 inline 8-bit counters): 165427 [0x56383cdd4580, 0x56383cdfcbb3), 
+INFO: Loaded 1 PC tables (165427 PCs): 165427 [0x56383cdfcbb8,0x56383d082ee8), 
+/out/FuzzAsyncMessageSequence_debug: Running 1 inputs 1 time(s) each.
+Running: FuzzAsyncMessageSequence_debug_poc/swift-protobuf--FuzzAsyncMessageSequence_debug--crash-68b329da9893e34099c7d8ad5cb9c940-2023-09-14-01:53:31
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address (pc 0x56383a60cd10 bp 0x000000000019 sp 0x7ffd5805c9d0 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+==11==Hint: this fault was caused by a dereference of a high value address (see register values below).  Disassemble the provided pc to learn which register was used.
+SCARINESS: 20 (wild-addr-read)
+    #0 0x56383a60cd10 in dispatch_async_f crtstuff.c
+    #1 0x56383a64825a in swift_task_create_common crtstuff.c
+    #2 0x56383941d755 in (extension in Swift):Swift.Task< where B == Swift.Never>.init(priority: Swift.Optional<Swift.TaskPriority>, operation: __owned @Sendable () async -> A) -> Swift.Task<A, Swift.Never> /src/swift-protobuf/FuzzTesting/<compiler-generated>
+    #3 0x56383941a6e1 in FuzzAsyncMessageSequence.FuzzAsyncMessageSequence(Swift.UnsafeRawPointer, Swift.Int) -> Swift.Int32 /src/swift-protobuf/FuzzTesting/Sources/FuzzAsyncMessageSequence/main.swift:25:3
+    #4 0x563839419880 in LLVMFuzzerTestOneInput /src/swift-protobuf/FuzzTesting/<compiler-generated>
+    #5 0x5638392ec473 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #6 0x5638392ecb05 in fuzzer::Fuzzer::TryDetectingAMemoryLeak(unsigned char const*, unsigned long, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:687:3
+    #7 0x5638392df75e in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:329:8
+    #8 0x5638392e4cca in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #9 0x5638392fe302 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #10 0x7f762643e082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+    #11 0x5638392dc02d in _start (/out/FuzzAsyncMessageSequence_debug+0x65902d)
+
+DEDUP_TOKEN: dispatch_async_f--swift_task_create_common--(extension in Swift):Swift.Task< where B == Swift.Never>.init(priority: Swift.Optional<Swift.TaskPriority>, operation: __owned @Sendable () async -> A) -> Swift.Task<A, Swift.Never>
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV crtstuff.c in dispatch_async_f
+==11==ABORTING

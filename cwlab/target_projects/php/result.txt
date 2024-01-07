@@ -1,0 +1,6 @@
+./crash/asan/SEGV/php--php-fuzz-function-jit/reproduced_php--php-fuzz-function-jit--crash-72d16e384e634fc8bc43d9dbba0e4332-2023-07-18-075924,php,2023-07-18-07,0b0cec5b8a920bafa07dd702950a092a8811596d
+./crash/asan/SEGV/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-3e69141e18a16974d64918ae95f902ca-2023-07-24-194156,php,2023-07-24-19,6602ddead5c81fb67ebf2b21c32b58aa1de67699
+./crash/asan/SEGV/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-08efd8c5397c7e374247fa066cc94cc3-2023-07-28-054907,php,2023-07-28-05,585bdf2992bcbfc97a5eaac32053e62c5ddb03dd
+./crash/asan/UAF/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-f66089691b859aaaac3fd3b1bc94a852-2023-09-29-125231,php,2023-09-29-12,0b7a0e9f414cf40183a7ab53dacb8979e192350c
+./crash/asan/UAF/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-de9020ce9e9a2d5d077f57db25478bdb-2023-09-22-070620,php,2023-09-22-07,edd72da03abc7dc1f2ae51825201488045f6ef37
+./crash/asan/UAF/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-82a7f66c8d07316c8c77188997b21c2e-2023-11-12-224334,php,2023-11-12-22,a785b2fac059b0178e2ffba1b64335aa78b6a31b

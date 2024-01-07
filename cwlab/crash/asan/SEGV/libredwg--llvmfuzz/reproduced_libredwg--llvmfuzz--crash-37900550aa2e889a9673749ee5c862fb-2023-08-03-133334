@@ -1,0 +1,29 @@
+/out/llvmfuzz -rss_limit_mb=2560 -timeout=25 llvmfuzz_poc/libredwg--llvmfuzz--crash-37900550aa2e889a9673749ee5c862fb-2023-08-03-13:33:34 # /tmp/llvmfuzz_corpus -detect_leaks=0 < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3313301273
+INFO: Loaded 1 modules   (626562 inline 8-bit counters): 626562 [0x50c3620, 0x515c5a2), 
+INFO: Loaded 1 PC tables (626562 PCs): 626562 [0x44912e8,0x4e20b08), 
+/out/llvmfuzz: Running 1 inputs 1 time(s) each.
+Running: llvmfuzz_poc/libredwg--llvmfuzz--crash-37900550aa2e889a9673749ee5c862fb-2023-08-03-13:33:34
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==14==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000018 (pc 0x000003ef6b4d bp 0x7ffc5d0c2910 sp 0x7ffc5d0c28d0 T0)
+[1m[0m==14==The signal is caused by a READ memory access.
+==14==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x3ef6b4d in dwg_get_first_object /src/libredwg/src/dwg.c:1569:16
+    #1 0x1084e94 in decode_preR13_section /src/libredwg/src/decode_r11.c:379:9
+    #2 0x104aaf2 in decode_preR13 /src/libredwg/src/decode_r11.c:718:12
+    #3 0x58d7e3 in dwg_decode /src/libredwg/src/decode.c:217:17
+    #4 0x56c732 in LLVMFuzzerTestOneInput /src/libredwg/examples/llvmfuzz.c:95:11
+    #5 0x43def3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #6 0x429652 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #7 0x42eefc in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #8 0x458432 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #9 0x7ff9bef3c082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #10 0x41f81d in _start (/out/llvmfuzz+0x41f81d)
+
+DEDUP_TOKEN: dwg_get_first_object--decode_preR13_section--decode_preR13
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/libredwg/src/dwg.c:1569:16 in dwg_get_first_object
+==14==ABORTING

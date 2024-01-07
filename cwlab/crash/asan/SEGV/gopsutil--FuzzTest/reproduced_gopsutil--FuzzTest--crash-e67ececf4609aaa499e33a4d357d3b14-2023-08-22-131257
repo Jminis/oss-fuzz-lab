@@ -1,0 +1,22 @@
+/out/FuzzTest -rss_limit_mb=2560 -timeout=25 FuzzTest_poc/gopsutil--FuzzTest--crash-e67ececf4609aaa499e33a4d357d3b14-2023-08-22-13:12:57 # /tmp/FuzzTest_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1007158131
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000010 (pc 0x000000455372 bp 0x7ffc6f12a6b0 sp 0x7ffc6f12a680 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x455372 in operator() /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.cpp:412:11
+    #1 0x455372 in IterateCounterRegions<(lambda at /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.cpp:411:25)> /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.h:165:9
+    #2 0x455372 in fuzzer::TracePC::ClearInlineCounters() /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.cpp:411:3
+    #3 0x43c0fa in ResetMaps /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.h:87:5
+    #4 0x43c0fa in fuzzer::Fuzzer::Fuzzer(int (*)(unsigned char const*, unsigned long), fuzzer::InputCorpus&, fuzzer::MutationDispatcher&, fuzzer::FuzzingOptions) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:145:7
+    #5 0x42e432 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:813:17
+    #6 0x458342 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #7 0x7f3a76289082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+
+DEDUP_TOKEN: operator()--IterateCounterRegions<(lambda at /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.cpp:411:25)>--fuzzer::TracePC::ClearInlineCounters()
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerTracePC.cpp:412:11 in operator()
+==11==ABORTING

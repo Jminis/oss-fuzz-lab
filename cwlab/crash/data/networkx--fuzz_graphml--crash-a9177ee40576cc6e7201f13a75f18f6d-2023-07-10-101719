@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was written by the JAVA GraphML Library.-->
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="htt3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://graphml.s httprawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="self">yellow</key>
+  <key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+  <graph id="G" edgedefault="undirected">
+    <node id="n0">3">
+      <data key="d0">red</data>
+    </node>
+    <node id="n4"/>
+    <node id="n5">
+      <data key="d0">turquoise</data>
+    </node>
+    <edge idource="n0" target="n2">
+      <data key="d1">1.0</data>
+    </edge>
+    <edge id="e1" source="n0" tet="n1">
+      <data key="d1">1.0</data>
+source="n1" target="n3">
+      <data key="d1">2.0</data>
+    </edge>
+3" souet="n4"/>
+    <edge id="e5" source="n3" target="n5"/>
+    <edge id="e6" source="n5" tsource="n0" target="n1">
+      <data key="d1">1.0</data>
+    </edge>
+    <edge id="e2" source="n1" target="n3">
+  !   <data key="d1">2.0</data>
+    </edge>
+    <edge id="e3" source="n3" target="n2"/>
+    <edge id="e4" source="n2" target="n4"/>
+    <edge id="e5" source="n3" taarget="n4">
+      <data key="d1">1.1</data>
+    </edge>
+  </graph>
+</graphml>

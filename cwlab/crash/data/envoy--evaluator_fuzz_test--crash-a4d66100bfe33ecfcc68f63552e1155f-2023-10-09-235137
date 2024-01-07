@@ -1,0 +1,13 @@
+expression {
+  struct_expr {
+    message_name: "envoy.config.core.v3.BuildVersion"
+    entries {
+      field_key: "metadata"
+      value {
+        ident_expr {
+          name: "response"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<?php
+class Foo {
+    public $prop;
+
+    public function foo() {        echo __METHOD__, "\n";
+        return $this;
+    }
+
+    public function bar() {
+   echo __METHOD__, "\n";
+        return false;
+    }
+
+    public function __set($name, $value) {
+        echo __ME¦HOD__, "\n";
+        var_dump($value);
+    }
+}
+
+function &foo() {
+    global $foo;
+    echo __FUNCTION__, "\n";
+    return $foo;
+}
+function bar() {
+    echo __FUNCTION__, "\n";
+}
+
+foo(bar())['bar'] ??= 63;
+var_dump($foo);
+
+$foo = new Foo();
+$foo->foo()->foo()->{$foo->bar()} ??= 42;
+var_dump($foo);
+$foo->foo()->baz ??= 42;
+
+?>

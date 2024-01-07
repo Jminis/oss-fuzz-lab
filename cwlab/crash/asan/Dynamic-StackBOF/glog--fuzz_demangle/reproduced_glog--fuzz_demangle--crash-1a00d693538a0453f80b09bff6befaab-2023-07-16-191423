@@ -1,0 +1,66 @@
+/out/fuzz_demangle -rss_limit_mb=2560 -timeout=25 fuzz_demangle_poc/glog--fuzz_demangle--crash-1a00d693538a0453f80b09bff6befaab-2023-07-16-19:14:23 # /tmp/fuzz_demangle_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 4104952014
+INFO: Loaded 1 modules   (1149 inline 8-bit counters): 1149 [0x6b3a38, 0x6b3eb5), 
+INFO: Loaded 1 PC tables (1149 PCs): 1149 [0x6b3eb8,0x6b8688), 
+/out/fuzz_demangle: Running 1 inputs 1 time(s) each.
+Running: fuzz_demangle_poc/glog--fuzz_demangle--crash-1a00d693538a0453f80b09bff6befaab-2023-07-16-19:14:23
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: dynamic-stack-buffer-overflow on address 0x7ffe2a1334db at pc 0x0000005761a6 bp 0x7ffe2a1331f0 sp 0x7ffe2a1331e8
+[1m[0m[1m[34mREAD of size 1 at 0x7ffe2a1334db thread T0[1m[0m
+SCARINESS: 27 (1-byte-read-dynamic-stack-buffer-overflow)
+    #0 0x5761a5 in ParseOneCharToken /src/glog/src/demangle.cc:162:7
+    #1 0x5761a5 in ParseAbiTag /src/glog/src/demangle.cc:673:10
+    #2 0x5761a5 in OneOrMore /src/glog/src/demangle.cc:202:7
+    #3 0x5761a5 in ParseAbiTags /src/glog/src/demangle.cc:663:7
+    #4 0x5761a5 in ParseUnqualifiedName /src/glog/src/demangle.cc:555:47
+    #5 0x5761a5 in google::ParseUnscopedName(google::State*) /src/glog/src/demangle.cc:480:7
+    #6 0x571000 in ParseUnscopedTemplateName /src/glog/src/demangle.cc:497:10
+    #7 0x571000 in google::ParseName(google::State*) /src/glog/src/demangle.cc:464:7
+    #8 0x56e1b0 in ParseEncoding /src/glog/src/demangle.cc:443:7
+    #9 0x56e1b0 in ParseMangledName /src/glog/src/demangle.cc:435:44
+    #10 0x56e1b0 in ParseTopLevelMangledName /src/glog/src/demangle.cc:1252:7
+    #11 0x56e1b0 in google::Demangle(char const*, char*, unsigned long) /src/glog/src/demangle.cc:1306:10
+    #12 0x56da74 in LLVMFuzzerTestOneInput /src/glog/src/fuzz_demangle.cc:30:3
+    #13 0x43ec13 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #14 0x42a372 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #15 0x42fc1c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #16 0x459152 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #17 0x7f4cf28a1082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #18 0x42053d in _start (/out/fuzz_demangle+0x42053d)
+
+DEDUP_TOKEN: ParseOneCharToken--ParseAbiTag--OneOrMore
+[1m[32mAddress 0x7ffe2a1334db is located in stack of thread T0[1m[0m
+SUMMARY: AddressSanitizer: dynamic-stack-buffer-overflow /src/glog/src/demangle.cc:162:7 in ParseOneCharToken
+Shadow bytes around the buggy address:
+  0x10004541e640: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e650: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e660: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e670: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e680: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+=>0x10004541e690: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[34mca[1m[0m [1m[34mca[1m[0m [1m[34mca[1m[0m[[1m[34mca[1m[0m][1m[0m05[1m[0m [1m[34mcb[1m[0m [1m[34mcb[1m[0m [1m[34mcb[1m[0m
+  0x10004541e6a0: [1m[34mcb[1m[0m [1m[34mcb[1m[0m [1m[34mcb[1m[0m [1m[34mcb[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e6b0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e6c0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e6d0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x10004541e6e0: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           [1m[0m00[1m[0m
+  Partially addressable: [1m[0m01[1m[0m [1m[0m02[1m[0m [1m[0m03[1m[0m [1m[0m04[1m[0m [1m[0m05[1m[0m [1m[0m06[1m[0m [1m[0m07[1m[0m 
+  Heap left redzone:       [1m[31mfa[1m[0m
+  Freed heap region:       [1m[35mfd[1m[0m
+  Stack left redzone:      [1m[31mf1[1m[0m
+  Stack mid redzone:       [1m[31mf2[1m[0m
+  Stack right redzone:     [1m[31mf3[1m[0m
+  Stack after return:      [1m[35mf5[1m[0m
+  Stack use after scope:   [1m[35mf8[1m[0m
+  Global redzone:          [1m[31mf9[1m[0m
+  Global init order:       [1m[36mf6[1m[0m
+  Poisoned by user:        [1m[34mf7[1m[0m
+  Container overflow:      [1m[34mfc[1m[0m
+  Array cookie:            [1m[31mac[1m[0m
+  Intra object redzone:    [1m[33mbb[1m[0m
+  ASan internal:           [1m[33mfe[1m[0m
+  Left alloca redzone:     [1m[34mca[1m[0m
+  Right alloca redzone:    [1m[34mcb[1m[0m
+==11==ABORTING

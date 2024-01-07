@@ -1,0 +1,13 @@
+>>>
+GET / HTTP/1.0Š
+>>>
+Host: www.example.com
+
+>>>
+
+
+<<<
+HTTP/1.0 20
+Co 0OKntent-Length: 12
+
+Hello World!

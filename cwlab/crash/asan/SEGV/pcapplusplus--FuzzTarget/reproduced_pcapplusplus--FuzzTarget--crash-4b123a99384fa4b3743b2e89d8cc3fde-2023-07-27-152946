@@ -1,0 +1,31 @@
+Using seed corpus: FuzzTarget_seed_corpus.zip
+/out/FuzzTarget -rss_limit_mb=2560 -timeout=25 FuzzTarget_poc/pcapplusplus--FuzzTarget--crash-4b123a99384fa4b3743b2e89d8cc3fde-2023-07-27-15:29:46 # /tmp/FuzzTarget_corpus -close_fd_mask=3 < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 543961382
+INFO: Loaded 1 modules   (35881 inline 8-bit counters): 35881 [0xab3928, 0xabc551), 
+INFO: Loaded 1 PC tables (35881 PCs): 35881 [0xabc558,0xb487e8), 
+/out/FuzzTarget: Running 1 inputs 1 time(s) each.
+Running: FuzzTarget_poc/pcapplusplus--FuzzTarget--crash-4b123a99384fa4b3743b2e89d8cc3fde-2023-07-27-15:29:46
+Source IP is '192.168.88.8'; Dest IP is '192.168.88.8'
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==16==ERROR: AddressSanitizer: SEGV on unknown address 0x60b0000104b8 (pc 0x000000705c17 bp 0x7ffe80b81380 sp 0x7ffe80b81350 T0)
+[1m[0m==16==The signal is caused by a READ memory access.
+SCARINESS: 20 (wild-addr-read)
+    #0 0x705c17 in countOptions /src/PcapPlusPlus/Packet++/src/SomeIpSdLayer.cpp:653:24
+    #1 0x705c17 in pcpp::SomeIpSdLayer::SomeIpSdLayer(unsigned char*, unsigned long, pcpp::Layer*, pcpp::Packet*) /src/PcapPlusPlus/Packet++/src/SomeIpSdLayer.cpp:442:17
+    #2 0x6fae2f in pcpp::SomeIpLayer::parseSomeIpLayer(unsigned char*, unsigned long, pcpp::Layer*, pcpp::Packet*) /src/PcapPlusPlus/Packet++/src/SomeIpLayer.cpp:84:14
+    #3 0x61a6fc in pcpp::UdpLayer::parseNextLayer() /src/PcapPlusPlus/Packet++/src/UdpLayer.cpp:128:17
+    #4 0x5f0a5b in pcpp::Packet::setRawPacket(pcpp::RawPacket*, bool, unsigned long, pcpp::OsiModelLayer) /src/PcapPlusPlus/Packet++/src/Packet.cpp:81:13
+    #5 0x59e1a9 in LLVMFuzzerTestOneInput /src/PcapPlusPlus/Tests/Fuzzers/FuzzTarget.cpp:68:16
+    #6 0x46f693 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #7 0x45adf2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #8 0x46069c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #9 0x489bd2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #10 0x7f7229bb0082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #11 0x450fbd in _start (/out/FuzzTarget+0x450fbd)
+
+DEDUP_TOKEN: countOptions--pcpp::SomeIpSdLayer::SomeIpSdLayer(unsigned char*, unsigned long, pcpp::Layer*, pcpp::Packet*)--pcpp::SomeIpLayer::parseSomeIpLayer(unsigned char*, unsigned long, pcpp::Layer*, pcpp::Packet*)
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/PcapPlusPlus/Packet++/src/SomeIpSdLayer.cpp:653:24 in countOptions
+==16==ABORTING

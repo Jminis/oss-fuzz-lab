@@ -1,0 +1,32 @@
+/out/fuzz_cfg_parser -rss_limit_mb=2560 -timeout=25 fuzz_cfg_parser_poc/haproxy--fuzz_cfg_parser--crash-eadcea4e00fe26fdf041b9bddf965b81-2023-07-14-23:26:20 # /tmp/fuzz_cfg_parser_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1385134568
+INFO: Loaded 1 modules   (56837 inline 8-bit counters): 56837 [0xcc5810, 0xcd3615), 
+INFO: Loaded 1 PC tables (56837 PCs): 56837 [0xae0740,0xbbe790), 
+/out/fuzz_cfg_parser: Running 1 inputs 1 time(s) each.
+Running: fuzz_cfg_parser_poc/haproxy--fuzz_cfg_parser--crash-eadcea4e00fe26fdf041b9bddf965b81-2023-07-14-23:26:20
+[ALERT]    (11) : parsing [/tmp/libfuzzer.11:1] : empty scope name is forbidden.
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000008b9f83 bp 0x7ffdeba26580 sp 0x7ffdeba26420 T0)
+[1m[0m==11==The signal is caused by a WRITE memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x8b9f83 in make_arg_list /src/haproxy/src/arg.c:225:26
+    #1 0x8eadc3 in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:156:12
+    #2 0x8ecc89 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #3 0x8eb39c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #4 0x8ed430 in cfg_eval_condition /src/haproxy/src/cfgcond.c:532:8
+    #5 0x57671e in readcfgfile /src/haproxy/src/cfgparse.c:2240:12
+    #6 0x56c72b in LLVMFuzzerTestOneInput /src/haproxy/fuzz_cfg_parser.c:38:2
+    #7 0x43dfe3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #8 0x429742 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #9 0x42efec in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #10 0x458522 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #11 0x7f1c27b45082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #12 0x41f90d in _start (/out/fuzz_cfg_parser+0x41f90d)
+
+DEDUP_TOKEN: make_arg_list--cfg_parse_cond_term--cfg_parse_cond_and
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/haproxy/src/arg.c:225:26 in make_arg_list
+==11==ABORTING

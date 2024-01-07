@@ -1,0 +1,33 @@
+Using seed corpus: FuzzTargetNg_seed_corpus.zip
+/out/FuzzTargetNg -rss_limit_mb=2560 -timeout=25 FuzzTargetNg_poc/pcapplusplus--FuzzTargetNg--crash-eb3ae1c285d2793d9bddcba23b7ad31e-2023-11-24-14:18:36 # /tmp/FuzzTargetNg_corpus -close_fd_mask=3 < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 468391096
+INFO: Loaded 1 modules   (37643 inline 8-bit counters): 37643 [0xae6ea8, 0xaf01b3), 
+INFO: Loaded 1 PC tables (37643 PCs): 37643 [0xaf01b8,0xb83268), 
+/out/FuzzTargetNg: Running 1 inputs 1 time(s) each.
+Running: FuzzTargetNg_poc/pcapplusplus--FuzzTargetNg--crash-eb3ae1c285d2793d9bddcba23b7ad31e-2023-11-24-14:18:36
+Read 0 packets successfully and 0 packets could not be read
+OS is ''; Hardware is '''; CaptureApplication is ''; CaptureFileComment is ''
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==16==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000048 (pc 0x0000005f1a6f bp 0x7ffc6f8c59b0 sp 0x7ffc6f8c5920 T0)
+[1m[0m==16==The signal is caused by a READ memory access.
+==16==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x5f1a6f in __append_interface_block_to_file_info /src/PcapPlusPlus/3rdParty/LightPcapNg/LightPcapNg/src/light_pcapng_ext.c:145:12
+    #1 0x5f2de8 in light_get_next_packet /src/PcapPlusPlus/3rdParty/LightPcapNg/LightPcapNg/src/light_pcapng_ext.c:392:4
+    #2 0x5c74fe in pcpp::PcapNgFileReaderDevice::getNextPacket(pcpp::RawPacket&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&) /src/PcapPlusPlus/Pcap++/src/PcapFileDevice.cpp:371:7
+    #3 0x5c8732 in pcpp::PcapNgFileReaderDevice::getNextPacket(pcpp::RawPacket&) /src/PcapPlusPlus/Pcap++/src/PcapFileDevice.cpp:404:9
+    #4 0x5c0d0c in pcpp::IFileReaderDevice::getNextPackets(pcpp::PointerVector<pcpp::RawPacket>&, int) /src/PcapPlusPlus/Pcap++/src/PcapFileDevice.cpp:107:21
+    #5 0x5aaf5a in LLVMFuzzerTestOneInput /src/PcapPlusPlus/Tests/Fuzzers/FuzzTarget.cpp:47:14
+    #6 0x47bab3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #7 0x467212 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #8 0x46cabc in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #9 0x495ff2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #10 0x7f7c3589f082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+    #11 0x45d3dd in _start (/out/FuzzTargetNg+0x45d3dd)
+
+DEDUP_TOKEN: __append_interface_block_to_file_info--light_get_next_packet--pcpp::PcapNgFileReaderDevice::getNextPacket(pcpp::RawPacket&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&)
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/PcapPlusPlus/3rdParty/LightPcapNg/LightPcapNg/src/light_pcapng_ext.c:145:12 in __append_interface_block_to_file_info
+==16==ABORTING

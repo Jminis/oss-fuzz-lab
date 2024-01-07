@@ -1,0 +1,17 @@
+config {
+  name: "envoy.http_connection_manager"
+  typed_config {
+    type_url: "type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager"
+    value: "\022\004\332\227\000\000\"\003*\001\0012\000B\0020\001\362\001\002\010\001\312\002\000"
+  }
+}
+actions {
+  on_write {
+    data: "type.googleapis.com/envoy.extensions.filters.network.zookeeper_proxy.v3.ZooKeeperProxy"
+  }
+}
+actions {
+  advance_time {
+    milliseconds: 1
+  }
+}

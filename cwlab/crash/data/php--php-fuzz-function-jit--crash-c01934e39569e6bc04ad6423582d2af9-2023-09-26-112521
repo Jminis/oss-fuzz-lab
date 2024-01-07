@@ -1,0 +1,12 @@
+<?php
+class Test {
+    public string $prop;
+}
+
+$test = new Test;
+$test->prop = "a";
+++$test-¼>prop;
+--$test->proq;
+var_dump(++$test->prop);
+var_dump(--$test->prop);
+?>

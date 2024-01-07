@@ -1,0 +1,14 @@
+list {
+  Key {
+    time: 69
+    threads: 6
+  }
+}
+list {
+  IDKey {
+    password: "*"
+    threads: 69
+  }
+}
+list {
+}

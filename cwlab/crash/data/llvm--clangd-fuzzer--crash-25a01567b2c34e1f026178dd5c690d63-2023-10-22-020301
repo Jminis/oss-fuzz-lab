@@ -1,0 +1,426 @@
+# RUN: clangd -lit-test < %s | FileCheck -strict-whitespace %s
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"processId":123,"rootPath":"clangd","capabilities":{},"trace":"off"}}
+---
+{"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"test:///foo.c","languageId":"c","version":1,"text":"int foo ( int x ) {\n    x = x+1;\n    return x;\n    }"}}}
+---
+{"jsonrpc":"2.0","id":1,"method":"textDocument/rangeFormatting","params":{"textDocument":{"uri":"test:///foo.c"},"range":{"start":{"line":1,"character":4},"end":{"line":1,"character":12}}}}
+#      CHECK:   "id": 1,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n  ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 4,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK{{{{{{-NEXT:          "character": 19,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEYT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": " ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 9,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 9,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": " ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 10,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 10,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n  ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {\n  x = x + 1;\n  return x;\n    }"}]}}
+#
+#
+---
+{MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"jsonrpc":"2.0","id":2,"method":"textDocument/rangeFormatting","params":{"textDocument":{"uri":"test:///foo.c"},"range":{"start":{"line":1,"character":2},"end":{"line":1,"character":12}}}}
+#      CHECK:  "id": 2,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": []
+---
+{"jsonrpc":"2.0","id":3,"method":"textDocument/formatting","params":{"textDocument":{"uri":"test:///foo.c"}}}
+#      CHECK:  "id": 3,
+# CHECK-NEXT:  "jsonr {
+# CHECK-NEXT:      "newText": "\n  ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 4,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK{{{{{{-NEXT:          "character": 19,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEYT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": " ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 9,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 9,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": " ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 10,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 10,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n  ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {\n  x = x + 1;\n  return x;\n    }"}]}}
+#
+#
+---
+{MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"jsonrpc":"2.0","id":2,"method":"textDocument/rangeFormatting","params":{"textDocument":{"uri":"test:///foo.c"},"range":{"start":{"line":1,"character":2},"end":{"line":1,"character":12}}}}
+#      CHECK:  "id": 2,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": []
+---
+{"jsonrpc":"2.0","id":3,"method":"textDocument/formatting","params":{"textDocument":{"uri":"test:///foo.c"}}}
+#      CHECK:  "id": 3,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 8,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 7,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 10,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 9,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:ver the server file into test workspace
+# RUN: rm -rf %t
+# RUN: cp -r %S/Inputs/path-mappings %t
+#
+# RUN: clangd --path-mappings 'C:\client=%t/server' -lit-test < %s | FileCheck -strict-whitespace %s
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"processId":123,"rootPath":"clangd","capabilities":{},"trace":"off"}}
+---
+{
+  "jsonrpc": "2.0",
+  "method": "textDocument/didOpen",
+  "params": {
+    "textDocument": {
+      "uri": "file:///C:/client/bar.cpp",
+      "languageId": "cpp",
+      "text": "#include \"foo.h\"\nint main(){\nreturn foo();\n}"
+    }
+  }
+}
+# Ensure that the client gets back the same client path (clangd thinks it edited %t/server/bar.cpp)
+#      CHECK:  "method": "textDocument/publishDiagnostics",
+# CHECK-NEXT:  "params": {
+# CHECK-NEXT:    "diagnostics": [],
+# CHECK-NEXT:    "uri": "file:///C:/client/bar.cpp",
+# CHECK-NEXT:    "version": 0
+# CHECK-NEXT:  }
+---
+# We're editing bar.cpp, which includes foo.h, where foo.h "exists" at a server location 
+# With path mappings, when we go to definition on foo(), we get back a client file uri
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "textDocument/definition",
+  "params": {
+    "textDocument": {
+      "uri": "file:///C:/client/bar.cpp"
+    },
+    "position": {
+      "line": 2,
+      "character": 8
+    }
+  }
+}
+#      CHECK:  "id": 1,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": {{[0-9]+}},
+# CHECK-NEXT:          "line": {{[0-9]+}}
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": {{[0-9]+}},
+# CHECK-NEXT:          "line": {{[0-9]+}}
+# CHECK-NEXT:        }
+# CHECK-NEXT:"     },
+# CHECK-NEXT:      "uri": "file:///C:/client/foo.h"
+# CHECK-NEXT:    }
+# CHECK-NEXT:  ]
+#
+---
+{"jsonrpc":"2.0","id":2,"method":"shutdown"}
+---
+{"jsonrpc":"2.0","    {
+# CHECK-NEXT:      "newText": "",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 16,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 15,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 4,
+# CHECK-NEXT:          "line": 3
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 11,
+# CHECK-NEXT:          "line": 2
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    }
+# CHECK-NEXT:  ]
+---
+{"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"test:///foo.c","version":9},"contentChanges":[{"text":"int foo(int x) {\n  x = x + 1;\n  return x;\n}"}]}}
+---
+{"jsonrpc":"2.0","id":4,"method":"textDocument/formatting","params":{"textDocument":{"uri":"test:///foo.c"}}}
+#      CHECK:  "id": 4,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": []
+---
+{"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"test:///foo.c","version":5},"contentChanges":[{"text":"int x=\n"}]}}
+---
+{"jsonrpc":"2.0","id":5,"method":"textDocument/onTypeFormatting","params":{"textDocument":{"uri":"test:///foo.c"},"position":{"line":1,"character":0},"ch":"\n"}}
+#      CHECK:  "id": 5,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": " ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 5,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 5,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n    ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 8,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 7,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 10,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 9,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:ver the server file into test workspace
+# RUN: rm -rf %t
+# RUN: cp -r %S/Inputs/path-mappings %t
+#
+# RUN: clangd --path-mappings 'C:\client=%t/server' -lit-test < %s | FileCheck -strict-whitespace %s
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"processId":123,"rootPath":"clangd","capabilities":{},"trace":"off"}}
+---
+{
+  "jsonrpc": "2.0",
+  "method": "textDocument/didOpen",
+  "params": {
+    "textDocument": {
+      "uri": "file:///C:/client/bar.cpp",
+      "languageId": "cpp",
+      "text": "#include \"foo.h\"\nint main(){\nreturn foo();\n}"
+    }
+  }
+}
+# Ensure that the client gets back the same client path (clangd thinks it edited %t/server/bar.cpp)
+#      CHECK:  "method": "textDocument/publishDiagnostics",
+# CHECK-NEXT:  "params": {
+# CHECK-NEXT:    "diagnostics": [],
+# CHECK-NEXT:    "uri": "file:///C:/client/bar.cpp",
+# CHECK-NEXT:    "version": 0
+# CHECK-NEXT:  }
+---
+# We're editing bar.cpp, which includes foo.h, where foo.h "exists" at a server location 
+# With path mappings, when we go to definition on foo(), we get back a client file uri
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "textDocument/definition",
+  "params": {
+    "textDocument": {
+      "uri": "file:///C:/client/bar.cpp"
+    },
+    "position": {
+      "line": 2,
+      "character": 8
+    }
+  }
+}
+#      CHECK:  "id": 1,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": {{[0-9]+}},
+# CHECK-NEXT:          "line": {{[0-9]+}}
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": {{[0-9]+}},
+# CHECK-NEXT:          "line": {{[0-9]+}}
+# CHECK-NEXT:        }
+# CHECK-NEXT:"     },
+# CHECK-NEXT:      "uri": "file:///C:/client/foo.h"
+# CHECK-NEXT:    }
+# CHECK-NEXT:  ]
+#
+---
+{"jsonrpc":"2.0","id":2,"method":"shutdown"}
+---
+{"jsonrpc":"2.0","    {
+# CHECK-NEXT:      "newText": "",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 16,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 15,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 4,
+# CHECK-NEXT:          "line": 3
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 11,
+# CHECK-NEXT:          "line": 2
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    }
+# CHECK-NEXT:  ]
+---
+{"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"test:///foo.c","version":9},"contentChanges":[{"text":"int foo(int x) {\n  x = x + 1;\n  return x;\n}"}]}}
+---
+{"jsonrpc":"2.0","id":4,"method":"textDocument/formatting","params":{"textDocument":{"uri":"test:///foo.c"}}}
+#      CHECK:  "id": 4,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": []
+---
+{"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"test:///foo.c","version":5},"contentChanges":[{"text":"int x=\n"}]}}
+---
+{"jsonrpc":"2.0","id":5,"method":"textDocument/onTypeFormatting","params":{"textDocument":{"uri":"test:///foo.c"},"position":{"line":1,"character":0},"ch":"\n"}}
+#      CHECK:  "id": 5,
+# CHECK-NEXT:  "jsonrpc": "2.0",
+# CHECK-NEXT:  "result": [
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": " ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 5,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 5,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    },
+# CHECK-NEXT:    {
+# CHECK-NEXT:      "newText": "\n    ",
+# CHECK-NEXT:      "range": {
+# CHECK-NEXT:        "end": {
+# CHECK-NEXT:          "character": 0,
+# CHECK-NEXT:          "line": 1
+# CHECK-NEXT:        },
+# CHECK-NEXT:        "start": {
+# CHECK-NEXT:          "character": 6,
+# CHECK-NEXT:          "line": 0
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    }
+# CHECK-NEXT:  ]
+---
+{"jsonrpc":"2.0","id":6,"method":"shutdown"}
+---
+{"jsonrpc":"2.0","method":"exit"}

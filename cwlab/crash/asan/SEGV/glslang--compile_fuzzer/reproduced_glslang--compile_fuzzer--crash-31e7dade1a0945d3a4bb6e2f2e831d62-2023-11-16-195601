@@ -1,0 +1,44 @@
+/out/compile_fuzzer -rss_limit_mb=2560 -timeout=25 compile_fuzzer_poc/glslang--compile_fuzzer--crash-31e7dade1a0945d3a4bb6e2f2e831d62-2023-11-16-19:56:01 # /tmp/compile_fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3840299389
+INFO: Loaded 1 modules   (53014 inline 8-bit counters): 53014 [0xe2c3b8, 0xe392ce), 
+INFO: Loaded 1 PC tables (53014 PCs): 53014 [0xe392d0,0xf08430), 
+/out/compile_fuzzer: Running 1 inputs 1 time(s) each.
+Running: compile_fuzzer_poc/glslang--compile_fuzzer--crash-31e7dade1a0945d3a4bb6e2f2e831d62-2023-11-16-19:56:01
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000940f54 bp 0x7ffdac067b90 sp 0x7ffdac067ac0 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x940f54 in glslang::TIntermediate::addBinaryMath(glslang::TOperator, glslang::TIntermTyped*, glslang::TIntermTyped*, glslang::TSourceLoc const&) /src/glslang/glslang/MachineIndependent/Intermediate.cpp:119:15
+    #1 0x7ec0d5 in glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3276:29
+    #2 0x7ebf36 in glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3256:11
+    #3 0x7ebf36 in glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3256:11
+    #4 0x7ebf36 in glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3256:11
+    #5 0x7ebf36 in glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3256:11
+    #6 0x7d9984 in glslang::HlslGrammar::acceptConditionalExpression(glslang::TIntermTyped*&) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3203:11
+    #7 0x7d4d3d in glslang::HlslGrammar::acceptAssignmentExpression(glslang::TIntermTyped*&) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3157:11
+    #8 0x7cfeaf in glslang::HlslGrammar::acceptAttributes(glslang::TList<glslang::TAttributeArgs>&) /src/glslang/glslang/HLSL/hlslGrammar.cpp:3882:20
+    #9 0x7cae04 in glslang::HlslGrammar::acceptDeclaration(TIntermNode*&) /src/glslang/glslang/HLSL/hlslGrammar.cpp:362:5
+    #10 0x7c9c90 in acceptDeclarationList /src/glslang/glslang/HLSL/hlslGrammar.cpp:165:15
+    #11 0x7c9c90 in glslang::HlslGrammar::acceptCompilationUnit() /src/glslang/glslang/HLSL/hlslGrammar.cpp:130:11
+    #12 0x6a6ba6 in glslang::HlslParseContext::parseShaderStrings(glslang::TPpContext&, glslang::TInputScanner&, bool) /src/glslang/glslang/HLSL/hlslParseHelper.cpp:134:18
+    #13 0x57dc93 in operator() /src/glslang/glslang/MachineIndependent/ShaderLang.cpp:1212:28
+    #14 0x57dc93 in ProcessDeferred<(anonymous namespace)::DoFullParse> /src/glslang/glslang/MachineIndependent/ShaderLang.cpp:987:20
+    #15 0x57dc93 in (anonymous namespace)::CompileDeferred(TCompiler*, char const* const*, int, int const*, char const* const*, char const*, EShOptimizationLevel, TBuiltInResource const*, int, EProfile, bool, int, bool, EShMessages, glslang::TIntermediate&, glslang::TShader::Includer&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, glslang::TEnvironment*, bool) /src/glslang/glslang/MachineIndependent/ShaderLang.cpp:1300:12
+    #16 0x585f52 in glslang::TShader::parse(TBuiltInResource const*, int, EProfile, bool, bool, EShMessages, glslang::TShader::Includer&) /src/glslang/glslang/MachineIndependent/ShaderLang.cpp:1881:12
+    #17 0x56d4d5 in parse /src/glslang/glslang/../glslang/Public/ShaderLang.h:666:16
+    #18 0x56d4d5 in parse /src/glslang/glslang/../glslang/Public/ShaderLang.h:672:16
+    #19 0x56d4d5 in LLVMFuzzerTestOneInput /src/compile_fuzzer.cc:28:10
+    #20 0x43ed33 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #21 0x42a492 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #22 0x42fd3c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #23 0x459272 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #24 0x7f3716d1a082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+    #25 0x42065d in _start (/out/compile_fuzzer+0x42065d)
+
+DEDUP_TOKEN: glslang::TIntermediate::addBinaryMath(glslang::TOperator, glslang::TIntermTyped*, glslang::TIntermTyped*, glslang::TSourceLoc const&)--glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel)--glslang::HlslGrammar::acceptBinaryExpression(glslang::TIntermTyped*&, glslang::PrecedenceLevel)
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/glslang/glslang/MachineIndependent/Intermediate.cpp:119:15 in glslang::TIntermediate::addBinaryMath(glslang::TOperator, glslang::TIntermTyped*, glslang::TIntermTyped*, glslang::TSourceLoc const&)
+==11==ABORTING

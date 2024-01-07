@@ -1,0 +1,22 @@
+static_resources {
+  listeners {
+    name: "listener_0"
+    address {
+      pipe {
+        path: "@"
+      }
+    }
+    filter_chains {
+    }
+  }
+}
+admin {
+  address {
+    pipe {
+      path: "@"
+    }
+  }
+}
+inline_headers {
+  inline_header_name: "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+}

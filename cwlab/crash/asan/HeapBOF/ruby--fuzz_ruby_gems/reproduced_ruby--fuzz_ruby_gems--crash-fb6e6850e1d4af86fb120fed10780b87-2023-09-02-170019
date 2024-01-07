@@ -1,0 +1,92 @@
+/out/fuzz_ruby_gems -rss_limit_mb=2560 -timeout=25 fuzz_ruby_gems_poc/ruby--fuzz_ruby_gems--crash-fb6e6850e1d4af86fb120fed10780b87-2023-09-02-17:00:19 # /tmp/fuzz_ruby_gems_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3267622026
+INFO: Loaded 2 modules   (116506 inline 8-bit counters): 116366 [0x7f0f17ae65c0, 0x7f0f17b02c4e), 140 [0x5efaf0, 0x5efb7c), 
+INFO: Loaded 2 PC tables (116506 PCs): 116366 [0x7f0f17b02c50,0x7f0f17cc9530), 140 [0x5aa628,0x5aaee8), 
+/out/fuzz_ruby_gems: Running 1 inputs 1 time(s) each.
+Running: fuzz_ruby_gems_poc/ruby--fuzz_ruby_gems--crash-fb6e6850e1d4af86fb120fed10780b87-2023-09-02-17:00:19
+exepath = /out
+RUBYLIB = /out/lib/ruby/site_ruby/3.3.0+0:/out/lib/ruby/site_ruby/3.3.0+0/x86_64-linux:/out/lib/ruby/site_ruby:/out/lib/ruby/vendor_ruby/3.3.0+0:/out/lib/ruby/vendor_ruby/3.3.0+0/x86_64-linux:/out/lib/ruby/vendor_ruby:/out/lib/ruby/3.3.0+0:/out/lib/ruby/3.3.0+0/x86_64-linux
+=================================================================
+[1m[31m==15==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x62000002307f at pc 0x0000004c3d89 bp 0x7ffcc37d5900 sp 0x7ffcc37d50c8
+[1m[0m[1m[34mREAD of size 1 at 0x62000002307f thread T0[1m[0m
+SCARINESS: 12 (1-byte-read-heap-buffer-overflow)
+    #0 0x4c3d88 in strlen /src/llvm-project/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:389:5
+    #1 0x7f0f174d5335 in BSD_vfprintf /src/ruby/./vsnprintf.c:1016:15
+    #2 0x7f0f174d326b in ruby_vsprintf0 /src/ruby/sprintf.c:1168:5
+    #3 0x7f0f174d2e77 in rb_enc_vsprintf /src/ruby/sprintf.c:1195:5
+    #4 0x7f0f170e8a7f in rb_enc_raise /src/ruby/error.c:3187:12
+    #5 0x7f0f15e61bf9 in JSON_parse_value /src/ruby/ext/json/parser/parser.rl
+    #6 0x7f0f15e5ed47 in cParser_parse /src/ruby/ext/json/parser/parser.rl:821:20
+    #7 0x7f0f176a6815 in vm_call_cfunc_with_frame_ /src/ruby/./vm_insnhelper.c:3474:11
+    #8 0x7f0f1768a6a5 in vm_call_method_each_type /src/ruby/./vm_insnhelper.c:4388:16
+    #9 0x7f0f1768985f in vm_call_method /src/ruby/./vm_insnhelper.c:4514:20
+    #10 0x7f0f1764139e in vm_sendish /src/ruby/./vm_insnhelper.c:5552:15
+    #11 0x7f0f1764139e in vm_exec_core /src/ruby/insns.def:835:11
+    #12 0x7f0f1762f523 in rb_vm_exec /src/ruby/vm.c:2401:22
+    #13 0x7f0f176c0fd5 in vm_call0_body /src/ruby/./vm_eval.c:229:20
+    #14 0x7f0f17655013 in vm_call0_cc /src/ruby/./vm_eval.c:110:12
+    #15 0x7f0f17655013 in rb_funcallv_scope /src/ruby/./vm_eval.c:1065:16
+    #16 0x7f0f17655013 in rb_funcallv /src/ruby/./vm_eval.c:1080:12
+    #17 0x56c823 in call_protected_helper /src/fuzz/fuzz_ruby_gems.c:53:10
+    #18 0x7f0f17110eda in rb_protect /src/ruby/eval.c:983:9
+    #19 0x56d97e in call_protected /src/fuzz/fuzz_ruby_gems.c:58:18
+    #20 0x56d97e in run_fuzz_function /src/fuzz/fuzz_ruby_gems.c:166:7
+    #21 0x56e5f7 in LLVMFuzzerTestOneInput /src/fuzz/fuzz_ruby_gems.c:419:3
+    #22 0x43de73 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #23 0x4295d2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #24 0x42ee7c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #25 0x4583b2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #26 0x7f0f166f0082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #27 0x41f79d in _start (/out/fuzz_ruby_gems+0x41f79d)
+
+DEDUP_TOKEN: strlen--BSD_vfprintf--ruby_vsprintf0
+[1m[32m0x62000002307f is located 1 bytes to the left of 3802-byte region [0x620000023080,0x620000023f5a)
+[1m[0m[1m[35mallocated by thread T0 here:[1m[0m
+    #0 0x52f006 in __interceptor_malloc /src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:69:3
+    #1 0x7f0f1715f69e in objspace_xmalloc0 /src/ruby/gc.c:12230:5
+    #2 0x7f0f174ff4b0 in str_new0 /src/ruby/string.c:903:13
+    #3 0x56d7d9 in generate_CString /src/fuzz/fuzz_ruby_gems.c:129:12
+    #4 0x56d7d9 in generate_value /src/fuzz/fuzz_ruby_gems.c:139:12
+    #5 0x56d7d9 in run_fuzz_function /src/fuzz/fuzz_ruby_gems.c:155:15
+    #6 0x56e5f7 in LLVMFuzzerTestOneInput /src/fuzz/fuzz_ruby_gems.c:419:3
+    #7 0x43de73 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #8 0x4295d2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #9 0x42ee7c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #10 0x4583b2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #11 0x7f0f166f0082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+
+DEDUP_TOKEN: __interceptor_malloc--objspace_xmalloc0--str_new0
+SUMMARY: AddressSanitizer: heap-buffer-overflow /src/llvm-project/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:389:5 in strlen
+Shadow bytes around the buggy address:
+  0x0c407fffc5b0: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m
+  0x0c407fffc5c0: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m
+  0x0c407fffc5d0: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m
+  0x0c407fffc5e0: [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[35mfd[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c407fffc5f0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+=>0x0c407fffc600: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m[[1m[31mfa[1m[0m]
+  0x0c407fffc610: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c407fffc620: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c407fffc630: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c407fffc640: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c407fffc650: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           [1m[0m00[1m[0m
+  Partially addressable: [1m[0m01[1m[0m [1m[0m02[1m[0m [1m[0m03[1m[0m [1m[0m04[1m[0m [1m[0m05[1m[0m [1m[0m06[1m[0m [1m[0m07[1m[0m 
+  Heap left redzone:       [1m[31mfa[1m[0m
+  Freed heap region:       [1m[35mfd[1m[0m
+  Stack left redzone:      [1m[31mf1[1m[0m
+  Stack mid redzone:       [1m[31mf2[1m[0m
+  Stack right redzone:     [1m[31mf3[1m[0m
+  Stack after return:      [1m[35mf5[1m[0m
+  Stack use after scope:   [1m[35mf8[1m[0m
+  Global redzone:          [1m[31mf9[1m[0m
+  Global init order:       [1m[36mf6[1m[0m
+  Poisoned by user:        [1m[34mf7[1m[0m
+  Container overflow:      [1m[34mfc[1m[0m
+  Array cookie:            [1m[31mac[1m[0m
+  Intra object redzone:    [1m[33mbb[1m[0m
+  ASan internal:           [1m[33mfe[1m[0m
+  Left alloca redzone:     [1m[34mca[1m[0m
+  Right alloca redzone:    [1m[34mcb[1m[0m
+==15==ABORTING

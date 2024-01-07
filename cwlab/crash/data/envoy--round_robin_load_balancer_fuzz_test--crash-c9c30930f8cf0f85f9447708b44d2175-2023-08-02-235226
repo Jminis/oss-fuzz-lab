@@ -1,0 +1,73 @@
+zone_aware_load_balancer_test_case {
+  load_balancer_test_case {
+    common_lb_config {
+      healthy_panic_threshold {
+      }
+    }
+    actions {
+      preconnect {
+      }
+    }
+    actions {
+      preconnect {
+      }
+    }
+    actions {
+      preconnect {
+      }
+    }
+    actions {
+      choose_host {
+      }
+    }
+    actions {
+      choose_host {
+      }
+    }
+    setup_priority_levels {
+      num_hosts_in_priority_level: 3000
+      num_hosts_locality_a: 1000
+      num_hosts_locality_b: 500
+      num_hosts_locality_c: 1500
+      random_bytestring: 100000
+      random_bytestring: 1000000
+      random_bytestring: 1500000
+      random_bytestring: 2000000
+    }
+    setup_priority_levels {
+      num_hosts_in_priority_level: 3000
+      num_hosts_locality_a: 300
+      num_hosts_locality_b: 1200
+      num_hosts_locality_c: 1500
+      random_bytestring: 100000
+      random_bytestring: 1000000
+      random_bytestring: 1500000
+      random_bytestring: 2000000
+    }
+    setup_priority_levels {
+      num_hosts_in_priority_level: 3000
+      num_hosts_locality_a: 300
+      num_hosts_locality_b: 1200
+      num_hosts_locality_c: 1500
+      random_bytestring: 100000
+      random_bytestring: 1000000
+      random_bytestring: 1500000
+      random_bytestring: 2000000
+    }
+    seed_for_prng: 1
+  }
+  random_bytestring_for_weights: "\001\002"
+}
+round_robin_lb_config {
+  slow_start_config {
+    slow_start_window {
+      seconds: 65280
+    }
+    aggression {
+      default_value: 7.46014145261229e-316
+      runtime_key: "\001\002"
+    }
+    min_weight_percent {
+    }
+  }
+}

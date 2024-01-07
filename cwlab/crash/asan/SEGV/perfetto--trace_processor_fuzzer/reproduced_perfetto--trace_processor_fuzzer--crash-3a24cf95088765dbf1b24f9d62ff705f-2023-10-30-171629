@@ -1,0 +1,29 @@
+/out/trace_processor_fuzzer -rss_limit_mb=2560 -timeout=25 trace_processor_fuzzer_poc/perfetto--trace_processor_fuzzer--crash-3a24cf95088765dbf1b24f9d62ff705f-2023-10-30-17:16:29 # /tmp/trace_processor_fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3387658803
+INFO: Loaded 1 modules   (89796 inline 8-bit counters): 89796 [0xf05180, 0xf1b044), 
+INFO: Loaded 1 PC tables (89796 PCs): 89796 [0xf1b048,0x1079c88), 
+/out/trace_processor_fuzzer: Running 1 inputs 1 time(s) each.
+Running: trace_processor_fuzzer_poc/perfetto--trace_processor_fuzzer--crash-3a24cf95088765dbf1b24f9d62ff705f-2023-10-30-17:16:29
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000524077 bp 0x7ffcc0285510 sp 0x7ffcc0285440 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x524077 in perfetto::trace_processor::ForwardingTraceParser::Parse(perfetto::trace_processor::TraceBlobView) /work/build/../../src/perfetto/src/trace_processor/forwarding_trace_parser.cc:168:19
+    #1 0x536bd6 in perfetto::trace_processor::TraceProcessorStorageImpl::Parse(perfetto::trace_processor::TraceBlobView) /work/build/../../src/perfetto/src/trace_processor/trace_processor_storage_impl.cc:119:48
+    #2 0x5343c7 in perfetto::trace_processor::TraceProcessorStorage::Parse(std::__1::unique_ptr<unsigned char [], std::__1::default_delete<unsigned char []> >, unsigned long) /work/build/../../src/perfetto/src/trace_processor/trace_processor_storage.cc:36:10
+    #3 0x5224aa in perfetto::trace_processor::FuzzTraceProcessor(unsigned char const*, unsigned long) /work/build/../../src/perfetto/src/trace_processor/trace_parsing_fuzzer.cc:30:36
+    #4 0x522b6f in LLVMFuzzerTestOneInput /work/build/../../src/perfetto/src/trace_processor/trace_parsing_fuzzer.cc:42:3
+    #5 0x4e9c13 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #6 0x4d66d2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #7 0x4dbbbc in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #8 0x502652 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #9 0x7f5c1a962082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+    #10 0x421a1d in _start (/out/trace_processor_fuzzer+0x421a1d) (BuildId: 2127e842d81502597b944f0fd5181075524ddc03)
+
+DEDUP_TOKEN: perfetto::trace_processor::ForwardingTraceParser::Parse(perfetto::trace_processor::TraceBlobView)--perfetto::trace_processor::TraceProcessorStorageImpl::Parse(perfetto::trace_processor::TraceBlobView)--perfetto::trace_processor::TraceProcessorStorage::Parse(std::__1::unique_ptr<unsigned char [], std::__1::default_delete<unsigned char []> >, unsigned long)
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /work/build/../../src/perfetto/src/trace_processor/forwarding_trace_parser.cc:168:19 in perfetto::trace_processor::ForwardingTraceParser::Parse(perfetto::trace_processor::TraceBlobView)
+==11==ABORTING

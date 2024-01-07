@@ -1,0 +1,35 @@
+Using seed corpus: tint_spv_reader_hlsl_writer_fuzzer_seed_corpus.zip
+/out/tint_spv_reader_hlsl_writer_fuzzer -rss_limit_mb=2560 -timeout=25 tint_spv_reader_hlsl_writer_fuzzer_poc/tint--tint_spv_reader_hlsl_writer_fuzzer--crash-13f8e77bfb21dd81fa4ab488d9ccfb9d-2023-07-10-18:05:09 # /tmp/tint_spv_reader_hlsl_writer_fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 143640262
+INFO: Loaded 1 modules   (213734 inline 8-bit counters): 213734 [0x232a340, 0x235e626), 
+INFO: Loaded 1 PC tables (213734 PCs): 213734 [0x235e628,0x26a1488), 
+/out/tint_spv_reader_hlsl_writer_fuzzer: Running 1 inputs 1 time(s) each.
+Running: tint_spv_reader_hlsl_writer_fuzzer_poc/tint--tint_spv_reader_hlsl_writer_fuzzer--crash-13f8e77bfb21dd81fa4ab488d9ccfb9d-2023-07-10-18:05:09
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==13==ERROR: AddressSanitizer: SEGV on unknown address 0x60240000554c (pc 0x000001540c43 bp 0x7ffcb95aef30 sp 0x7ffcb95aeea0 T0)
+[1m[0m==13==The signal is caused by a READ memory access.
+SCARINESS: 20 (wild-addr-read)
+    #0 0x1540c43 in tint::reader::spirv::FunctionEmitter::GetEnclosingScope(unsigned int, unsigned int) const /src/dawn/src/tint/reader/spirv/function.cc
+    #1 0x14cd844 in tint::reader::spirv::FunctionEmitter::FindValuesNeedingNamedOrHoistedDefinition() /src/dawn/src/tint/reader/spirv/function.cc:5058:21
+    #2 0x1499c67 in tint::reader::spirv::FunctionEmitter::EmitBody() /src/dawn/src/tint/reader/spirv/function.cc:1513:5
+    #3 0x1491df3 in tint::reader::spirv::FunctionEmitter::MakeFunctionBody() /src/dawn/src/tint/reader/spirv/function.cc:964:10
+    #4 0x14907cb in tint::reader::spirv::FunctionEmitter::Emit() /src/dawn/src/tint/reader/spirv/function.cc:945:22
+    #5 0x8cc2c2 in tint::reader::spirv::ParserImpl::EmitFunctions() /src/dawn/src/tint/reader/spirv/parser_impl.cc:2263:36
+    #6 0x8bf313 in tint::reader::spirv::ParserImpl::ParseInternalModule() /src/dawn/src/tint/reader/spirv/parser_impl.cc:578:10
+    #7 0x8bd4b9 in tint::reader::spirv::ParserImpl::Parse() /src/dawn/src/tint/reader/spirv/parser_impl.cc:327:10
+    #8 0x8b3d5b in tint::reader::spirv::Parse(std::__1::vector<unsigned int, std::__1::allocator<unsigned int> > const&, tint::reader::spirv::Options const&) /src/dawn/src/tint/reader/spirv/parser.cc:33:26
+    #9 0x57ac99 in tint::fuzzers::CommonFuzzer::Run(unsigned char const*, unsigned long) /src/dawn/src/tint/fuzzers/tint_common_fuzzer.cc:187:23
+    #10 0x56e6ee in LLVMFuzzerTestOneInput /src/dawn/src/tint/fuzzers/tint_spv_reader_hlsl_writer_fuzzer.cc:27:19
+    #11 0x43ff43 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #12 0x42b6a2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #13 0x430f4c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #14 0x45a482 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #15 0x7ff765771082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #16 0x42186d in _start (/out/tint_spv_reader_hlsl_writer_fuzzer+0x42186d)
+
+DEDUP_TOKEN: tint::reader::spirv::FunctionEmitter::GetEnclosingScope(unsigned int, unsigned int) const--tint::reader::spirv::FunctionEmitter::FindValuesNeedingNamedOrHoistedDefinition()--tint::reader::spirv::FunctionEmitter::EmitBody()
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/dawn/src/tint/reader/spirv/function.cc in tint::reader::spirv::FunctionEmitter::GetEnclosingScope(unsigned int, unsigned int) const
+==13==ABORTING

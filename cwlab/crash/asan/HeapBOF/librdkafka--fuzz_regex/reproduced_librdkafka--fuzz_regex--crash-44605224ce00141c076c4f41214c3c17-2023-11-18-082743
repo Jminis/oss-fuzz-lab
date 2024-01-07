@@ -1,0 +1,308 @@
+/out/fuzz_regex -rss_limit_mb=2560 -timeout=25 fuzz_regex_poc/librdkafka--fuzz_regex--crash-44605224ce00141c076c4f41214c3c17-2023-11-18-08:27:43 # /tmp/fuzz_regex_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2401565304
+INFO: Loaded 1 modules   (550 inline 8-bit counters): 550 [0x5fa840, 0x5faa66), 
+INFO: Loaded 1 PC tables (550 PCs): 550 [0x5faa68,0x5fccc8), 
+/out/fuzz_regex: Running 1 inputs 1 time(s) each.
+Running: fuzz_regex_poc/librdkafka--fuzz_regex--crash-44605224ce00141c076c4f41214c3c17-2023-11-18-08:27:43
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x619000000500 at pc 0x0000005756a3 bp 0x7ffca4785830 sp 0x7ffca4785828
+[1m[0m[1m[34mWRITE of size 1 at 0x619000000500 thread T0[1m[0m
+SCARINESS: 31 (1-byte-write-heap-buffer-overflow)
+    #0 0x5756a2 in emit /src/librdkafka/src/regexp.c:722:22
+    #1 0x5756a2 in compile /src/librdkafka/src/regexp.c:835:27
+    #2 0x574445 in compile /src/librdkafka/src/regexp.c:740:17
+    #3 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #4 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #5 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #6 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #7 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #8 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #9 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #10 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #11 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #12 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #13 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #14 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #15 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #16 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #17 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #18 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #19 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #20 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #21 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #22 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #23 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #24 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #25 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #26 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #27 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #28 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #29 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #30 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #31 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #32 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #33 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #34 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #35 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #36 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #37 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #38 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #39 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #40 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #41 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #42 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #43 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #44 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #45 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #46 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #47 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #48 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #49 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #50 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #51 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #52 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #53 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #54 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #55 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #56 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #57 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #58 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #59 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #60 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #61 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #62 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #63 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #64 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #65 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #66 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #67 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #68 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #69 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #70 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #71 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #72 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #73 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #74 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #75 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #76 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #77 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #78 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #79 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #80 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #81 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #82 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #83 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #84 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #85 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #86 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #87 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #88 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #89 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #90 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #91 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #92 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #93 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #94 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #95 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #96 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #97 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #98 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #99 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #100 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #101 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #102 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #103 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #104 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #105 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #106 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #107 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #108 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #109 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #110 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #111 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #112 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #113 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #114 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #115 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #116 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #117 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #118 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #119 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #120 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #121 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #122 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #123 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #124 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #125 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #126 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #127 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #128 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #129 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #130 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #131 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #132 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #133 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #134 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #135 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #136 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #137 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #138 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #139 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #140 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #141 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #142 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #143 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #144 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #145 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #146 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #147 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #148 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #149 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #150 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #151 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #152 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #153 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #154 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #155 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #156 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #157 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #158 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #159 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #160 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #161 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #162 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #163 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #164 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #165 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #166 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #167 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #168 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #169 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #170 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #171 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #172 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #173 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #174 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #175 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #176 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #177 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #178 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #179 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #180 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #181 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #182 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #183 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #184 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #185 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #186 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #187 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #188 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #189 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #190 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #191 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #192 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #193 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #194 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #195 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #196 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #197 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #198 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #199 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #200 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #201 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #202 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #203 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #204 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #205 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #206 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #207 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #208 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #209 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #210 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #211 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #212 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #213 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #214 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #215 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #216 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #217 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #218 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #219 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #220 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #221 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #222 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #223 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #224 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #225 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #226 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #227 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #228 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #229 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #230 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #231 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #232 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #233 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #234 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #235 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #236 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #237 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #238 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #239 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #240 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #241 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #242 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #243 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #244 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #245 0x574422 in compile /src/librdkafka/src/regexp.c:739:17
+    #246 0x570af8 in re_regcomp /src/librdkafka/src/regexp.c:1057:9
+    #247 0x570491 in LLVMFuzzerTestOneInput /src/librdkafka/tests/fuzzers/fuzz_regex.c:51:21
+    #248 0x441dd3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+
+DEDUP_TOKEN: emit--compile--compile
+[1m[32m0x619000000500 is located 0 bytes to the right of 1152-byte region [0x619000000080,0x619000000500)
+[1m[0m[1m[35mallocated by thread T0 here:[1m[0m
+    #0 0x532f66 in malloc /src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:69:3
+    #1 0x57089d in rd_malloc /src/librdkafka/src/rd.h:139:19
+    #2 0x57089d in re_regcomp /src/librdkafka/src/regexp.c:1048:13
+    #3 0x570491 in LLVMFuzzerTestOneInput /src/librdkafka/tests/fuzzers/fuzz_regex.c:51:21
+    #4 0x441dd3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #5 0x42d532 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #6 0x432ddc in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #7 0x45c312 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #8 0x7fae9b741082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+
+DEDUP_TOKEN: malloc--rd_malloc--re_regcomp
+SUMMARY: AddressSanitizer: heap-buffer-overflow /src/librdkafka/src/regexp.c:722:22 in emit
+Shadow bytes around the buggy address:
+  0x0c327fff8050: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c327fff8060: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c327fff8070: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c327fff8080: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+  0x0c327fff8090: [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m [1m[0m00[1m[0m
+=>0x0c327fff80a0:[[1m[31mfa[1m[0m][1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c327fff80b0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c327fff80c0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c327fff80d0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c327fff80e0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+  0x0c327fff80f0: [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m [1m[31mfa[1m[0m
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           [1m[0m00[1m[0m
+  Partially addressable: [1m[0m01[1m[0m [1m[0m02[1m[0m [1m[0m03[1m[0m [1m[0m04[1m[0m [1m[0m05[1m[0m [1m[0m06[1m[0m [1m[0m07[1m[0m 
+  Heap left redzone:       [1m[31mfa[1m[0m
+  Freed heap region:       [1m[35mfd[1m[0m
+  Stack left redzone:      [1m[31mf1[1m[0m
+  Stack mid redzone:       [1m[31mf2[1m[0m
+  Stack right redzone:     [1m[31mf3[1m[0m
+  Stack after return:      [1m[35mf5[1m[0m
+  Stack use after scope:   [1m[35mf8[1m[0m
+  Global redzone:          [1m[31mf9[1m[0m
+  Global init order:       [1m[36mf6[1m[0m
+  Poisoned by user:        [1m[34mf7[1m[0m
+  Container overflow:      [1m[34mfc[1m[0m
+  Array cookie:            [1m[31mac[1m[0m
+  Intra object redzone:    [1m[33mbb[1m[0m
+  ASan internal:           [1m[33mfe[1m[0m
+  Left alloca redzone:     [1m[34mca[1m[0m
+  Right alloca redzone:    [1m[34mcb[1m[0m
+==11==ABORTING

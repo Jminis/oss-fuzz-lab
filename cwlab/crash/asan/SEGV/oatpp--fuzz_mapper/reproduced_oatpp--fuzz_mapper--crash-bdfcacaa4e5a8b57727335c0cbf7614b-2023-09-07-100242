@@ -1,0 +1,28 @@
+/out/fuzz_mapper -rss_limit_mb=2560 -timeout=25 fuzz_mapper_poc/oatpp--fuzz_mapper--crash-bdfcacaa4e5a8b57727335c0cbf7614b-2023-09-07-10:02:42 # /tmp/fuzz_mapper_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2189667345
+INFO: Loaded 1 modules   (6460 inline 8-bit counters): 6460 [0x74d450, 0x74ed8c), 
+INFO: Loaded 1 PC tables (6460 PCs): 6460 [0x6ba248,0x6d3608), 
+/out/fuzz_mapper: Running 1 inputs 1 time(s) each.
+Running: fuzz_mapper_poc/oatpp--fuzz_mapper--crash-bdfcacaa4e5a8b57727335c0cbf7614b-2023-09-07-10:02:42
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000005e5b1c bp 0x7fff7de63170 sp 0x7fff7de63120 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x5e5b1c in std::runtime_error::runtime_error(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/out/fuzz_mapper+0x5e5b1c)
+    #1 0x5ac4e0 in oatpp::parser::ParsingError::ParsingError(oatpp::data::mapping::type::String const&, long, long) /src/oatpp/src/oatpp/core/parser/ParsingError.cpp:30:4
+    #2 0x56ea89 in oatpp::data::mapping::type::DTOWrapper<Test1> oatpp::data::mapping::ObjectMapper::readFromString<oatpp::data::mapping::type::DTOWrapper<Test1> >(oatpp::data::mapping::type::String const&) const /src/oatpp/build/../src/oatpp/core/data/mapping/ObjectMapper.hpp:130:13
+    #3 0x56dae7 in LLVMFuzzerTestOneInput /src/oatpp/build/../fuzzers/oatpp/parser/json/mapping/ObjectMapper.cpp:23:12
+    #4 0x43f123 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #5 0x42a882 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #6 0x43012c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #7 0x459662 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #8 0x7f7cea8f8082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #9 0x420a4d in _start (/out/fuzz_mapper+0x420a4d)
+
+DEDUP_TOKEN: std::runtime_error::runtime_error(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)--oatpp::parser::ParsingError::ParsingError(oatpp::data::mapping::type::String const&, long, long)--oatpp::data::mapping::type::DTOWrapper<Test1> oatpp::data::mapping::ObjectMapper::readFromString<oatpp::data::mapping::type::DTOWrapper<Test1> >(oatpp::data::mapping::type::String const&) const
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/out/fuzz_mapper+0x5e5b1c) in std::runtime_error::runtime_error(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)
+==11==ABORTING

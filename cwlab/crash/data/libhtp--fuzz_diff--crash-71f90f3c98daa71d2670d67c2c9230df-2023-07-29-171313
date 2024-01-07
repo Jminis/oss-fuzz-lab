@@ -1,0 +1,22 @@
+>>>
+GET /Risti%C4>>>
+GET / HTTP/1.1
+Host: www.example.com
+Authorization: Digest username = ivanr, realm="Book Review",
+ nonce="OgmPjb/response="3c430d26043cc306e0282635929d57cb",
+ qop=auth, nc=00000004, cnonce="c3bcee9534c05%87.txt HTTP/1.0
+Host: www.example.com1a0"
+
+User-Agen
+t: Mozilla
+
+
+<<<
+HTTP/1.0 200 OK
+Date: Mon, 31 Aug 2009 20:25:50 GMT
+Server: Apache
+Connection: close
+Content-Type: text/html
+Content-Length: 12
+
+Hello World!

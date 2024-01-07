@@ -1,0 +1,61 @@
+zone_aware_load_balancer_test_case {
+  load_balancer_test_case {
+    common_lb_config {
+    }
+    actions {
+      preconnect {
+      }
+    }
+    actions {
+      preconnect {
+      }
+    }
+    actions {
+      preconnect {
+      }
+    }
+    actions {
+      update_health_flags {
+        num_healthy_hosts: 2
+        random_bytestring: 1
+        random_bytestring: 66048
+      }
+    }
+    actions {
+      update_health_flags {
+        num_healthy_hosts: 2
+        random_bytestring: 1
+        random_bytestring: 66048
+      }
+    }
+    actions {
+      choose_host {
+      }
+    }
+    setup_priority_levels {
+      num_hosts_in_priority_level: 2
+      random_bytestring: 11
+      random_bytestring: 2
+      random_bytestring: 1
+      random_bytestring: 2
+    }
+    seed_for_prng: 4194304001
+  }
+  random_bytestring_for_weights: "K"
+}
+least_request_lb_config {
+  active_request_bias {
+    default_value: 131024
+    runtime_key: "("
+  }
+  slow_start_config {
+    slow_start_window {
+      nanos: 1048576
+    }
+    aggression {
+      default_value: 2
+      runtime_key: "("
+    }
+  }
+}
+random_bytestring_for_requests: "\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201\201h"

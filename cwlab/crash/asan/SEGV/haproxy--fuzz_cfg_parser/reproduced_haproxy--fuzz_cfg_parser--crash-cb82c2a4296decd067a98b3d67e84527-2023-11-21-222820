@@ -1,0 +1,126 @@
+/out/fuzz_cfg_parser -rss_limit_mb=2560 -timeout=25 fuzz_cfg_parser_poc/haproxy--fuzz_cfg_parser--crash-cb82c2a4296decd067a98b3d67e84527-2023-11-21-22:28:20 # /tmp/fuzz_cfg_parser_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2640111554
+INFO: Loaded 1 modules   (58498 inline 8-bit counters): 58498 [0xcf7170, 0xd055f2), 
+INFO: Loaded 1 PC tables (58498 PCs): 58498 [0xb04640,0xbe8e60), 
+/out/fuzz_cfg_parser: Running 1 inputs 1 time(s) each.
+Running: fuzz_cfg_parser_poc/haproxy--fuzz_cfg_parser--crash-cb82c2a4296decd067a98b3d67e84527-2023-11-21-22:28:20
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000008cfe98 bp 0x7fff5e849420 sp 0x7fff5e8492c0 T0)
+[1m[0m==11==The signal is caused by a WRITE memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x8cfe98 in make_arg_list /src/haproxy/src/arg.c
+    #1 0x903b93 in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:156:12
+    #2 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #3 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #4 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #5 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #6 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #7 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #8 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #9 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #10 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #11 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #12 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #13 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #14 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #15 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #16 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #17 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #18 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #19 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #20 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #21 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #22 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #23 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #24 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #25 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #26 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #27 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #28 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #29 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #30 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #31 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #32 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #33 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #34 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #35 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #36 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #37 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #38 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #39 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #40 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #41 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #42 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #43 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #44 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #45 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #46 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #47 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #48 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #49 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #50 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #51 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #52 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #53 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #54 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #55 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #56 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #57 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #58 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #59 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #60 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #61 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #62 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #63 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #64 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #65 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #66 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #67 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #68 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #69 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #70 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #71 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #72 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #73 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #74 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #75 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #76 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #77 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #78 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #79 0x905ddc in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:402:8
+    #80 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #81 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #82 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #83 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #84 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #85 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #86 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #87 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #88 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #89 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #90 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #91 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #92 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #93 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #94 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #95 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #96 0x9038fd in cfg_parse_cond_term /src/haproxy/src/cfgcond.c:132:9
+    #97 0x905a59 in cfg_parse_cond_and /src/haproxy/src/cfgcond.c:374:8
+    #98 0x90416c in cfg_parse_cond_expr /src/haproxy/src/cfgcond.c:447:8
+    #99 0x906200 in cfg_eval_condition /src/haproxy/src/cfgcond.c:532:8
+    #100 0x576b5e in readcfgfile /src/haproxy/src/cfgparse.c:2236:12
+    #101 0x56c72b in LLVMFuzzerTestOneInput /src/haproxy/fuzz_cfg_parser.c:38:2
+    #102 0x43dfe3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #103 0x429742 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #104 0x42efec in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #105 0x458522 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #106 0x7f1f80821082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+    #107 0x41f90d in _start (/out/fuzz_cfg_parser+0x41f90d)
+
+DEDUP_TOKEN: make_arg_list--cfg_parse_cond_term--cfg_parse_cond_and
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/haproxy/src/arg.c in make_arg_list
+==11==ABORTING

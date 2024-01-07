@@ -1,0 +1,13 @@
+>>>
+>>>
+GET / HTTP/1.1
+Host: www.example.com
+Authorization: Turbo customAuthDataHere
+
+20:25:50 GMT
+Server: Apache
+Connection: close
+Content-Type: text/html
+Content-Length: 12
+
+Hello World!

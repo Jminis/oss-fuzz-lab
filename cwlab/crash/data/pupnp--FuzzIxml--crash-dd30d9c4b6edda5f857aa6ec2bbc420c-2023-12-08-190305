@@ -1,0 +1,10 @@
+<!DOCTYPE eCCCCCÃCCCCCClem
+[
+<!ELEMENT elem (#PCDATA|elem)*>
+<!ENTITY ent "<elem>CharData</elem>">
+]>
+<elem>
+Cham>">
+]>
+<elem>
+CharData&#x

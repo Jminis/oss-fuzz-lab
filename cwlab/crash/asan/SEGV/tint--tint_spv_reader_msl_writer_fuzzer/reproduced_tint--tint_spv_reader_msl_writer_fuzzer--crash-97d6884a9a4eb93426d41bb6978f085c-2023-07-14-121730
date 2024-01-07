@@ -1,0 +1,46 @@
+Using seed corpus: tint_spv_reader_msl_writer_fuzzer_seed_corpus.zip
+/out/tint_spv_reader_msl_writer_fuzzer -rss_limit_mb=2560 -timeout=25 tint_spv_reader_msl_writer_fuzzer_poc/tint--tint_spv_reader_msl_writer_fuzzer--crash-97d6884a9a4eb93426d41bb6978f085c-2023-07-14-12:17:30 # /tmp/tint_spv_reader_msl_writer_fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1633761275
+INFO: Loaded 1 modules   (215370 inline 8-bit counters): 215370 [0x23659e0, 0x239a32a), 
+INFO: Loaded 1 PC tables (215370 PCs): 215370 [0x239a330,0x26e37d0), 
+/out/tint_spv_reader_msl_writer_fuzzer: Running 1 inputs 1 time(s) each.
+Running: tint_spv_reader_msl_writer_fuzzer_poc/tint--tint_spv_reader_msl_writer_fuzzer--crash-97d6884a9a4eb93426d41bb6978f085c-2023-07-14-12:17:30
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==12==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0000015bc798 bp 0x7ffc7dd00930 sp 0x7ffc7dd00930 T0)
+[1m[0m==12==The signal is caused by a READ memory access.
+==12==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x15bc798 in Is<const tint::reader::spirv::Reference> /src/dawn/src/tint/utils/castable.h:152:25
+    #1 0x15bc798 in Is<const tint::reader::spirv::Reference, const tint::utils::Castable<tint::reader::spirv::Type, tint::utils::CastableBase>, 0> /src/dawn/src/tint/utils/castable.h:141:44
+    #2 0x15bc798 in Is<const tint::reader::spirv::Reference, 0, const tint::utils::Castable<tint::reader::spirv::Type, tint::utils::CastableBase> > /src/dawn/src/tint/utils/castable.h:289:12
+    #3 0x15bc798 in As<const tint::reader::spirv::Reference, 0, tint::utils::Castable<tint::reader::spirv::Type, tint::utils::CastableBase> > /src/dawn/src/tint/utils/castable.h:334:12
+    #4 0x15bc798 in As<tint::reader::spirv::Reference, 0> /src/dawn/src/tint/utils/castable.h:478:16
+    #5 0x15bc798 in tint::reader::spirv::Type::UnwrapRef() const /src/dawn/src/tint/reader/spirv/parser_type.cc:367:30
+    #6 0x8fa6be in tint::reader::spirv::ParserImpl::RectifySecondOperandSignedness(spvtools::opt::Instruction const&, tint::reader::spirv::Type const*, tint::reader::spirv::TypedExpression&&) /src/dawn/src/tint/reader/spirv/parser_impl.cc:2165:51
+    #7 0x14f1d40 in tint::reader::spirv::FunctionEmitter::MaybeEmitCombinatorialValue(spvtools::opt::Instruction const&) /src/dawn/src/tint/reader/spirv/function.cc:3795:26
+    #8 0x14eced6 in tint::reader::spirv::FunctionEmitter::EmitStatement(spvtools::opt::Instruction const&) /src/dawn/src/tint/reader/spirv/function.cc:3505:34
+    #9 0x14d5aae in tint::reader::spirv::FunctionEmitter::EmitStatementsInBasicBlock(tint::reader::spirv::BlockInfo const&, bool*) /src/dawn/src/tint/reader/spirv/function.cc:3374:14
+    #10 0x14d1bff in tint::reader::spirv::FunctionEmitter::EmitBasicBlock(tint::reader::spirv::BlockInfo const&) /src/dawn/src/tint/reader/spirv/function.cc:2822:10
+    #11 0x14c7dfc in tint::reader::spirv::FunctionEmitter::EmitFunctionBodyStatements() /src/dawn/src/tint/reader/spirv/function.cc:2647:14
+    #12 0x148ef5f in tint::reader::spirv::FunctionEmitter::EmitBody() /src/dawn/src/tint/reader/spirv/function.cc:1518:10
+    #13 0x14870d3 in tint::reader::spirv::FunctionEmitter::MakeFunctionBody() /src/dawn/src/tint/reader/spirv/function.cc:964:10
+    #14 0x1485aab in tint::reader::spirv::FunctionEmitter::Emit() /src/dawn/src/tint/reader/spirv/function.cc:945:22
+    #15 0x8cc442 in tint::reader::spirv::ParserImpl::EmitFunctions() /src/dawn/src/tint/reader/spirv/parser_impl.cc:2263:36
+    #16 0x8bf493 in tint::reader::spirv::ParserImpl::ParseInternalModule() /src/dawn/src/tint/reader/spirv/parser_impl.cc:578:10
+    #17 0x8bd639 in tint::reader::spirv::ParserImpl::Parse() /src/dawn/src/tint/reader/spirv/parser_impl.cc:327:10
+    #18 0x8b3edb in tint::reader::spirv::Parse(std::__1::vector<unsigned int, std::__1::allocator<unsigned int> > const&, tint::reader::spirv::Options const&) /src/dawn/src/tint/reader/spirv/parser.cc:33:26
+    #19 0x57adf9 in tint::fuzzers::CommonFuzzer::Run(unsigned char const*, unsigned long) /src/dawn/src/tint/fuzzers/tint_common_fuzzer.cc:187:23
+    #20 0x56e7a1 in LLVMFuzzerTestOneInput /src/dawn/src/tint/fuzzers/tint_spv_reader_msl_writer_fuzzer.cc:31:19
+    #21 0x43ff43 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #22 0x42b6a2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #23 0x430f4c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #24 0x45a482 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #25 0x7f40f2fec082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #26 0x42186d in _start (/out/tint_spv_reader_msl_writer_fuzzer+0x42186d)
+
+DEDUP_TOKEN: Is<const tint::reader::spirv::Reference>--Is<const tint::reader::spirv::Reference, const tint::utils::Castable<tint::reader::spirv::Type, tint::utils::CastableBase>, 0>--Is<const tint::reader::spirv::Reference, 0, const tint::utils::Castable<tint::reader::spirv::Type, tint::utils::CastableBase> >
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/dawn/src/tint/utils/castable.h:152:25 in Is<const tint::reader::spirv::Reference>
+==12==ABORTING

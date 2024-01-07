@@ -1,0 +1,24 @@
+list {
+  NewBuilder {
+    buffer: "(((((((((((((((((((((((((((((((((((("
+  }
+}
+list {
+  BuilderNgdotBytes {
+  }
+}
+list {
+  BuilderNgdotMarshalASN1 {
+    v {
+      StringArgs: "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+    }
+  }
+}
+list {
+  BuilderNgdotAddASN1OctetString {
+  }
+}
+list {
+  BuilderNgdotBytesOrPanic {
+  }
+}

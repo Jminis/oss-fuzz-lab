@@ -1,0 +1,14 @@
+list {
+  NewServer {
+  }
+}
+list {
+  ServerNgdotRegister {
+  }
+}
+list {
+  ClientNgdotClose {
+  }
+}
+list {
+}

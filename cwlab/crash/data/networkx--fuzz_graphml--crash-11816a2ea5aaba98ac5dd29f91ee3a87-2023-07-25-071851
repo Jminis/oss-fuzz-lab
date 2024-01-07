@@ -1,0 +1,6 @@
+<!-- Ty.-->
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlxsi="http:">
+ <key id="d0" for="nde" attr.name="self"/>
+l<graph id="G" edgedefault="directed"><node id="n0"> <data key="d0">d</data>
+    </node> </graph>
+</graphml>

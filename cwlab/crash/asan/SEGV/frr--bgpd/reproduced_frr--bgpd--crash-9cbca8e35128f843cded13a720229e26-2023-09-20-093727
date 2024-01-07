@@ -1,0 +1,35 @@
+Using seed corpus: bgpd_seed_corpus.zip
+/out/bgpd -rss_limit_mb=2560 -timeout=25 bgpd_poc/frr--bgpd--crash-9cbca8e35128f843cded13a720229e26-2023-09-20-09:37:27 # /tmp/bgpd_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2741111941
+INFO: Loaded 2 modules   (111335 inline 8-bit counters): 34099 [0x7f8e15f32640, 0x7f8e15f3ab73), 77236 [0x10f5440, 0x11081f4), 
+INFO: Loaded 2 PC tables (111335 PCs): 34099 [0x7f8e15f3ab78,0x7f8e15fbfea8), 77236 [0xdba710,0xee8250), 
+/out/bgpd: Running 1 inputs 1 time(s) each.
+Running: bgpd_poc/frr--bgpd--crash-9cbca8e35128f843cded13a720229e26-2023-09-20-09:37:27
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==12==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000098 (pc 0x000000a96d67 bp 0x7ffca275cb40 sp 0x7ffca275cb20 T0)
+[1m[0m==12==The signal is caused by a WRITE memory access.
+==12==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0xa96d67 in event_ignore_late_timer /src/frr/./lib/frrevent.h:302:27
+    #1 0xa96d67 in work_queue_schedule /src/frr/lib/workqueue.c:122:4
+    #2 0xa96d67 in work_queue_add /src/frr/lib/workqueue.c:147:2
+    #3 0x6d916c in bgp_process /src/frr/bgpd/bgp_route.c:3575:3
+    #4 0x6e0bfd in bgp_update /src/frr/bgpd/bgp_route.c:4872:2
+    #5 0x6e826f in bgp_nlri_parse_ip /src/frr/bgpd/bgp_route.c:6114:4
+    #6 0x6a5f2e in bgp_nlri_parse /src/frr/bgpd/bgp_packet.c:340:10
+    #7 0x6ae764 in bgp_update_receive /src/frr/bgpd/bgp_packet.c
+    #8 0x6aad2e in bgp_process_packet /src/frr/bgpd/bgp_packet.c:2945:11
+    #9 0x5a2218 in LLVMFuzzerTestOneInput /src/frr/bgpd/bgp_main.c:522:3
+    #10 0x475693 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #11 0x460df2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #12 0x46669c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #13 0x48fbd2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #14 0x7f8e156f6082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #15 0x456fbd in _start (/out/bgpd+0x456fbd)
+
+DEDUP_TOKEN: event_ignore_late_timer--work_queue_schedule--work_queue_add
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/frr/./lib/frrevent.h:302:27 in event_ignore_late_timer
+==12==ABORTING

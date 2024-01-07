@@ -1,0 +1,29 @@
+/out/fuzz_libsec -rss_limit_mb=2560 -timeout=25 fuzz_libsec_poc/plan9port--fuzz_libsec--crash-92e4d2da3d1528bc9f6668bbc26d633e-2023-10-24-02:08:14 # /tmp/fuzz_libsec_corpus -detect_leaks=0 < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1612036133
+INFO: Loaded 1 modules   (2896 inline 8-bit counters): 2896 [0x638320, 0x638e70), 
+INFO: Loaded 1 PC tables (2896 PCs): 2896 [0x5e2148,0x5ed648), 
+/out/fuzz_libsec: Running 1 inputs 1 time(s) each.
+Running: fuzz_libsec_poc/plan9port--fuzz_libsec--crash-92e4d2da3d1528bc9f6668bbc26d633e-2023-10-24-02:08:14
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==15==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000579ca5 bp 0x7ffe7b4405d0 sp 0x7ffe7b4404e0 T0)
+[1m[0m==15==The signal is caused by a READ memory access.
+==15==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x579ca5 in value_decode /src/plan9port/src/libsec/port/x509.c:535:43
+    #1 0x579067 in ber_decode /src/plan9port/src/libsec/port/x509.c:267:11
+    #2 0x5765e9 in decode /src/plan9port/src/libsec/port/x509.c:205:10
+    #3 0x5765e9 in asn1dump /src/plan9port/src/libsec/port/x509.c:2553:5
+    #4 0x56c4de in LLVMFuzzerTestOneInput /src/fuzz_libsec.c:29:2
+    #5 0x43de93 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #6 0x4295f2 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #7 0x42ee9c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #8 0x4583d2 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #9 0x7facf6ceb082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: e678fe54a5d2c2092f8e47eb0b33105e380f7340)
+    #10 0x41f7bd in _start (/out/fuzz_libsec+0x41f7bd)
+
+DEDUP_TOKEN: value_decode--ber_decode--decode
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/plan9port/src/libsec/port/x509.c:535:43 in value_decode
+==15==ABORTING

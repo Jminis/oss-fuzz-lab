@@ -1,0 +1,8 @@
+apiVersion: snitall.istio.io/~1alpha1
+kind: IstioOperamestamptor
+metadata:
+  name: iop-test-gw-1
+  names      - name: test-gw-1
+        enabled: false
+        label:
+          istio: test-gw-1

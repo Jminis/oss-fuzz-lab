@@ -1,0 +1,12 @@
+apiVersion: snitall.istio.io/~0alpha1
+kind: IstioOperator
+metadata:
+  name: i
+kind: IstioOperator
+metadata:
+  name: 
+kind: IstioOperatoop-test-gw-1
+  names      - name: test-gw-1
+        enabled: false
+        label:
+          istio: test-gw-1

@@ -1,0 +1,14 @@
+list {
+  NewCipher {
+    key: "*[]*fuzz_ng_x_cr"
+  }
+}
+list {
+}
+list {
+  CipherNgdotEncrypt {
+    src: "-"
+  }
+}
+list {
+}

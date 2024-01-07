@@ -1,0 +1,40 @@
+list {
+  BuilderNgdotAddASN1NULL {
+  }
+}
+list {
+  NewFixedBuilder {
+  }
+}
+list {
+  BuilderNgdotAddASN1NULL {
+  }
+}
+list {
+  BuilderNgdotBytesOrPanic {
+  }
+}
+list {
+  NewFixedBuilder {
+    buffer: "$"
+  }
+}
+list {
+  BuilderNgdotAddASN1OctetString {
+  }
+}
+list {
+  BuilderNgdotAddUint32 {
+    v: 34304
+  }
+}
+list {
+  BuilderNgdotAddASN1OctetString {
+  }
+}
+list {
+  NewFixedBuilder {
+  }
+}
+list {
+}

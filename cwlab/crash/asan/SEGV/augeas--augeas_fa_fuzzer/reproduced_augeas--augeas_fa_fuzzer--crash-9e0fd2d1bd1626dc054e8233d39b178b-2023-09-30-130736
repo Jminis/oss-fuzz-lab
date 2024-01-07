@@ -1,0 +1,27 @@
+/out/augeas_fa_fuzzer -rss_limit_mb=2560 -timeout=25 augeas_fa_fuzzer_poc/augeas--augeas_fa_fuzzer--crash-9e0fd2d1bd1626dc054e8233d39b178b-2023-09-30-13:07:36 # /tmp/augeas_fa_fuzzer_corpus < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3291739460
+INFO: Loaded 1 modules   (3186 inline 8-bit counters): 3186 [0x634ff0, 0x635c62), 
+INFO: Loaded 1 PC tables (3186 PCs): 3186 [0x5e17d0,0x5edef0), 
+/out/augeas_fa_fuzzer: Running 1 inputs 1 time(s) each.
+Running: augeas_fa_fuzzer_poc/augeas--augeas_fa_fuzzer--crash-9e0fd2d1bd1626dc054e8233d39b178b-2023-09-30-13:07:36
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==11==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x000000597dd9 bp 0x7ffd6933e830 sp 0x7ffd6933e7a0 T0)
+[1m[0m==11==The signal is caused by a READ memory access.
+==11==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x597dd9 in re_case_expand /src/augeas/src/fa.c:4391:16
+    #1 0x59794c in fa_expand_nocase /src/augeas/src/fa.c:4453:9
+    #2 0x56c51f in LLVMFuzzerTestOneInput /src/augeas/augeas_fa_fuzzer.cc:52:10
+    #3 0x43ddf3 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #4 0x429552 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #5 0x42edfc in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #6 0x458332 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #7 0x7fdf32eff082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #8 0x41f71d in _start (/out/augeas_fa_fuzzer+0x41f71d)
+
+DEDUP_TOKEN: re_case_expand--fa_expand_nocase--LLVMFuzzerTestOneInput
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/augeas/src/fa.c:4391:16 in re_case_expand
+==11==ABORTING
