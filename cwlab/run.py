@@ -20,7 +20,8 @@ def color_diff(diff):
 
 def parse_git_clone_command(line):
     parts = line.split()
-    parts.remove("--recursive")
+    if "--recursive" in parts:
+        parts.remove("--recursive")
     if len(parts) > 2 and parts[0] == 'RUN' and parts[1] == 'git' and parts[2] == 'clone':
         if len(parts) == 5:
             # Format: git clone <url> <folder>
