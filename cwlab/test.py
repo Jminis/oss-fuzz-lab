@@ -4,9 +4,10 @@ import shutil
 import re
 import difflib
 import subprocess
+import time
 from datetime import datetime
 
-SESSION_TIME = 5
+SESSION_TIME = 60
 
 def color_diff(diff):
     for line in diff:
@@ -179,8 +180,7 @@ def main():
     #if len(sys.argv) != 3:
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
-    project_list = ['assimp']
-    #project_list = ['assimp', 'example', 'gstreamer', 'libical', 'ndpi', 'p9', 'rdkit', 'unit', 'augeas', 'ffmpeg', 'haproxy', 'librdkafka', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'libredwg', 'ntopng', 'pcapplusplus', 'ruby', 'vulkan-loader', 'bloaty', 'fluent-bit', 'hiredis-py', 'libyaml', 'ntpsec', 'perfetto', 's2opc', 'wabt', 'bluez', 'frr', 'ibmswtpm2', 'llvm', 'oatpp', 'php', 'samba', 'c-blosc2', 'glog', 'inchi', 'lzo', 'open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf']
+    project_list = ['assimp', 'example', 'gstreamer', 'libical', 'ndpi', 'p9', 'rdkit', 'unit', 'augeas', 'ffmpeg', 'haproxy', 'librdkafka', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'libredwg', 'ntopng', 'pcapplusplus', 'ruby', 'vulkan-loader', 'bloaty', 'fluent-bit', 'hiredis-py', 'libyaml', 'ntpsec', 'perfetto', 's2opc', 'wabt', 'bluez', 'frr', 'ibmswtpm2', 'llvm', 'oatpp', 'php', 'samba', 'c-blosc2', 'glog', 'inchi', 'lzo', 'open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf']
     for project_name in project_list:
         print(f"selected project : {project_name}")
         #project_name = sys.argv[1]
