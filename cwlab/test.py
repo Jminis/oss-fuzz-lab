@@ -122,8 +122,8 @@ def read_result_file(project_name):
     with open(result_file_path, 'r') as file:
         lines = file.readlines()
 
-    for idx, line in enumerate(lines):
-        print(f"{idx+1}: {line.strip()}")
+    #for idx, line in enumerate(lines):
+    #    print(f"{idx+1}: {line.strip()}")
 
     return lines
 
