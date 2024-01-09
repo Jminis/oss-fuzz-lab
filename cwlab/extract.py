@@ -18,14 +18,18 @@ def extract_info(file_path):
 
 def parse_dockerfile_for_repo_url(repo_name, projects_directory):
     dockerfile_path = os.path.join(projects_directory, repo_name, "Dockerfile")
+    last_url = None
     try:
         with open(dockerfile_path, 'r') as file:
             for line in file:
                 if 'git clone' in line:
-                    return re.search(r'https://github\.com/[^\s]+', line).group(0)
+                    match = re.search(r'https://(github|gitlab)\.[^\s]+', line)
+                    if match:
+                        last_url = match.group(0)
     except FileNotFoundError:
         print(f"Dockerfile not found for repository: {repo_name}")
-    return None
+    
+    return last_url
 
 def copy_repo_to_target_project(repo_name, projects_directory, target_project_directory):
     source_dir = os.path.join(projects_directory, repo_name)
@@ -78,6 +82,7 @@ def main():
             copy_repo_to_target_project(repo_name, projects_directory, target_project_directory)
 
             repo_url = parse_dockerfile_for_repo_url(repo_name, projects_directory)
+            print(repo_url)
             if repo_url:
                 repo_path = clone_repo(repo_url, temp_dir, repo_name)
                 if repo_path:

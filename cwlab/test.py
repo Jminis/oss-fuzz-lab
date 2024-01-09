@@ -7,7 +7,7 @@ import subprocess
 import time
 from datetime import datetime
 
-SESSION_TIME = 60
+SESSION_TIME = 3
 
 def color_diff(diff):
     for line in diff:
@@ -121,7 +121,6 @@ def read_result_file(project_name):
 
     with open(result_file_path, 'r') as file:
         lines = file.readlines()
-
     #for idx, line in enumerate(lines):
     #    print(f"{idx+1}: {line.strip()}")
 
@@ -152,9 +151,6 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
 #        if input("Do you want to execute 'python infra/helper.py build_fuzzers {}'? (y/n): ".format(project_name)).lower() == 'y':
         if 1==1:
             fuzzer_name = file_path.split('/')[-1].split('--')[1]
-            reproduce_file_name = "".join(file_path.split('/')[5:6])
-            reproduce_file_name = re.sub(r"reproduced_","",reproduce_file_name)
-            reproduce_file_path = "./cwlab/crash/data/" + reproduce_file_name
             
             # Build Fuzzer && Set corpus dir command
             oss_fuzz_dir = "../"  # Replace with the actual path to your 'oss-fuzz' directory
@@ -170,7 +166,6 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
             # Run Fuzzer command
             option = f"-max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
             run_fuzzer_and_save_results(project_name, fuzzer_name, option)
-            os.chdir("./cwlab")
 
     except Exception as e:
         print(f"Run Fuzzer Error: {e}")
@@ -180,16 +175,16 @@ def main():
     #if len(sys.argv) != 3:
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
-    project_list = ['assimp', 'example', 'gstreamer', 'libical', 'ndpi', 'p9', 'rdkit', 'unit', 'augeas', 'ffmpeg', 'haproxy', 'librdkafka', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'libredwg', 'ntopng', 'pcapplusplus', 'ruby', 'vulkan-loader', 'bloaty', 'fluent-bit', 'hiredis-py', 'libyaml', 'ntpsec', 'perfetto', 's2opc', 'wabt', 'bluez', 'frr', 'ibmswtpm2', 'llvm', 'oatpp', 'php', 'samba', 'c-blosc2', 'glog', 'inchi', 'lzo', 'open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf']
+    #project_list = ['example','assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit']
+    project_list = ['ffmpeg', 'haproxy', 'librdkafka', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'libredwg', 'ntopng', 'pcapplusplus', 'ruby', 'vulkan-loader', 'bloaty', 'fluent-bit', 'hiredis-py', 'libyaml', 'ntpsec', 'perfetto', 's2opc', 'wabt', 'bluez', 'frr', 'ibmswtpm2', 'llvm', 'oatpp', 'php', 'samba', 'c-blosc2', 'glog', 'inchi', 'lzo', 'open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf']
     for project_name in project_list:
-        print(f"selected project : {project_name}")
         #project_name = sys.argv[1]
         lines = read_result_file(project_name)
-        print(lines) 
         #selected_line = handle_user_input(lines)
         for selected_line in lines:
             time.sleep(2)
             print(f"count: {selected_line}")
+            os.system("pwd;ls -al")
             file_path = selected_line.split(',')[0]
             display_file_content(file_path)
     
@@ -198,6 +193,7 @@ def main():
             if dockerfile_changed:
                 print("Dockerfile updated successfully.")
                 update_dockerfile_run_fuzzer(project_name, file_path)
+                os.chdir("./cwlab")
             else:
                 print("No changes were made to the Dockerfile.")
                 with open("errorlog.txt","a") as fp:
