@@ -23,7 +23,7 @@ def parse_dockerfile_for_repo_url(repo_name, projects_directory):
         with open(dockerfile_path, 'r') as file:
             for line in file:
                 if 'git clone' in line:
-                    match = re.search(r'https://(github|gitlab)\.[^\s]+', line)
+                    match = re.search(r'https://(github|gitlab|android)\.[^\s]+', line)
                     if match:
                         last_url = match.group(0)
     except FileNotFoundError:

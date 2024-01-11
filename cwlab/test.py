@@ -58,7 +58,9 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option):
     current_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     new_folder_name = f"{project_name}_{fuzzer_name}_{current_time_str}"
     new_corpus_folder_path = os.path.join(result_folder, new_folder_name, f"{fuzzer_name}_corpus")
-    shutil.copytree(corpus_folder, new_corpus_folder_path)
+    #shutil.copytree(corpus_folder, new_corpus_folder_path)
+    os.system(f"mkdir {result_folder}/{new_folder_name}")
+    os.system(f"cp -r {corpus_folder} {new_corpus_folder_path}")
 
     # Count corpus file
     file_count = len(os.listdir(corpus_folder))
@@ -175,8 +177,8 @@ def main():
     #if len(sys.argv) != 3:
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
-    #project_list = ['example','assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit']
-    project_list = ['ffmpeg', 'haproxy', 'librdkafka', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'libredwg', 'ntopng', 'pcapplusplus', 'ruby', 'vulkan-loader', 'bloaty', 'fluent-bit', 'hiredis-py', 'libyaml', 'ntpsec', 'perfetto', 's2opc', 'wabt', 'bluez', 'frr', 'ibmswtpm2', 'llvm', 'oatpp', 'php', 'samba', 'c-blosc2', 'glog', 'inchi', 'lzo', 'open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf']
+    #project_list = ['example','ibmswtpm2', 'perfetto','inchi','lzo'] #build fail
+    project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc', 'bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt']
     for project_name in project_list:
         #project_name = sys.argv[1]
         lines = read_result_file(project_name)
