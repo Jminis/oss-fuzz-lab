@@ -179,7 +179,7 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
+        print("Usage: python run.py [project_name] [run_fuzzer/reproduce]")
         sys.exit(1)
 
     project_name = sys.argv[1]
