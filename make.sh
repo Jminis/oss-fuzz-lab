@@ -3,9 +3,9 @@
 # git clone --depth 1 https://github.com/google/oss-fuzz.git 	#origin
 git clone --depth 1 https://github.com/jhkim19940830/oss-fuzz
 cd oss-fuzz
-mv ./* ../
+mv infra/ projects/ tools/ ../
 cd ..
 rm -r oss-fuzz
 cp -r projects cwlab/
-cd oss-fuzz/infra/base-images/base-clang
+cd infra/base-images/base-clang
 docker build . -t gcr.io/oss-fuzz-base/base-clang		#custom image build

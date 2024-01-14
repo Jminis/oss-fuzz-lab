@@ -16,8 +16,7 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make autoconf automake autogen pkg-config libtool flex bison cmake libnuma-dev libpcre2-dev
-RUN git clone https://github.com/ntop/nDPI.git ndpi
-RUN cd ndpi;git checkout 8e6500a0da6798e2f2730ff88681c954ae7216d4; cd ..
+RUN git clone --depth 1 https://github.com/ntop/nDPI.git ndpi
 ADD https://www.tcpdump.org/release/libpcap-1.9.1.tar.gz libpcap-1.9.1.tar.gz
 COPY build.sh $SRC/
 WORKDIR $SRC
