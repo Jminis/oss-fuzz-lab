@@ -7,7 +7,7 @@ import subprocess
 import time
 from datetime import datetime
 
-SESSION_TIME = 3
+SESSION_TIME = 60
 
 def color_diff(diff):
     for line in diff:
