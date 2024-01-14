@@ -23,6 +23,11 @@ RUN git clone https://gitlab.com/libeigen/eigen && \
     cmake ../eigen && \
     make install
 
-RUN git clone --depth 1 https://github.com/rdkit/rdkit.git $SRC/rdkit
+RUN git clone  https://github.com/rdkit/rdkit.git $SRC/rdkit
+
+WORKDIR ./$SRC/rdkit
+RUN git checkout 0a3fe925288c17b00e3c561745dffeed1c00cb58
+
+WORKDIR ../
 WORKDIR $SRC/rdkit
 COPY build.sh $SRC/

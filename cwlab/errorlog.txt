@@ -1,0 +1,12 @@
+php:./crash/asan/SEGV/php--php-fuzz-function-jit/reproduced_php--php-fuzz-function-jit--crash-72d16e384e634fc8bc43d9dbba0e4332-2023-07-18-075924
+php:./crash/asan/SEGV/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-08efd8c5397c7e374247fa066cc94cc3-2023-07-28-054907
+php:./crash/asan/UAF/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-82a7f66c8d07316c8c77188997b21c2e-2023-11-12-224334
+php:./crash/asan/SEGV/php--php-fuzz-function-jit/reproduced_php--php-fuzz-function-jit--crash-72d16e384e634fc8bc43d9dbba0e4332-2023-07-18-075924
+php:./crash/asan/SEGV/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-08efd8c5397c7e374247fa066cc94cc3-2023-07-28-054907
+php:./crash/asan/UAF/php--php-fuzz-execute/reproduced_php--php-fuzz-execute--crash-82a7f66c8d07316c8c77188997b21c2e-2023-11-12-224334
+open62541:./crash/asan/HeapBOF/open62541--fuzz_mdns_message/reproduced_open62541--fuzz_mdns_message--crash-4bf51349534d82d6a8b963aea92fa4be-2023-11-21-071625
+open62541:./crash/asan/HeapBOF/open62541--fuzz_mdns_message/reproduced_open62541--fuzz_mdns_message--crash-4bf51349534d82d6a8b963aea92fa4be-2023-11-21-071625
+psqlparse:./crash/asan/SEGV/psqlparse--fuzz_parse/reproduced_psqlparse--fuzz_parse--crash-acdb29b75fb6c355f3f005e2ba467b9e-2023-11-06-093418
+psqlparse:./crash/asan/UAF/psqlparse--fuzz_parse/reproduced_psqlparse--fuzz_parse--crash-c9b98f58ca7b8a40a53ca5074b311a33-2023-10-11-223508
+psqlparse:./crash/asan/SEGV/psqlparse--fuzz_parse/reproduced_psqlparse--fuzz_parse--crash-acdb29b75fb6c355f3f005e2ba467b9e-2023-11-06-093418
+psqlparse:./crash/asan/UAF/psqlparse--fuzz_parse/reproduced_psqlparse--fuzz_parse--crash-c9b98f58ca7b8a40a53ca5074b311a33-2023-10-11-223508

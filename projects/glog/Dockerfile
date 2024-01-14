@@ -20,6 +20,8 @@ RUN git clone  https://github.com/google/glog
 
 WORKDIR ./glog
 RUN git checkout 64827572c0612e6eb15ed324d8c4fa020a0c5a41
+
 WORKDIR ../
+
 COPY build.sh $SRC/
 WORKDIR $SRC/glog

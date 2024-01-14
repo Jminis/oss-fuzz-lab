@@ -21,9 +21,11 @@ RUN apt-get install -y autoconf automake libtool curl make g++ unzip wget git \
     pkg-config
 
 # Get LLVM
-RUN git clone --depth 1 https://github.com/llvm/llvm-project.git
+RUN git clone  https://github.com/llvm/llvm-project.git
 
-RUN git clone --depth 1 https://github.com/AdaLogics/ada-fuzzers && \
-    $SRC/ada-fuzzers/projects/llvm/copy-over.sh
+WORKDIR ./llvm-project
+RUN git checkout 58b0d7c34ddd9d2117009a8cd7bd5e34a8276082
+
+WORKDIR ../
 
 COPY build.sh *.py $SRC/

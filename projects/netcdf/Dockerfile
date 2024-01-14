@@ -16,6 +16,11 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y cmake m4 zlib1g-dev libcurlpp-dev libcurl4-openssl-dev
-RUN git clone --depth 1 https://github.com/Unidata/netcdf-c
+RUN git clone  https://github.com/Unidata/netcdf-c
+
+WORKDIR ./netcdf-c
+RUN git checkout 9137873b3d81288339337441073f9a88644a8374
+
+WORKDIR ../
 COPY build.sh $SRC
 WORKDIR $SRC/netcdf-c

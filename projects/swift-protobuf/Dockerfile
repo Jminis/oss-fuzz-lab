@@ -16,6 +16,11 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder-swift
 
-RUN git clone --depth 1 https://github.com/apple/swift-protobuf.git
+RUN git clone  https://github.com/apple/swift-protobuf.git
+
+WORKDIR ./swift-protobuf
+RUN git checkout b2dd05f916871455077b1fd9ce4584551c71f683
+
+WORKDIR ../
 COPY build.sh $SRC
 WORKDIR $SRC/swift-protobuf

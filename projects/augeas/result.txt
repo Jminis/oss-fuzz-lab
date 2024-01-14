@@ -1,0 +1,6 @@
+./crash/asan/SEGV/augeas--augeas_fa_fuzzer/reproduced_augeas--augeas_fa_fuzzer--crash-2d8d64e909af55149a28e825091cd7af-2023-11-10-065658,augeas,2023-11-10-06,f0a0586d5fa3cd302e6a073f6081c1626471f7dc
+./crash/asan/UAF/augeas--augeas_api_fuzzer/reproduced_augeas--augeas_api_fuzzer--crash-01a8c4357f8a179c124431581783c354-2023-12-07-040023,augeas,2023-12-07-04,6d3ef097f3720b8a4a1b9f64a05a1b1f7c577b97
+./crash/asan/UAF/augeas--augeas_escape_name_fuzzer/reproduced_augeas--augeas_escape_name_fuzzer--crash-e7dcf76eff30894e7d3e3dfa1d360ed7-2023-11-11-004117,augeas,2023-11-11-00,f0a0586d5fa3cd302e6a073f6081c1626471f7dc
+./crash/asan/SEGV/augeas--augeas_fa_fuzzer/reproduced_augeas--augeas_fa_fuzzer--crash-2d8d64e909af55149a28e825091cd7af-2023-11-10-065658,augeas,2023-11-10-06,f0a0586d5fa3cd302e6a073f6081c1626471f7dc
+./crash/asan/UAF/augeas--augeas_api_fuzzer/reproduced_augeas--augeas_api_fuzzer--crash-01a8c4357f8a179c124431581783c354-2023-12-07-040023,augeas,2023-12-07-04,6d3ef097f3720b8a4a1b9f64a05a1b1f7c577b97
+./crash/asan/UAF/augeas--augeas_escape_name_fuzzer/reproduced_augeas--augeas_escape_name_fuzzer--crash-e7dcf76eff30894e7d3e3dfa1d360ed7-2023-11-11-004117,augeas,2023-11-11-00,f0a0586d5fa3cd302e6a073f6081c1626471f7dc
