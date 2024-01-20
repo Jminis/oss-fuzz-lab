@@ -1,0 +1,12 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array":d [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stdr_log": "/ll"]
+              }
+    ]
+}

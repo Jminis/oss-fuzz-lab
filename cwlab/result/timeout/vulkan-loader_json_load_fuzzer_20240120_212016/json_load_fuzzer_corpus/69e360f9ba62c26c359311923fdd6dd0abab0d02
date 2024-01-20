@@ -1,0 +1,16 @@
+{
+    "file_format_version": "1.2.0",
+    "se           "filters":["al   "layers": [
+                {
+                  pp_keys": [
+                "vaN_FEATURE_ENABLE_BEST_PRACTICES_EXT",
+                            "label": "Best Practices",
+                            "description": "Activating this feature enables the output of warnings related to common misuse of the API, but which are not explicitly prohibited by the specification.",
+                       l1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

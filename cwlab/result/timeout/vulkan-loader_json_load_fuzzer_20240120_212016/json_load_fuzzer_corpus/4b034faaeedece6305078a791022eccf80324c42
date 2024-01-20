@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0" "perf",
+                            "label": "Performance",
+                            "description": "Report usage of the API that may cause suboptimal performance."
+                        },
+                 _description": "Thisk/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+        file is liteReport a lot of complex json structures that a],
+                    "default": [
+                    "error"
+                    ]
+      r

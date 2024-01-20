@@ -1,0 +1,29 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settttings": [
+                                            {
+                                                "key": "debug_action",
+                                                "value": [
+                                                    "VK_DBG_LAYER_ACTION_LOG_MSG"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_CALLBACK",
+                            "label": "Callback",
+                            "description": "Call user defined callback function(s) that have been  "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

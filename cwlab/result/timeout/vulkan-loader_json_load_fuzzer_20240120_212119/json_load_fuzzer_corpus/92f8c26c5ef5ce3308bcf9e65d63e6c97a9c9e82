@@ -1,0 +1,13 @@
+{
+    "file_format_version": "1.2.0",
+   "entrypoints": [
+                "vkGetPhysicalDeviceToolPropertiesEXT        {
+            "app_keys": [
+                "/out/sees": {
+            "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setath": "/src/vulkan-loader/tests/framework/data/binaries/libdummy_library_elf_32.so",
+        "api_version": "1.3.231"
+    }
+}

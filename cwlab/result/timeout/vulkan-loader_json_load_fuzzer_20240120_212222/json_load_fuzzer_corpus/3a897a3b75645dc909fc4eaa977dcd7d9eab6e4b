@@ -1,0 +1,13 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/set:tings_fuzzer",
+                "/work/settings_fuzzer"
+  áááááááááááááááááááááááááááááááá          ],
+            "stderr_log": ["all", "info", "warn", "perf", "error", "debug", "layer",           s_fuzzer"]
+        }
+    ],
+    "ICD": {
+        "library_path": "/src/vulkan-loader/tests/framework/data/binari

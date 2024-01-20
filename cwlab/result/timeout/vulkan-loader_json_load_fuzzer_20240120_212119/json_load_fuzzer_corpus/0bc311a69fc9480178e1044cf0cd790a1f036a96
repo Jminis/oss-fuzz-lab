@@ -1,0 +1,51 @@
+{
+    "file_format_version":,
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+   ntrol": "auto",
+                    "name": "test",
+ p_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+"/tmp"],
+               p/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+   ntrol": "auto",
+                    "name": "test",
+ p_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+"/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers                   "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                     "filters":["all"]
+                }
+            ],
+            "layers                   "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                 }
+    ]
+}

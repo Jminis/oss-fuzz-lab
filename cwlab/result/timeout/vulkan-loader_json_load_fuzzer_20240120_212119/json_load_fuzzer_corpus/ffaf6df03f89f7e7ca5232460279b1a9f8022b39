@@ -1,0 +1,83 @@
+false "file_fo              }
+                    ]
+                },
+      nings on valid API usage that is potential API misuse.",
+                    "platforms": [
+ est/windows/khronos_validation_layer.html",
+        "instance_extensions": [
+            {
+                "name": "VK_EXT_debug_report",
+                "spec_version": "9"
+            },
+            {
+                "name": "VK_EXT_debug_utils",
+                "spec_version": "1"
+            },
+            {
+                "name": "VK_EXT_validation_features",
+                "spec_version": "2"
+            }
+        ],
+        "device_extensions": [
+            {
+                "name": "VK_EXT_debug_marker",
+                "spec_version": "4",
+                "entrypoints": [
+                    "vkDebugMarkerSetObjectTagEXT",
+                    "vkDebugMarkerSetObjectNameEXT",
+                    "vkCmdDebugMarkerBeginEXT",
+                    "vkCmdDebugMarkerEndEXT",
+                    "vkCmdDebugMarkerInsertEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_validation_cache",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkCreateValidationCacheEXT",
+                    "vkDestroyValidationCacheEXT",
+                    "vkGetValidationCacheDataEXT",
+                    "vkMergeValidationCachesEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_tooling_info",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkGetPhysicalDeviceToolPropertiesEXT"
+                ]
+            }
+        ],
+        "features": {
+            "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "Disables some checks in the interest of better performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "file_format_ve"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""rsion": "0.2.0",
+    "settings_array": [
+  "/tmp/stderr.log" "control": "auto",
+                    "name": "test",
+                    "path": at_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

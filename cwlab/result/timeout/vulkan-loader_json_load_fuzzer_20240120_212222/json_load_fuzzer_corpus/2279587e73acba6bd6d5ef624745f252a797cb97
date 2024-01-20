@@ -1,0 +1,47 @@
+{
+    "    },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "Disables some checks in the interest o              {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+               "treat_as_implicit_manifest": true
+                },
+                {
+                    "contr      {
+            "
+
+
+cation",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

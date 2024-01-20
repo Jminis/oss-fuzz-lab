@@ -1,0 +1,11 @@
+{
+    "file_format_version": "1.2.0",
+    "setti": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                 }
+    ]
+}

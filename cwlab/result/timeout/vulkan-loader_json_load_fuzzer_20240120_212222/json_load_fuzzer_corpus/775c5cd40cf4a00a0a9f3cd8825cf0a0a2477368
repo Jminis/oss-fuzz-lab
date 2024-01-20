@@ -1,0 +1,23 @@
+": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_impli  {
+               "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",sion": "1.3.231",
+            "implementation_version": "1",
+            "des       ]
+        }
+    ]
+}

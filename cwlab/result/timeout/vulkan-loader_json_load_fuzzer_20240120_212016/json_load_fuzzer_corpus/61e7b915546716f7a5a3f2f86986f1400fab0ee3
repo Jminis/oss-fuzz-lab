@@ -1,0 +1,14 @@
+{
+    "file_format_version": "1.2.0",
+    "se            "description": "Check that Vulkan objects are not in use by a command buffer when they are destroyed.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT",
+                            "label": "Shader Validation Caching",
+                            "description": "Disable caching of shader validation results.",
+               "val4"
+            ]
+        }
+    ]
+}

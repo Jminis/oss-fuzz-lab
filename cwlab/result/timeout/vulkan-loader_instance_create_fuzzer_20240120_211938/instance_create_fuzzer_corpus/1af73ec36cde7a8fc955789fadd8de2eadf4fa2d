@@ -1,0 +1,56 @@
+{
+    "file_format_         "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+           "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control" }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                version": "0.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+              {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+          "control" }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                version": "0.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+              {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "file_format_version": "0.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+   ns"G["/tmp"],
+                    "filters":["all"]
+                }
+            ],ûß           "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "pat    "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

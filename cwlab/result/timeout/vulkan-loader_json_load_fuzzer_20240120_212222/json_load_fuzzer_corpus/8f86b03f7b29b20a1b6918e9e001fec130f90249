@@ -1,0 +1,7 @@
+{
+    "file_format_versarray": [
+ {
+                    "control": "unordered_layer_location",
+                            "destinations":["/tmp"],
+                  ]
+}

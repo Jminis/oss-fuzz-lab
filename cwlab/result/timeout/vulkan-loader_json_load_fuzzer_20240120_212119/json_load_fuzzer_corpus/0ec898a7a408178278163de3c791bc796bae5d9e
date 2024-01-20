@@ -1,0 +1,29 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKINed for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "pl݃forms": [
+                        "WINDOWS",
+                        "LINUX",
+              {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

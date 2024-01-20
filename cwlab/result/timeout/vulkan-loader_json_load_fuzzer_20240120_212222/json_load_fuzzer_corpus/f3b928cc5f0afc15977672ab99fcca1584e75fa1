@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+        ÿÿÿÿÿÿÿÿ    "app_keyr": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+   {
+                       "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

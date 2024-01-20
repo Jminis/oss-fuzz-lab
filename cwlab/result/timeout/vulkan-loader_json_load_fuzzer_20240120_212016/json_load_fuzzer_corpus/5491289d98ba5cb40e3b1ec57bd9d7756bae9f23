@@ -1,0 +1,16 @@
+{
+    "file_format_version": "1.2.0",
+    "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿsettings_array": [
+        {
+            "app_keys": [
+        
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locatiest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",  }
+    ]
+}

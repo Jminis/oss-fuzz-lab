@@ -1,0 +1,8 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array":  "control": "a,
+                {
+                    "control": "unordered_layer_location",
+                            "destinations":["/tmp"],
+                  ]
+}

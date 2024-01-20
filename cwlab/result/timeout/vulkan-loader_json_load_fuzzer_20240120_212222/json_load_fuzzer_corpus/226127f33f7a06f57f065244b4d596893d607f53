@@ -1,0 +1,40 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": ["all", "info", "warn", "perf", "error", "debug", "layer", "driver", ""vkCmdDebugMarkerBeginEXT",
+                    "vkCmdDebugMarkerEndEXT",
+                    "vkCmdDebugMarkerInsertEXT"
+                ]
+            },
+            {
+                     "default": [
+                        "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                    ]
+                },
+                {
+                    "key": "enables",
+                    "label": "Enables",
+                    "description": "Setting an option here will enable specialized areas of validation",
+                    "type": "FLAGS",
+                    "env": "VK_LAYER_ENABLES",
+                    "flags": [
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT",
+                                                   "description": "Activating this feature enables the output of warnings related to ARM-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_AMD",
+                            "label": "AMD-specific best practices",
+                            "description": "Adds chec    }
+}

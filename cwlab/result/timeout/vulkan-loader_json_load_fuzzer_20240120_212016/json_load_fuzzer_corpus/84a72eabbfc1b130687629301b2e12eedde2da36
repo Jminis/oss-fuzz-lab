@@ -1,0 +1,14 @@
+{
+    "file_format_voersion": "1.2.0",
+    "settings_array": err_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                the output of warnings related to NVIDIA-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+  l4"
+            ]
+        }
+    ]
+}

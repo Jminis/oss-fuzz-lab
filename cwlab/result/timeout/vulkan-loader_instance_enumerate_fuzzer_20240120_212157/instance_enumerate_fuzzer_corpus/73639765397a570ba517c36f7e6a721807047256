@@ -1,0 +1,34 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        D"
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_DISABLE_IMAGE_LAYOUT_VALIDATION",
+                            "label": "Image Layout",
+                    
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto"   "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                       "WINDOWS",
+            "LINUX",
+            "ANDROID",
+            "MACOS"
+        ],
+        "url": "https://vulkan.lunarg.com/doc/sdk/latest/windows/khronos_validation_layer.html",
+        "instance_extensions": [
+           al2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

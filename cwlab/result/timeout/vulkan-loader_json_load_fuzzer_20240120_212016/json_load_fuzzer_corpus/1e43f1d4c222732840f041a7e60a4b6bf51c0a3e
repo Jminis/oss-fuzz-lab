@@ -1,0 +1,22 @@
+{
+    "file_format_version":                             "mode": "ALL",
+                                        "settings": [
+                                            {
+                                         log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+             "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+            "val4"
+            ]
+        }
+    ]
+}

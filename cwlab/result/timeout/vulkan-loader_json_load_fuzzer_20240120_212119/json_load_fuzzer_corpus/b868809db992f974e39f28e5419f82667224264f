@@ -1,0 +1,80 @@
+{
+    "file_format_version": "1.2.0"<
+    "settings_array": [
+         "trea",
+                "val3",
+      "
+        buffers when Synchronization Validation is enabled.",
+                            "status": "ALPHA"
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT",
+                            "label": "Debug Printf",
+                            "description": "Enables processing of debug printf instructions in shaders and sending debug strings to the debug callback.",
+                            "url": "${LUNARG_SDK}/debug_printf.html",
+                            "status": "STABLE",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ],
+                            "settings": [
+                                {
+                                    "key": "printf_to_stdout",
+                                    "label": "Redirect Printf messages to stdout",
+                                    "description": "Enable redirection of Debug Printf messages from the debug callback to stdout",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_verbose",
+                                    "label": "Printf verbose",
+                                    "description": "Set the verbosity of debug printf messages",
+                                    "type": "BOOL",
+                                    "default": false,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_buffer_size",
+                                    "label": "Printf buffer size",
+                                    "description": "Set the size in bytes of the buffer used by debug printf",
+                                    "type": "INT",
+                                    "default": 1024,
+                                    "range": {
+                                        "min": 128,
+                                        "max": 1048576
+                                    },
+                                    "unit": "bytes",
+                                    "platforms": [
+                                      ]
+        }
+    ]
+}

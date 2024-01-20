@@ -1,0 +1,10 @@
+{
+    "fitings_array": [
+        {
+             "destinations":["/tmp"],
+                    "fÂilters":["all"]
+                }
+    at_version": "1.2.0",
+    "settings_array": [
+       ]
+}

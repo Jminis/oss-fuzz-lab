@@ -1,0 +1,29 @@
+": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+               "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "trea"""""""""""""""""""""t_as_óimplicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

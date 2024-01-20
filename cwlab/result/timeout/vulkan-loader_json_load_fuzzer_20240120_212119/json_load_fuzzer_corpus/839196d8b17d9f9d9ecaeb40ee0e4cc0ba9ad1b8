@@ -1,0 +1,27 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": dation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+      as_implicit_manifers":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": ———————————————————————————————————————————————————————"val4"
+            ]
+        }
+    ]
+}

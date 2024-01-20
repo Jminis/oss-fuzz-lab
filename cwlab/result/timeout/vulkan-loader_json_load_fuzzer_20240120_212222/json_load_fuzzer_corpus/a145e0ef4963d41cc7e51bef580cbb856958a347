@@ -1,0 +1,32 @@
+": "test",
+       "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+ cit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+            ion",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_óimplicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

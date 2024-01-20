@@ -22,7 +22,12 @@ RUN git clone --depth 1 https://github.com/file/file.git
 
 # Supplement file's existing test files
 RUN git clone --depth 1 https://github.com/DavidKorczynski/binary-samples.git
-RUN git clone --depth 1 https://github.com/corkami/pocs
+RUN git clone  https://github.com/corkami/pocs
+
+WORKDIR ./pocs
+RUN git checkout 1b001515bb2439084886333402b3be6f3c92e9f4
+
+WORKDIR ../
 
 WORKDIR file
 COPY build.sh fuzzer_temp_file.h magic_fuzzer.cc magic_fuzzer_loaddb.cc magic_fuzzer_fd.cc $SRC/

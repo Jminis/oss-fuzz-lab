@@ -1,0 +1,19 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_key s": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+     "treat_as_implicit_manifers":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    ""path": ———————————————————————————————————————————————————————"val4"
+            ]
+        }
+    ]
+}

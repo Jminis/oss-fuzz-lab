@@ -1,0 +1,16 @@
+": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+ cit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+     77777777777777777           "val1",
+                "val2",
+                "val   ]
+}

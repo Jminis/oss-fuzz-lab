@@ -1,0 +1,38 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderrations": [
+                {
+                 {
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+              "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+           05,
+                 "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION"
+                            ]
+                        }
+              "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as   ]_implicit_
+manifest": true
+                },
+         }
+       {
+                 }
+    ]
+}

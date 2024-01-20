@@ -1,0 +1,12 @@
+{
+   "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": ["all", "info", "warn", "perf", "error", "debug", "layer", "driver", "validation"],
+            "log_locations": [
+                88888888888888888888888888888888888888888888888888888888                   "filters":["all"]
+   ]
+        }
+    ]
+}

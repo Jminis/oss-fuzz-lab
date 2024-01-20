@@ -26,6 +26,11 @@ RUN git clone https://github.com/CESNET/libyang.git
 
 RUN git clone --depth 1 --branch fuzz https://github.com/FRRouting/frr
 
-RUN git clone --depth 1 https://github.com/qlyoung/corpi
+RUN git clone  https://github.com/qlyoung/corpi
+
+WORKDIR ./corpi
+RUN git checkout de26a013ff7c9a88648aeea50e830167572a95a3
+
+WORKDIR ../
 COPY build.sh $SRC
 WORKDIR $SRC/frr

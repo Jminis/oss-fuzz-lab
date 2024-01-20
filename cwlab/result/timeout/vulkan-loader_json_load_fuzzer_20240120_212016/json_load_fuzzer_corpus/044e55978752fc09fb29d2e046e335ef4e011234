@@ -1,0 +1,7 @@
+{
+    "file_form {
+            "app_keys": [
+                "/out/settings_fuzzer",  ]
+        }
+    ]
+}

@@ -45,7 +45,12 @@ RUN tar -xvzf libmaxminddb-1.7.1.tar.gz;
 
 ### ntopng dependecies ###
 
-RUN git clone --depth 1 https://github.com/ntop/nDPI.git nDPI
+RUN git clone  https://github.com/ntop/nDPI.git nDPI
+
+WORKDIR ./nDPI
+RUN git checkout e8e4b9e8fff7a71e2770ff5a38e92506b508c72f
+
+WORKDIR ../
 ENV NDPI_HOME=$SRC/nDPI
 
 

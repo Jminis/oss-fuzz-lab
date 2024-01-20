@@ -1,0 +1,17 @@
+{
+    "file_fo{
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "ons": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                 "app_keys": [
+                "/out/setting ]
+}

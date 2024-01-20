@@ -1,0 +1,35 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "s'tderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+    at_version": "1.2.0",
+    "settings_array": [
+        {
+              "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+             "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                  ],
+            "layers": [
+                {
+             "settings_array          "/out/settings_fuzzer",
+            "val4"
+            ]
+        }
+    ]
+}

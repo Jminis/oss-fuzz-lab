@@ -5,9 +5,10 @@ import re
 import difflib
 import subprocess
 import time
+import glob
 from datetime import datetime
 
-SESSION_TIME = 60
+SESSION_TIME = 10
 
 def color_diff(diff):
     for line in diff:
@@ -36,20 +37,30 @@ def parse_git_clone_command(line):
     return None
 
 
-def run_fuzzer_and_save_results(project_name, fuzzer_name, option):
+def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpus):
+    # Initialize variables
+    timeout_occurred = False
+    crash_files_copied = False
+
     # Run Fuzzer && Calc run time
     with open('runtime_log.txt', 'w') as file:
         start_time = datetime.now()
         try:
-            subprocess.run(["python3", "infra/helper.py", "run_fuzzer", project_name, fuzzer_name, option],stdout=file,timeout=SESSION_TIME)
+            subprocess.run(["python3", "infra/helper.py", "run_fuzzer", project_name, fuzzer_name, option],stdout=file, timeout=SESSION_TIME)
         except subprocess.TimeoutExpired:
-            print("TimeOut")
+            timeout_occurred = True
         end_time = datetime.now()
 
     execution_time = end_time - start_time
 
-    # Check result folder
-    result_folder = "./cwlab/result"
+    # Determine result folder path
+    base_result_folder = "./cwlab/result"
+    if timeout_occurred:
+        result_folder = os.path.join(base_result_folder, "timeout")
+    else:
+        result_folder = base_result_folder
+
+    # Check and create result folder
     if not os.path.exists(result_folder):
         os.makedirs(result_folder)
 
@@ -58,20 +69,32 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option):
     current_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     new_folder_name = f"{project_name}_{fuzzer_name}_{current_time_str}"
     new_corpus_folder_path = os.path.join(result_folder, new_folder_name, f"{fuzzer_name}_corpus")
-    #shutil.copytree(corpus_folder, new_corpus_folder_path)
-    os.system(f"mkdir {result_folder}/{new_folder_name}")
-    os.system(f"cp -r {corpus_folder} {new_corpus_folder_path}")
+    try:
+        shutil.copytree(corpus_folder, new_corpus_folder_path)
+    except FileNotFoundError:
+        pass  # Corpus folder may not exist in case of no seed corpus or other issues
+
+    # Copy crash files if any
+    crash_file_pattern = f"/build/out/{project_name}/crash-*"
+    for crash_file in glob.glob(crash_file_pattern):
+        shutil.copy(crash_file, os.path.join(result_folder, new_folder_name))
+        crash_files_copied = True
 
     # Count corpus file
-    file_count = len(os.listdir(corpus_folder))
+    file_count = len(os.listdir(corpus_folder)) if os.path.exists(corpus_folder) else 0
 
     # Save Result Description
-    description_file = os.path.join(result_folder,new_folder_name, "description.txt")
+    description_file = os.path.join(result_folder, new_folder_name, "description.txt")
     with open(description_file, "w") as file:
         file.write(f"Execution Time: {execution_time}\n")
         file.write(f"Number of Files: {file_count}\n")
+        if no_seed_corpus:
+            file.write("No Seed Corpus Available\n")
+        if crash_files_copied:
+            file.write("Crash Files Copied\n")
 
-    shutil.copy('runtime_log.txt',f"{result_folder}/{new_folder_name}")
+    shutil.copy('runtime_log.txt', f"{result_folder}/{new_folder_name}")
+
 
 def process_dockerfile(project_name, commit_hash):
     dockerfile_path = f"./target_projects/{project_name}/Dockerfile"
@@ -150,24 +173,30 @@ def display_file_content(file_path):
 
 def update_dockerfile_run_fuzzer(project_name, file_path):
     try:
-#        if input("Do you want to execute 'python infra/helper.py build_fuzzers {}'? (y/n): ".format(project_name)).lower() == 'y':
-        if 1==1:
-            fuzzer_name = file_path.split('/')[-1].split('--')[1]
-            
-            # Build Fuzzer && Set corpus dir command
-            oss_fuzz_dir = "../"  # Replace with the actual path to your 'oss-fuzz' directory
-            os.chdir(oss_fuzz_dir)
-            subprocess.run(["cp", "-r", f"./cwlab/target_projects/{project_name}", "./projects/"])
-            subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name])
-            cmd = f"rm -r build/out/{project_name}/{fuzzer_name}_corpus ; "
-            cmd += f"unzip build/out/{project_name}/{fuzzer_name}_seed_corpus.zip -d build/out/{project_name}/{fuzzer_name}_corpus || "
-            cmd += f"mkdir build/out/{project_name}/{fuzzer_name}_corpus"
-            print(cmd)
-            os.system(cmd)
+        fuzzer_name = file_path.split('/')[-1].split('--')[1]
+        seed_corpus_flag = False  # Flag to track if seed corpus is missing
 
-            # Run Fuzzer command
-            option = f"-max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
-            run_fuzzer_and_save_results(project_name, fuzzer_name, option)
+        # Build Fuzzer && Set corpus dir command
+        oss_fuzz_dir = "../"  # Replace with the actual path to your 'oss-fuzz' directory
+        os.chdir(oss_fuzz_dir)
+        subprocess.run(["cp", "-r", f"./cwlab/target_projects/{project_name}", "./projects/"])
+        subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name])
+        
+        # Remove existing corpus directory
+        corpus_folder = f"build/out/{project_name}/{fuzzer_name}_corpus"
+        shutil.rmtree(corpus_folder, ignore_errors=True)
+
+        # Try to unzip the seed corpus
+        unzip_command = f"unzip build/out/{project_name}/{fuzzer_name}_seed_corpus.zip -d {corpus_folder}"
+        unzip_result = os.system(unzip_command)
+        
+        if unzip_result != 0:  # Non-zero exit code indicates failure
+            seed_corpus_flag = True
+            os.makedirs(corpus_folder, exist_ok=True)  # Create corpus folder if unzip fails
+
+        # Run Fuzzer command
+        option = f"-detect_leaks=0 -max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
+        run_fuzzer_and_save_results(project_name, fuzzer_name, option, seed_corpus_flag)
 
     except Exception as e:
         print(f"Run Fuzzer Error: {e}")
@@ -178,7 +207,8 @@ def main():
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
     #project_list = ['example','ibmswtpm2', 'perfetto','inchi','lzo'] #build fail
-    project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc', 'bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt']
+    #project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc', 'bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
+    project_list = ['vulkan-loader']
     for project_name in project_list:
         #project_name = sys.argv[1]
         lines = read_result_file(project_name)

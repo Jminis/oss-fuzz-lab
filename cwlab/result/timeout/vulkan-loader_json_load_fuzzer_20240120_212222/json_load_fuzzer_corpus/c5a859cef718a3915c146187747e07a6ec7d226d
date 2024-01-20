@@ -1,0 +1,24 @@
+{
+    "file_format_version": "1.2.0",o", "warn", "perf", "error", "debug", "layer", "driver", "validation"],
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+             "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                     "app_keys": ["/out/settings_fuzzer"]
+        }
+    ],
+    "ICD": {
+        "library_path": "/src/vulkan-loader/tests/framework/data/binaries/libdummy_library_elf_64.so",
+        "api_version": "1.3.231"
+    }
+}

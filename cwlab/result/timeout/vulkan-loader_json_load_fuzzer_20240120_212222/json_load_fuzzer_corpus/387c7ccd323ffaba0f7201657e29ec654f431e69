@@ -1,0 +1,21 @@
+": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_impli  {
+               "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+  _as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+          onent_layers": ["VK_LAYER_test_layer_1", "VK_LAYER_test_layer_2
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

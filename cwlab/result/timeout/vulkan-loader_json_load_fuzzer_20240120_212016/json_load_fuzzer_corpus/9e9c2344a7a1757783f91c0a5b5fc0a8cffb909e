@@ -1,0 +1,19 @@
+{
+    "file_format_ve          "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicmanifest": true
+                }
+            ]
+        },
+       1{
+            "app_keys": [
+                "val1",
+        ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿval3",
+                "val4"
+            ]
+        }
+    ]
+}

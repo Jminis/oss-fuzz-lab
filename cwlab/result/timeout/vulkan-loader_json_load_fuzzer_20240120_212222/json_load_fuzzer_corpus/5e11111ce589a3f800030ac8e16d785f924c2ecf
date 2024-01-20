@@ -1,0 +1,11 @@
+{
+    "file_format_                      "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any vaersion": "1.3.231"
+    }
+}

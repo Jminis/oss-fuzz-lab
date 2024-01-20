@@ -1,0 +1,23 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "appanifest": true
+           with error 193          {
+                    "control": onr"udered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

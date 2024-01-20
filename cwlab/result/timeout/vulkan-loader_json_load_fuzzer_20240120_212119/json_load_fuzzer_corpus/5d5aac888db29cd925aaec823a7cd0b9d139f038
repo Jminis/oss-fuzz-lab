@@ -1,0 +1,7 @@
+{
+    "fil_format_version": "1.2.0",
+   "entrypoints": [                       "log_locations": [
+                {
+                    "destinations":["/tmp"],
+   }
+}

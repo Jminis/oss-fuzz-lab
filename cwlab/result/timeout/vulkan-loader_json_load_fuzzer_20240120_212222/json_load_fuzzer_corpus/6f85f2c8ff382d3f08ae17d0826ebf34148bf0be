@@ -1,0 +1,29 @@
+{
+    "file_format_version": "1.2.0",
+      "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": {
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+  áááááááááááááááááááááááááááááááá          ],
+            "stderr_log": ["all", "info", "warn", "perf", "error", "debug", "layer",           s_fuzzer"]
+        }
+    ],
+    "ICD": {
+      [
+                                  ]
+                        }
+                    ]
+                },
+                {
+       "lib               "label": "Debug Printf",
+                    "description": "Debug shader code rary_path": "/src/vulkan-loader/teby \""1.3sts/framewor.2k/data/31"
+    }
+bina}
+ri

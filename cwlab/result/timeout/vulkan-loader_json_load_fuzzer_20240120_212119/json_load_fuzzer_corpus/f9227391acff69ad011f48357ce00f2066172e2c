@@ -1,0 +1,35 @@
+{
+e_fot  "layers{
+     ["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test_auto",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+    }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test_auto",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "on",
+                    "name": "test_on",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "off",
+                    "name": "test_off",
+                    "path": "test",
+   .so",
+            "component_layers": ["VK_LAYER_test_layer_1", "VK_LAYER_test_layer_2"],
+      "/

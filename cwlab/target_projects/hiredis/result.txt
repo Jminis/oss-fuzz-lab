@@ -2,3 +2,11 @@
 ./crash/asan/SEGV/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-a668cb3dc75f4af16d018c946374fec7-2023-09-12-043258,hiredis,2023-09-12-04,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
 ./crash/asan/HeapBOF/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-b25c260dadfed3a12e4311969dcab056-2023-11-02-095452,hiredis,2023-11-02-09,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
 ./crash/asan/HeapBOF/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-7b449acc70edc7e0da4ed31898c4908d-2023-07-17-175417,hiredis,2023-07-17-17,dedc6208b15738d7765eff35a61dd09d5830e732
+./crash/asan/SEGV/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-ac48c7c885b0f6de9a7b76139ed12348-2023-11-13-105902,hiredis,2023-11-13-10,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
+./crash/asan/SEGV/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-a668cb3dc75f4af16d018c946374fec7-2023-09-12-043258,hiredis,2023-09-12-04,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
+./crash/asan/HeapBOF/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-b25c260dadfed3a12e4311969dcab056-2023-11-02-095452,hiredis,2023-11-02-09,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
+./crash/asan/HeapBOF/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-7b449acc70edc7e0da4ed31898c4908d-2023-07-17-175417,hiredis,2023-07-17-17,dedc6208b15738d7765eff35a61dd09d5830e732
+./crash/asan/SEGV/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-ac48c7c885b0f6de9a7b76139ed12348-2023-11-13-105902,hiredis,2023-11-13-10,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
+./crash/asan/SEGV/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-a668cb3dc75f4af16d018c946374fec7-2023-09-12-043258,hiredis,2023-09-12-04,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
+./crash/asan/HeapBOF/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-b25c260dadfed3a12e4311969dcab056-2023-11-02-095452,hiredis,2023-11-02-09,869f3d0ef1513dd0258ad7190c9914df16dcc4a4
+./crash/asan/HeapBOF/hiredis--format_command_fuzzer/reproduced_hiredis--format_command_fuzzer--crash-7b449acc70edc7e0da4ed31898c4908d-2023-07-17-175417,hiredis,2023-07-17-17,dedc6208b15738d7765eff35a61dd09d5830e732

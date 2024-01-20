@@ -1,0 +1,94 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+mdDebugMarkerInsertEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_validation_cache",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkCreateValidationCacheEXT",
+                    "vkDestroyValidationCacheEXT",
+                    "vkGetValidationCacheDataEXT",
+                    "vkMergeValidationCachesEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_tooling_info",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkGetPhysicalDeviceToolPropertiesEXT"
+                ]
+            }
+        ],
+        "features": {
+            "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "Disables some checks in the interest of better performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS"
+                    ],
+                    "            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_[plicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

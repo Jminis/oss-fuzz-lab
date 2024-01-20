@@ -1,0 +1,12 @@
+{
+    "file_format_vernt": {
+                "stderr_log": "/tmp/stderr.log",          "name": "test",
+            "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+         "api_version": "1.3.231"
+    }
+}

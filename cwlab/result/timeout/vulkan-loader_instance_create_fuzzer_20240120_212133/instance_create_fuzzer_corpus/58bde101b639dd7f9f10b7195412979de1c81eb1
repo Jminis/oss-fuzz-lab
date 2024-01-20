@@ -1,0 +1,27 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [ntensive for some applications.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION",
+                            "label": "Query",
+                            "description": "Checks for commands that use VkQueryPool objects.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+                            "label": "Object in Use",
+                            "description": "Check that Vulkan objects are not in use by a command buffer when they are destroyed.",
+                     "treat_as_implicit_manifest": true
+                }
+             with error 193      {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

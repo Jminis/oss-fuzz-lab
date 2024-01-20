@@ -1,0 +1,12 @@
+{
+    "file_format_locations": [
+                {
+                    "destinations":["/tmp"],
+         g              "settings_array": [
+        {
+            "app_keys": [
+               "val4"
+            ]
+        }
+    ]
+}

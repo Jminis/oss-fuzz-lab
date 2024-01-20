@@ -1,0 +1,45 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_ar              },
+                {
+                    "control": "on",
+                    "name": "test_on",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "off",
+                    "name": "test_off",
+                    "path": "test",
+                    "åçöït_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ],
+    "layers": [
+        {
+            "name": "VK_LAYER_test_layer_1",
+            "type": "INSTANCE",
+            "api_version": "1.3.231",
+            "implementa "libVkLayer_khronos_validation.so",
+            "component_layers": ["VK_LAYER_test_layer_1", "VK_LAYER_test_layer_2"],
+            "app_keys": ["/out/settings_fuzzer"]
+        },
+        {
+            "name": "VK_LAYER_KHRONOS_validation",
+            "type": "GLOBAL",
+            "api_version": "1.3.231",
+            "implementation_version": "1",
+            "description": "Khronos validation",
+            "libr    "library_path": "/src/vulkan-loader/tests/framework/data/binaries/libdummy_library_elf_32.so",
+        "api_version": "1.3.231"
+    }
+}

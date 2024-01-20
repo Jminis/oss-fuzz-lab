@@ -1,0 +1,15 @@
+{
+    "file_forma: [
+               {
+         n           "layers": [
+                yers": [
+               "treat_as_implicit_manife  ],
+            "layers": [
+                yers": [
+               "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                            "destinations":["/tmp"],
+                  ]
+}

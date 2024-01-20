@@ -1,0 +1,23 @@
+{
+    "file_forma: [
+               {
+         nations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                yers": [
+           {
+         nations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                yers": [
+                "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                            "destinations":["/tmp"],
+                  ]
+}

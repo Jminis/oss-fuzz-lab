@@ -1,0 +1,24 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_l                   "key": "VK_VALIDATION_FEATURE_DISABLE_SHADERS_EXT",
+                            "label": "Shader Validation",
+                            "description": "Shader checks. These checks can be CPU intensive during application start up, especially if Shader Validation Caching is also disabled.",
+                  "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+              {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

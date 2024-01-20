@@ -1,0 +1,20 @@
+{
+    "file_formaterr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path"   "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+                 }
+    ]
+}

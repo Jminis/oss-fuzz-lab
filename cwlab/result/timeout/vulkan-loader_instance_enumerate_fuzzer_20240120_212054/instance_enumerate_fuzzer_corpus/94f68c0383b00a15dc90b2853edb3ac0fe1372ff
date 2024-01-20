@@ -1,0 +1,111 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures              {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT",
+                            "label": "Best Practices",
+                            "description": "Activating this feature enables the output of warnings related to common misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "url": "${LUNARG_SDK}/best_practices.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_ARM",
+                            "label": "ARM-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to ARM-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_AMD",
+                            "label": "AMD-specific best practices",
+                         
+                "spec_version": "4",
+                "entrypoints": [
+                    "vkDebugMarkerSetObjectTagEXT",
+                    "vkDebugMarkerSetObjectNameEXT",
+                    "vkCmdDebugMarkerBeginEXT",
+                    "vkCmdDebugMarkerEndEXT",
+                    "vkCmdDebugMarkerInsertEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_validation_cache",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkCreateValidationCacheEXT",
+                    "vkDestroyValidationCacheEXT",
+                    "vkGetValidationCacheDataEXT",
+                    "vkMergeValidationCachesEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_tooling_info",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkGetPhysicalDeviceToolPropertiesEXT"
+                ]
+            }
+        ],
+        "features": {
+            "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD{
+    "file[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[_format_version": "2.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+         _SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "D   ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+         isables some checks in the interest of better performance.",
+                  

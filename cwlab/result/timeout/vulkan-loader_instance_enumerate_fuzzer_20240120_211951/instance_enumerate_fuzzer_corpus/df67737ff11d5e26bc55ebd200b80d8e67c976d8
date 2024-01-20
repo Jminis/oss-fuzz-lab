@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0",
+ tings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+   mplicit_manifest": true
+                },
+                {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

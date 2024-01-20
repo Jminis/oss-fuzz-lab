@@ -22,6 +22,11 @@ RUN apt-get update -y && \
                        bison autoconf ruby pkg-config
 
 RUN git clone https://github.com/ruby/ruby.git
+
+WORKDIR ./ruby
+RUN git checkout c86497340f80f4bf5cd689e1468566b88e1a0ef2
+
+WORKDIR ../
 WORKDIR ruby
 
 COPY build.sh $SRC/

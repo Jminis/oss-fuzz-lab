@@ -1,0 +1,17 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+        ÿÿÿÿÿÿÿÿ    "app_ke {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_laytest",
+                    "treat_as_implicit_manifest": true
+   er_location",
+                            "destinations":["/tmp"],
+                  ]
+}

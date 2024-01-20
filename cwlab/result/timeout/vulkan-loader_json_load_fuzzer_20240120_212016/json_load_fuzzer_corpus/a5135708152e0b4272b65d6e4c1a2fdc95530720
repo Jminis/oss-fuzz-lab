@@ -1,0 +1,28 @@
+{
+    "file_format_version": "1.2.0",
+    "layer" {
+        "test_code_description": "This fiERVE_BINDING_SLOT_EXT"
+                            ]
+                        },                              "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any values of interest to the debug caY_EXT",
+                                "WK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any values of interest to the debug callback or stdout.",
+                    "platforms": [
+    llbac                    "WINDOWS",
+    k or stdout.",
+                           

@@ -1,0 +1,16 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "std       },
+                {
+                     "val3",
+             $  "val4"
+            ]
+        }
+    ]
+}

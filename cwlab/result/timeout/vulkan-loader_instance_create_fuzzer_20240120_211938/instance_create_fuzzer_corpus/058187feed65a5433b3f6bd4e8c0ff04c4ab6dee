@@ -1,0 +1,16 @@
+{
+    "file_format_version": "0.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/woILE",
+                                    "default": "stdout",
+                                    "dependence": {
+                                                                           "value": [
+                  "val3",
+                "val4"
+            ]
+        }
+    ]
+}

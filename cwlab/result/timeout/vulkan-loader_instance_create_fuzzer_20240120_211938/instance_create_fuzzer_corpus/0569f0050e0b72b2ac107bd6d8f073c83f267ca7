@@ -1,0 +1,16 @@
+{
+    "filog": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations"G["/tmp"],
+_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations"G["/tmp"],
+                    "filters":["all"]
+                }
+   ]
+}

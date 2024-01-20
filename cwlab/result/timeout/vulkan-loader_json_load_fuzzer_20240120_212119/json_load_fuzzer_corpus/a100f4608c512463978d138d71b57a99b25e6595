@@ -1,0 +1,11 @@
+VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VALIDATION_CHECK_DISABLE_IMAGE_LAYOUT_VALIDATION",
+                                "VALIDATION_CHECK_DISABLE_COMMAND_BUFFER_STATE",
+                                "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+                                "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION"
+                            ]
+               
+  #     "specrray": [
+   [" "control": "aut
+    }
+}

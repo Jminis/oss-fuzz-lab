@@ -1,0 +1,25 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer"   "control": "on",
+                    "name": "test_on",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "off",
+                    "name": "test_off",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+       a development cycle."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                            "label": "Object Lifetime",
+                            "description": "Object tracking checks. This may not always be necessary late in a development cycle."
+   plementation_version": "1",
+         : ["/out/settings_fu "api_version": "1.3.231"
+    }
+}

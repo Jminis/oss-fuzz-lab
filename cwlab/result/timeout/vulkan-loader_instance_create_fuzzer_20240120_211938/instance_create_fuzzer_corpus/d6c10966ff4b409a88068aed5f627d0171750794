@@ -1,0 +1,27 @@
+{
+    "file_format_version": "0.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+          "path": "test"        "filters":["all"]
+                }
+            ],
+              },
+                {
+                    "control": "unordered_layer_location",
+                    "name": " },
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+   
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

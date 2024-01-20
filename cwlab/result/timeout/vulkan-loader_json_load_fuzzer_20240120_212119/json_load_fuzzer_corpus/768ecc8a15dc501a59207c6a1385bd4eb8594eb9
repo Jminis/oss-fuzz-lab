@@ -1,0 +1,39 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+     "treat_as_implicit_manifers":          "MACOS"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_NVIDIA",
+                            "label": "NVIDIA-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to NVIDIA-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "ANDROID"
+                            ]
+                        }
+                    ],
+                    "default": []
+                },
+                {
+                    "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded app["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    ""path": ———————————————————————————————————————————————————————"val4"
+            ]
+        }
+    ]
+}

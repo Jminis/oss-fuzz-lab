@@ -1,0 +1,21 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+      ersion": "1.2.0",
+    "settings_array":            "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

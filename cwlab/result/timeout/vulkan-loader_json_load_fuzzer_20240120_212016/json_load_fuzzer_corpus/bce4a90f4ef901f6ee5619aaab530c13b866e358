@@ -1,0 +1,122 @@
+{
+    "file_NTF_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        },
+                        {
+                            "key": "enable_message_limit",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "settings": [
+                {
+                    "key": "debug_action",
+                    "label": "Debug Action",
+                    "description": "Specifies what action is to be taken when a layer reports information",
+                    "type": "FLAGS",
+                    "flags": [
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_LOG_MSG",
+                            "label": "Log Message",
+                            "description": "Log a txt message to stdout or to a log filename.",
+                            "settings": [
+                                {
+                                    "key": "log_filename",
+                                    "label": "Log Filename",
+                                    "description": "Specifies the output filename",
+                                    "type": "SAVE_FILE",
+                                    "default": "stdout",
+                                    "dependence": {
+                                        "mode": "ALL",
+                                        "settings": [
+                                            {
+                                                "key": "debug_action",
+                                                "value": [
+                                                    "VK_DBG_LAYER_ACTION_LOG_MSG"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_CALLBACK",
+                            "label": "Callback",
+                            "description": "Call user defined callback funcåñêò(s) that have been registered via the VK_EXT_debug_report extension. Since application must register callback, this is a NOOP for the settings file.",
+                            "view": "HIDDEN"
+                        },
+                        {
+                           or their own use. The layer reports a value for VkPhysicalDeviceLimits::maxBoundDescriptorSets that is one less than the value reported by the device. If the device supports the binding of only one descriptor set, the validation layer does not perform GPU-assisted validation.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT",
+                            "label": "Best Practices",
+                            "description": "Activating this feature enables the output of warnings related to common misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "url": "${LUNARG_SDK}/best_practices.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_ARM",
+                            "label": "ARM-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to ARM-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_AMD",
+                            "label": "AMD-specific best practices",
+                            "description": "Adds check for spec-conforming but non-ideal code on AMD GPUs.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_NVIDIA",
+                            "label": "NVIDIA-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to NVIDIA-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "ANDROID"
+                format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "std       },
+                {
+                     "val3",
+                "val4"
+            ]
+        }
+    ]
+}

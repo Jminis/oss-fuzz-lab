@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0",
+      "status": "STABLE",
+                    "settings": [
+      {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_GPU_AEXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+       ‡ﬂﬂﬂﬂﬂﬂﬂ         }
+                    ]
+                },
+                {
+                    "label": "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any vaersion": "1.3.231"
+    }
+}

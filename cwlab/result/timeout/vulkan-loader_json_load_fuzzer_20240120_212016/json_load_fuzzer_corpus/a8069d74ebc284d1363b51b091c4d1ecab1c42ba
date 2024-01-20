@@ -1,0 +1,12 @@
+{
+    "file_format_locations": [
+                {
+                    "dtrtinations":["/tmp"],
+                       "settings_array": [
+        {
+            "app_keys": [
+               "val4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_NOOP for the settings file.",
+                            "view": "HIDDEN"
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_DEBUG_OUTPUT",
+                            "label": "Debug Output",
+                                 }
+                    ],
+                    "default": [
+                        "VK_DBG_LAYER_ACTION_LOG_MSG"
+                    ]
+                },iption": "Comma-delineated list of options specifying the types of messages to be reported",
+                    "type": "FLAGS",
+                    "flags": [
+                        {
+                            "key": "info",
+                            },
+            "app_keys": ["/out/settings_fuzzer"]
+        }
+    ],
+    "ICD": {
+        "library_path": "/sr
+}

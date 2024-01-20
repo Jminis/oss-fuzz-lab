@@ -1,0 +1,41 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in the test framework's generated json, so exerciON_FEATURE_DISABLE_SHADERS_EXT",
+                            "label": "Shader Validation",
+                            "description": "Shader checks. These checks can be CPU intensive during application start up, especially if Shader Validation Caching is also disabled.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_DÓISABLE_COMMAND_BUFFER_STATE",
+                  el": "Log Message",
+                            "description": "Log a txt message to stdout or to a log filename.",
+                            "settings": [
+                                {
+                                    "key": "log_filename",
+                                    "label": "Log Filename",
+                                    "description": "Specifies the output filename",
+                                    "type": "SAVE_FILE",
+                                    "default": "stdout",
+                                    "dependence": {
+                                        "mode": "ALL",
+                               ures that aren't present in the test framework's generated json, so exercises cJSON better",
+        "name": "VK_LAYER_KHRONOS_validation",
+        "type": "GLOBAL",
+        "library_path": "libVkLayer_khronos_validation.so",
+        "api_version": "1.3.231",
+        "implementation_version": "1",
+        "description": "Khronos Validation Layer",
+        "introduction": "The main, comprehensive Khronos validation layer.\n\nVulkan is an Explicit API, enabling direct control over how GPUs actually work. By design, minimal error checking is done inside a Vulkan TION_VALIDATION_QUEUE_SUBMIT",
+                            "label": "QueueSubmit Synchronization Validation",
+                            "description": "Enable synchronization validation between submitted command buffers   "spec_version": "1"
+            tdout",
+                                    "description": "Enable redirection of Debug Printf messages from the debug callback to stdout",
+                                    "type": "BOOL",
+                        },
+             "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                             ],
+    

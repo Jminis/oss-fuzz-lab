@@ -1,0 +1,17 @@
+{z
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys":estinations":["/tmp"],
+           "control": "auto",
+                    "name": "test",
+                    "path": "test",
+      0             "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+             
+            ]
+        }
+    ]
+}

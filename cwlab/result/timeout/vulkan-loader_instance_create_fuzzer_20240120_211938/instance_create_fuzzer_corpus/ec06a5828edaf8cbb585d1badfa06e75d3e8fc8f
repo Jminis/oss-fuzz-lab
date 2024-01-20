@@ -1,0 +1,22 @@
+{
+    "file_format_version": "0.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+    inations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+                            "path": "test",
+                    "dependence": {
+                                        "mode": "ALL",
+                                        "settings": [
+                                            {
+                                                "key": "debug_action",
+                                                "value": [
+                  "val3",
+                "val4"
+            ]
+        }
+    ]
+}

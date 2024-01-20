@@ -17,5 +17,10 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make cmake flex bison zlib1g-dev
 RUN git clone https://github.com/edenhill/librdkafka
 
+WORKDIR ./librdkafka
+RUN git checkout efc65e776d85e60321950fb4e167d4e2c215f183
+
+WORKDIR ../
+
 WORKDIR $SRC
 COPY build.sh $SRC/

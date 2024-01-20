@@ -1,0 +1,24 @@
+{
+  app_keys": [
+                  "treat_as_implicit_manifes         ]
+     {
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+  A         ],
+             {
+            "app_key   }
+ s": [
+                ]
+}
+   "val1",
+                "val2",
+                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿval3",
+             "val4"
+            ]
+        }
+    ]
+}

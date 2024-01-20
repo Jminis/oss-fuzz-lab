@@ -1,0 +1,133 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "qpp_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+             T",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                     "label": "GPU-Assisted",
+                    "description": "Check for API usage errors at shader execution time.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT",
+                                "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALest to the debug callback or stdout.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        },
+                        {
+                            "key": "enable_message_limit",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "settings": [
+                {
+                    "key": "debug_action",
+                    "label": "Debug Action",
+                    "description": "Specifies what action is to be taken when a layer reports information",
+                    "type": "FLAGS",
+                    "flags": [
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_LOG_MSG",
+                            "label": "Log Message",
+                            "description": "Log a txt message to stdout or to a log filename.",
+                            "settings": [
+                                {
+                                    "key": "log_filename",
+                                    "label": "Log Filename",
+                                    "description": "Specifies the output filename",
+                                    "type": "SAVE_FILE",
+                                    "default": "stdout",
+                                    "dependence": {
+                                        "mode": "ALL",
+                                        "settings": [
+                                            {
+                                                "key": "debug_action",
+                                                "value": [
+                                                    "VK_DBG_LAYER_ACTION_LOG_MSG"
+                                                ]
+       {
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in the test framework's generated json, so exercises cJSON better",
+        "name": "VK_LAYER_KHRONOS_v                                     }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+  alidation",
+        "type": "GLOBAL",
+        "library_path": "libVkLayer_khronos_validation.so",
+        "api_version": "1.3.231",
+        "implementation_version": "1",
+        "de                      {
+                            "key": "VK_DBG_LAYER_ACTION_CALLBACK",
+                            "label": "Callback",
+                            "description": "Call user defined callback function(s) that have been registered via the VK_EXT_debug_report extension. Since application must register callback, this is a NOOP for the settings file.",
+                            "view": "HIDDEN"
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_DEBUG_OUTPUT",
+                            "label": "Debug Output",
+                            "description": "Log a txt message using the Windows OutputDebugString function.",
+                            "platforms": [
+                                "WINDOWS"
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_BREAK",
+                            "label": "Break",
+                            "description": "Trigger a breakpoint if a debugger is in use."
+                        }
+                    ],
+                    "default": [
+                        "VK_DBG_LAYER_ACTION_LOG_MSG"
+                    ]
+                },scription": "Khronos Validation Layer",
+  
+       "intr    oduction"  

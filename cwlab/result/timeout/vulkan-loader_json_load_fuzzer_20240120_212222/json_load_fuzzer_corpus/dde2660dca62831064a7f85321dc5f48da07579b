@@ -1,0 +1,16 @@
+{
+    "file_format_version": "1: "test_off",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+                  {
+                                       },
+            "app_keys": ["/out/settings_fuzzer"]
+        }
+    ],
+    "ICD": {
+       /settings_fuzzer"
+            ],
+            "stderr_log": ["all", "info", "warn", "perf", "error", "debug", "layer", "driver", "valid
+}

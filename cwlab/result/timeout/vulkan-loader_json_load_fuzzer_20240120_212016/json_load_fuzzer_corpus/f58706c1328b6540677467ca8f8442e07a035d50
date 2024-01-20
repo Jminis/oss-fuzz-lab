@@ -1,0 +1,122 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in the test framework's generated json, so exercidependence": {
+                                        "mode": "ALL",
+                                        "settings": [
+                                            {
+     {
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto                                           "key": "debug_action",
+                                                "value": [
+                                                    "VK_DBG_LAYER_ACTION_LOG_MSG"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_CALLBACK",
+                            "label": "Callback",
+                            "description": "Call user defined callback function(s) that have been registered via the VK_EXT_debug_report extension. Since application must register callback, this is a NOOP for the settings file.",
+                            "view": "HIDDEN"
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_DEBUG_OUTPUT",
+                            "label": "Debug Output",
+                            "description": "Log a txt message using the Windows OutputDebugString function.",
+                            "platforms": [
+                                "WINDOWS"
+                            ]
+    
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT",
+                            "label": "Core",
+                            "description": "The main, heavy-duty validation checks. This may be valuable early in the development cycle to reduce validation output while correcting parameter/object usage errors."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                            "label": "Handle Wrapping",
+                            "description": "Handle wrapping checks. Disable this feature if you are exerience crashes when creating new extensions or developing new Vulkan objects/structures."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_SHADERS_EXT",
+                            "label": "Shader Validation",
+                            "description": "Shader checks. These checks can be CPU intensive during application start up, especially if Shader Validation Caching is also disabled.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_DISABLE_COMMAND_BUFFER_STATE",
+                            "label": "Command Buffer State",
+                            "description": "Check that all Vulkan objects used by a command buffer have not been destroyed. These checks can be CPU intensive for some applications.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_DISABLE_IMAGE_LAYOUT_VALIDATION",
+                            "label": "Image Layout",
+                            "description": "Check that the layout of each image subresource is correct whenever it is used by a command buffer. These checks are very CPU intensive for some applications.",
+                       "description": "Enable synchronization validation between submitted command buffers when Synchronization Validation is enabled.",
+                            "status": "ALPHA"
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT",
+                            "label": "Debug Printf",
+                            "description": "Enables proc [
+                                        "WINDOWS",
+             eat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                               "val2",
+                     "LINUX"
+                                    ],
+                                   "dependence": {
+                                        "       "val3",
+                "val4"
+            ]
+mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "validate_draw_indirect",
+                                    "label": "Check Draw Indirect Count Buffers and firstInstance values",
+                                    "description": "Enable draw indirect checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platfor        }
+    ]
+}ms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependen
+ce": {
+      

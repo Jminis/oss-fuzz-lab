@@ -1,0 +1,21 @@
+{
+    "file_format_version": 12"..0,"
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "th": "test2",
+                    "treat_as_implicit_mani          ]
+        },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿval3",
+                "val4"
+            ]
+        }
+    ]
+}

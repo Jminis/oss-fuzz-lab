@@ -1,0 +1,79 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed V      "device_extensions": [
+            {
+                "name": "VK_EXT_debug_marker",
+                "spec_version": "4",
+                "entrypoints": [
+                    "vkDebugMarkerSetObjectTagEXT",
+                    "vkDebugMarkerSetObjectNameEXT",
+                    "vkCmdDebugMarkerBeginEXT",
+                    "vkCmdDebugMarkerEndEXT",
+                    "vkCmdDebugMarkerInsertEXT"
+                ]
+            },
+            {
+                     "default": [
+                        "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                    ]
+                },
+                {
+                    "key": "enables",
+                    "label": "Enables",
+                    "description": "Setting an option here will enable specialized areas of validation",
+                    "type": "FLAGS",
+                    "env": "VK_LAYER_ENABLES",
+                    "flags": [
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT",
+                                                   "description": "Activating this feature enables the output of warnings related to ARM-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_AMD",
+                            "label": "AMD-specific best practices",
+                            "description": "Adds check for spec-conforming but non-ideal code on AMD GPUs.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_NVIDIA",
+                            "label": "NVIDIA-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to NVIDIA-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "ANDROID"
+                            ]
+                        }
+                    ],
+                    "default": []
+                },
+                {
+                    "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded applications. This setting allows the optimization to be disabled for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "file_format_version": "1.2.0",
+    "s": "1.2.0"ettings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+              {
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                   "/work/settings_fuzzer"
+              "control": "unorder,
+    "settrsion": "1.ed_layer_l——————"test2",
+             "cont       "val3",
+ rol": "auto",
+              ": true
+                },
+   ]
+        }
+              {
+                 }
+2.0",
+    "settings_array": [
+        T_IN_USE",
+                              ]        "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION"
+    
+   
+}
+]
+}
+}

@@ -1,0 +1,25 @@
+{
+  app_keys": [
+                  "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+       ÿÿÿÿÿÿÿÿÿval3",
+                 },
+        {
+            "app_keys": [
+                "val1",
+                  },
+        {
+            "app_keys": [
+                "val1",
+                "val2",
+                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿval3",
+                "val4"
+            ]
+        }
+    ]
+}

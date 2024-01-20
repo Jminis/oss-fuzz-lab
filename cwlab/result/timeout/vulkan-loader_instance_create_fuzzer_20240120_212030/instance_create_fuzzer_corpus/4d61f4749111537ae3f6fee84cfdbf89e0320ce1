@@ -1,0 +1,28 @@
+{
+  ": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "pat  "val1",
+                "val2",
+                "val3",
+      ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "pat  "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

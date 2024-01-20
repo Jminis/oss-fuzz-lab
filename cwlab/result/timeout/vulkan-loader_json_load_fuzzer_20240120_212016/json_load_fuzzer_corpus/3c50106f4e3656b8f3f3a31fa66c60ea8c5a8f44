@@ -1,0 +1,10 @@
+{
+    "file_format_locations": [
+                {
+                    "destinations":["/tmp"],
+                       "settings_ut/settings_fuzzer",
+            "val4"
+            ]
+        }
+    ]
+}

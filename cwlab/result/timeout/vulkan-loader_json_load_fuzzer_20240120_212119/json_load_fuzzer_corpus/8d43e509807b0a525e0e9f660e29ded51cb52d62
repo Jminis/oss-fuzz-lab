@@ -1,0 +1,20 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/outgs_fuzzer"
+            ],
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+   l1",
+                "3",
+                "val4"
+            ]
+        }
+    ]
+}

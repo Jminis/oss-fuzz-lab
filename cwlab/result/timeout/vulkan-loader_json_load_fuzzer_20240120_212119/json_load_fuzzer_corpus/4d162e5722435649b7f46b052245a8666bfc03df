@@ -1,0 +1,13 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+                ]
+            },
+            {
+                "name": "VK_EXT_validation_cache",
+                "spec_version": "1",
+                "entrypoin‹ŒÝÅ [
+                    "vkCreateValidationCacheEXT",
+                    "vkDestroyValidationCacheEXT",
+         ]
+}

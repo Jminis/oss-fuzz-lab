@@ -1,0 +1,66 @@
+{
+    "file_format_version": "    "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_buffer_size",
+                                    "label": "Printf buffer size",
+                                    "description": "Set the size in bytes of the buffer used by debug printf",
+                                    "type": "INT",
+                                    "default": 1024,
+                                    "range": {
+                                        "min": 128,
+                                        "max": 1048576
+                                    },
+                                    "unit": "bytes",
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT",
+                            "label": "GPU-Assisted",
+                            "description": "Check for API usage errors at shader execution time.",
+                            "url": "${LUNARG_SDK}/gpu_validation.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ],
+                            "settings": [
+                                {
+                                    "key": "gpuav_descriptor_indexing",
+                                    "label": "Check descriptor indexing accesses",
+                                    "description": "Enable descriptor indexing access checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS1.2.0"<
+         ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "file_format_version": "1.2.0",
+        "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stde.rrlog",
+        "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+     Œ           },
+                {
+                2",
+                    "path": ———————————————————————————————————————————————————————"val4"
+            ]
+        }
+    ]
+}

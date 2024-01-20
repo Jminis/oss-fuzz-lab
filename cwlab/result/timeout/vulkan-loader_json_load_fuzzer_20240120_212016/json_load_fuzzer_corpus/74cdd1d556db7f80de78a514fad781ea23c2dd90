@@ -1,0 +1,35 @@
+{
+    "file_for{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        false      mat_version": "1.2.0,"
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "th": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+         "app_keys": [
+                      "val1",
+                "val2",
+                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ  },
+        {
+            "app_keys": [
+                "val1",
+      ÿÿ          "val2",
+                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿvalÿÿval3",
+                "val4"
+            ]
+    3",
+       }
+               ]
+}
+  "val4"
+            ]
+        }
+    ]
+}

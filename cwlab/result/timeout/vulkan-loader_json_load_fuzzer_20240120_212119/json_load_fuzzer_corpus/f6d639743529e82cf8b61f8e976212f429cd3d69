@@ -1,0 +1,20 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_f                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXTpath": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                 }
+    ]
+}

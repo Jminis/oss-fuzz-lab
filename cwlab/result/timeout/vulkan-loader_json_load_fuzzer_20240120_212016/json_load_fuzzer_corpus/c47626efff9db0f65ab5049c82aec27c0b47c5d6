@@ -1,0 +1,15 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ]/sdk/latest/windows/khronos_validation_layer.html",
+        "instance_extensions": [
+            {
+                "name": "VK_EXT_debug_report",
+                "spec_version": "9"
+            },A-specific misuse of the API, but which are not explicitly prohibited b}
+    ]
+}

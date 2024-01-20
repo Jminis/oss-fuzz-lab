@@ -1,0 +1,17 @@
+{
+    "file_format_version"       "stderr_log": "/tm   {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                   "app_keys": [
+                "val2",
+             ,
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+                "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+              "     "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                 }
+    ]
+}

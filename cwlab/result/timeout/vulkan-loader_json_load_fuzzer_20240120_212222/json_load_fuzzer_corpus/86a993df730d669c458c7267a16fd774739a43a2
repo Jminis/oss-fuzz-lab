@@ -1,0 +1,17 @@
+{
+    "file_format_version": "1.2.0",
+      "status": "STABLE",
+                    "settings{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains": [
+                        {
+                            "key": "enables",
+                            "value": [
+                           0      ]
+                        }
+                    ]
+                },
+                {
+         a lot of complex json structures that aren't present            "label": "Debug Printf",
+   in  

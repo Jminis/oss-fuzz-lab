@@ -1,0 +1,22 @@
+{
+    "file_format_version": "1.2.0",
+        "app_keys": [
+               /" out/settings_fuzzer",
+  null              "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+        "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+     Œ           },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": ———————————————————————————————————————————————————————"val4"
+            ]
+        }
+    ]
+}

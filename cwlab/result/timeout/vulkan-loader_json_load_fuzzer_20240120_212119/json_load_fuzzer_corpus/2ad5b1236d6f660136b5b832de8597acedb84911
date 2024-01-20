@@ -1,0 +1,18 @@
+{
+    "file_format_version":Ð"1.2.0",
+    "settings_areys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":[false"all"]
+                }
+            ],
+            "la                },
+                {
+                 }
+    ]
+}

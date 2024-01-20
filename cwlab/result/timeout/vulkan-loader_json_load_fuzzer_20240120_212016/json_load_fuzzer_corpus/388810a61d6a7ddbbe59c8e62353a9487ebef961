@@ -1,0 +1,73 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in         "name": "VK_EXT_debug_report",
+                "spec_version": "9"
+            },
+            {
+                "name": "VK_EXT_debug_utils",
+                "spec_version": "1"
+            },
+            {
+                "name": "VK_EXT_validation_features",
+                "spec_version": "2"
+            }
+        ],G        "device_extensions": [
+            {
+                "name": "VK_EXT_debug_marker",
+                "spec_version": "4",
+                "entrypoints": [
+              ,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                   "label": "Check Dispatch Indirect group count values",
+                                    "description": "Enable dispatch indirect checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                   "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                tly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "ANDROID"
+                            ]
+                        }
+                    ],
+                    "default": []
+                },
+                {
+                    "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded applications. This setting allows the optimization to be disabled for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ]
+                }
+            ]
+        }
+    }
+}

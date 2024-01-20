@@ -1,0 +1,15 @@
+{
+    "file_forma: [
+               {
+         s":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+    st": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                            "destinations":["/tmp"],
+                  ]
+}

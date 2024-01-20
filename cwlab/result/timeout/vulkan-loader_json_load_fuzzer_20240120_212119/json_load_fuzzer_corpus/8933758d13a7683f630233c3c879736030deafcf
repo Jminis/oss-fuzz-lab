@@ -1,0 +1,31 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded applications. This setting allows the optimization to be disabled for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+              {
+            FFFFFFFFFFFFFF"app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

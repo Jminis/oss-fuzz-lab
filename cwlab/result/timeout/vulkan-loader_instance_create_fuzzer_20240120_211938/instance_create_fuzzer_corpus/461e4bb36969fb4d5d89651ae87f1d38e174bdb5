@@ -1,0 +1,18 @@
+{z
+    "file_format_verstinations":["/tmp"],
+                    "filters":["all"]
+ ро             }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+        "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+             
+            ]
+        }
+    ]
+}

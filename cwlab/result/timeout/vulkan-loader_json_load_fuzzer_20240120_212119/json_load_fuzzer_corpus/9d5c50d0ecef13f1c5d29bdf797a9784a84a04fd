@@ -1,0 +1,20 @@
+{
+    "file_format_version": "1.2.0",
+                     "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+        "destinations":["/t555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555mp"],
+                    "filters":[false"all"]
+                }
+            ],
+            "layers":               "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                 }
+    ]
+}

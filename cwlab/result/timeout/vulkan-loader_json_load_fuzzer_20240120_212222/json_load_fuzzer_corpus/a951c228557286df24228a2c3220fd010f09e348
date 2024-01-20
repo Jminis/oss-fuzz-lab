@@ -1,0 +1,10 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_f
+        }
+    ],
+    "ICD": {
+        "library_path": "/src/vulkan-loader/tests/framework/data/binari

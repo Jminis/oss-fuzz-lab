@@ -1,0 +1,20 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+             ],
+            "ons": [
+               ],
+            "ons": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                 "app_keys": [
+                "/out/setting ]
+}

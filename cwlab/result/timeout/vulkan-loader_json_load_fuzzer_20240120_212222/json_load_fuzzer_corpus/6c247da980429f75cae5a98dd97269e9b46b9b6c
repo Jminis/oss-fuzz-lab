@@ -1,0 +1,24 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": ["all{
+    "literally a copy of an test framework's generatc         "/out/se"ings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": ["all", "info", "warn", "perf", "error", "debug", "layer", "driver", "validation"],
+            "log_locations": [
+                8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888{
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                                "label": "Debug Output",
+                            "description": "Log a txt message using the Windows OutputDebugString function.",
+                },iption":                  "key": "info",
+                           ite_mand if

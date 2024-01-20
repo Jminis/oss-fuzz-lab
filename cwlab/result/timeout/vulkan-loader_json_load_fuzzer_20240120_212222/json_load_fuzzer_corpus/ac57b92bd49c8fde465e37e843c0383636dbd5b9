@@ -1,0 +1,11 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+              "label": "Thread Safety",
+                  žžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžžž          "description": "Thread checks. In order to not degrade performance, it might be best to run your program with thread-ch            "test_key": "test_value"
+                 "api_version": "1.3.231"
+    }
+}

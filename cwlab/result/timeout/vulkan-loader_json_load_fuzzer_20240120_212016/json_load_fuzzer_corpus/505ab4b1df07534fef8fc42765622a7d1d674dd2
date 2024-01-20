@@ -1,0 +1,33 @@
+{
+    "file_format_version": "1.2.0",
+    "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿsettings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                         "settings": [
+                                    {
+                                        "key": "enable_message_limit",
+                                        "value": true
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "key": "message_id_filter",
+                    "label": "Mute Message VUIDs",
+                    "description": "List of VUIDs and VUID identifers which are to be IGNORED by the validation layer",
+                    "type": "LIST",
+                    "env": "VK_LAYER_MESSAGE_ID_FILTER",
+                    "default": []
+                },
+                {
+                    "key": "disables",
+                    "label": "Disables",
+                    "description": "Specify areas of validation to be disableÿval3",
+                "val4"
+            ]
+        }
+    ]
+}

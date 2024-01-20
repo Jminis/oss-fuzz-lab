@@ -1,0 +1,16 @@
+{
+    "file_forma: [
+   Y            {
+         nation1
+  s":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+    st": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                            "destinations":["/tmp"],
+                  ]
+}

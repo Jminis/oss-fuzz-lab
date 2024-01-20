@@ -1,0 +1,26 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+ "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                },
+                ]
+        },
+        {
+            "app_keys": [
+                "val0",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

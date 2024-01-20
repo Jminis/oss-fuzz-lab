@@ -1,0 +1,17 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+                     "filters":["all"]
+                                "destinations":["/tmp"],
+                    "filters":["all"]
+                 "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                 {
+            "app_keys": [
+                "/out/settings_fuzzer",
+            "val4"
+            ]
+        }
+    ]
+}

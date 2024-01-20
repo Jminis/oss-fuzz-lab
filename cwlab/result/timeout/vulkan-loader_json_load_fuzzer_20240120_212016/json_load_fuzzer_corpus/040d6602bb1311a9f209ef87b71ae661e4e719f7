@@ -1,0 +1,9 @@
+{
+    "file_format_version": "1.2.0",
+    "layer" {
+        "test_code_description":ALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATU: "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any values of interest to the debug callback or stdout.",
+                    "platforms"2.0",
+    "layer" {
+        "test_code_description":ALIDATION_FEATURE_DISABLE_OBJ        

@@ -1,0 +1,24 @@
+{
+    "file_forma: [
+               {
+              "filters":["all"]
+                }
+            ],
+            "layers": [
+                yers": [
+               "treat_as_implicit_manifest": true
+                },
+                {
+         "destinations":["/tmp"],
+                    nations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                yers": [
+               "treat_as_implicit_manifest": true
+                },
+                {
+         "destinations":["/tmp"],
+                  ]
+}

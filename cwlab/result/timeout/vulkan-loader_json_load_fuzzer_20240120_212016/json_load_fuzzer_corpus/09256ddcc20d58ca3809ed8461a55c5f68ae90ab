@@ -1,0 +1,15 @@
+{
+    "file_format_ver"/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "ons": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                 "app_keys": [
+                "/out/setting ]
+}

@@ -1,0 +1,27 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+  "layers": [
+                      },
+                {
+                    "control": "unordered_layer_location   p_keys": [
+                mmy_library_elf_32.so",
+     "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+   "file_for":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+             with error 193      {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "vval4"
+            ]
+        }
+    ]
+}

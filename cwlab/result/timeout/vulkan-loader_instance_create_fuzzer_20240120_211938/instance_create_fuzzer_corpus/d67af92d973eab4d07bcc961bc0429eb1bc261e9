@@ -1,0 +1,27 @@
+{
+    "file_format_version": "0.2.0",
+    "settings_array": [
+        {
+            "appÌkeys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations":0[
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+         w      }
+            ],
+            "layers": [
+                {
+                    "control": "a   {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+.BLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Synchronization",
+                    "description": "Identify resource access conflicts due to missing or incorrect synchronization operations between actions reading or writing the same regions of memory.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                            "label": "Max Duplicated Messages",
+                            "description": "Maximum number of times any single validation message should be reported.",
+                            "type": "INT",
+                      "VK_DBG_LAYER_ACTION_LOG_MSG"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_CALLBACK",
+                            "label": "Callback",
+                            "description": "Call user defined callback function(s) that have been registered via the VK_EXT_debug_report extension. Since application must register callback, this    

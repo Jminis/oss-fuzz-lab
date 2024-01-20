@@ -1,0 +1,104 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in         "name": "VK_EXT_debug_report",
+                "spec_version": "9"
+            },
+            {
+                "name": "VK_EXT_debug_utils",
+                "spec_version": "1"
+            },
+            {
+                "name": "VK_EXT_validation_features",
+                "spec_version": "2"
+            }
+        ],
+        "device_extensions": [
+            {
+                "name": "VK_EXT_debug_marker",
+                "spec_version": "4",
+                "entrypoints": [
+              ,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "Disables s_QUERY_VALIDATION",
+                            "label": "Query",
+                            "description": "Checks for commands that use VkQueryPool objects.",
+                            "view": "ADVANCED"
+                     "\ },
+                        {
+                            "key": "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+                            "label": "Object in Use",
+                            "description": "Check that Vulkan objects are not in use by a command buffer when they are destroyed.",
+                            "view": "ADVANCED"
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT",
+                            "label": "Shader Validation Caching",
+                            "description": "Disable caching of shader validation results.",
+                            "view": "ADVANCED"
+                        }
+                    ],
+                    "default": [
+                        "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                           "key": "validate_dispatch_indirect",
+                                    "label": "Check Dispatch Indirect group count values",
+                                    "description": "Enable dispatch indirect checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                   "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                tly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "ANDROID"
+                            ]
+                        }
+                    ],
+                    "default": []
+                },
+                {
+                    "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded applications. This setting allows the optimization to be disabled for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ]
+                }
+            ]
+        }
+    }
+}

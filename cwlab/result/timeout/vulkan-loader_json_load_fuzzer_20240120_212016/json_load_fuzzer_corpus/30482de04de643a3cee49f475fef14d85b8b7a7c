@@ -1,0 +1,84 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in the test framework's generated json, so exercises cJSON better",
+        "name": "VK_LAYER_KHRONOS_validation",
+        "type": "GLOBAL",
+        "library_path": "libVkLayer_khronos_validation.so",
+        "api_version": "1.3.231",
+        "implementation_version": "1",
+        "description": "Khronos Validation Layer",
+        "introduction": "The main, comprehensive Khronos validation layer.\n\nVulkan is an Explicit A "name": "VK_EXT_debug_utils",
+                "spec_ve   "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                 }
+                    ]
+                },
+                {
+                  VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLEAssisted",
+                    "description": "Check for API usage errors at shader execution time.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT",
+                                "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any values of interest to the debug caY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Debug Printf",
+                    "description": "Debug shader code by \"printing\" any values of interest to the debug callback or stdout.",
+                    "platforms": [
+    llbac                    "WINDOWS",
+    k or stdout.",
+                           

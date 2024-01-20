@@ -1,0 +1,15 @@
+{
+    "file_formatwarn", "perf", "error", "debug", "l  },
+                {
+                    "control": "off",
+                    "name": "test_off",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [s/framework/data/binaries/libdummy_library_elf_32.so",
+   зя   "api_version": "1.3.231"
+    }
+}

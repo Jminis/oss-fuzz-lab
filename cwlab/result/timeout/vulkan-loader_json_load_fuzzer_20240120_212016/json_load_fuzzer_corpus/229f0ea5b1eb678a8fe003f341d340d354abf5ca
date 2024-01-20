@@ -1,0 +1,78 @@
+2{
+.2.0",
+                       ]
+            }
+        ],
+        "features": {
+            "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "Disables some checks in the interest of better performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS"
+                    ],
+                    "status": "STABLE",
+                    "editor_state": "01110111111111111111111001111111111110",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VALIDATION_CHECK_DISABLE_IMAGE_LAYOUT_VALIDATION",
+                                "VALIDATION_CHECK_DISABLE_COMMAND_BUFFER_STATE",
+                                "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+                                "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Best Practices",
+                    "description": "Provides warnings on valid API usage that is potential API misuse.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT"
+                            ]
+                        },
+                        {
+                            "key": "d      "val4
+}

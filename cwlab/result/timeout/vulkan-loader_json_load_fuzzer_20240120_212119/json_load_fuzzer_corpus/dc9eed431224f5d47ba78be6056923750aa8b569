@@ -1,0 +1,17 @@
+{
+    "file_format_version": "1.2.0",
+                     "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_locatio       "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+ n",
+         "layers":               
+                {
+                 }
+    ]
+}

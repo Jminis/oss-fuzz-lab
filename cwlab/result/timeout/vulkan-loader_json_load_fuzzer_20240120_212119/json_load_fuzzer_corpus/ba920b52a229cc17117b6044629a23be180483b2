@@ -1,0 +1,12 @@
+{
+    "fil          "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":[false"all"]
+                }
+            ],
+            "la                },
+                {
+                 }
+    ]
+}

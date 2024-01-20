@@ -1,0 +1,16 @@
+": "test",
+                    "path": "test",
+            "name": "test2",
+                    "path": "test2",
+                    "treat_as_impli  {
+               "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_locatio         "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

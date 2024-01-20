@@ -1,0 +1,21 @@
+{
+ LBACK",
+                            "label": "Callback",
+                            "description": "Call usEr defined callback function(s) that have been registered via the VK_EXT_debug_report extension. Since application must register callback, this is a NOOP for the settings file.",
+                            v"iew": "HIDDEN"
+                        },
+                        {
+                            "key": "VK_Drs": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name":  "val4"
+            ]
+        }
+    ]
+}

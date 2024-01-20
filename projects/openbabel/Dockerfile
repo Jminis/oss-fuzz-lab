@@ -16,7 +16,12 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt install -y cmake
-RUN git clone --depth 1 https://github.com/openbabel/openbabel.git
+RUN git clone  https://github.com/openbabel/openbabel.git
+
+WORKDIR ./openbabel
+RUN git checkout 32cf131444c1555c749b356dab44fb9fe275271f
+
+WORKDIR ../
 COPY build.sh $SRC
 WORKDIR $SRC/openbabel
 # This is to fix Fuzz Introspector build by using LLVM old pass manager

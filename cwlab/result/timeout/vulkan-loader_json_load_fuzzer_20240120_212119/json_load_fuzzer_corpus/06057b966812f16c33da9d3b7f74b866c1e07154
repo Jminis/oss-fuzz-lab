@@ -1,0 +1,15 @@
+{
+    ": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {"file_format_version": "1.2.0",
+                     "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+      
+                {
+                 }
+    ]
+}

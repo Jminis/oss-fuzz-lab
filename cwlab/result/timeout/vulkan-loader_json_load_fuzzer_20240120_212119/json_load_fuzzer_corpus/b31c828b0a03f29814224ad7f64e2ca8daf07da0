@@ -1,0 +1,12 @@
+{
+"file_format_version": "1.2.0",
+    "settings_areys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fu~zer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                     {
+                 }
+    ]
+}

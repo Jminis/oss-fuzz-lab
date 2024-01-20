@@ -1,0 +1,28 @@
+{
+    "file_forma          "control": "auto",
+                    "name": "test_auto",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "on",
+                    "name": "test_on",
+                    "path": "test",
+                 ":["all"]
+                }
+            ],
+            "layers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "test2",
+                    "path": ———————————————————————————————————————————————————————"val4"
+            ]
+        }
+    ]
+}

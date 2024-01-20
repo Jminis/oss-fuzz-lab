@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_~fuzzer",
+                "/work/settings_fuzzer"
+ P          ],
+            "stderr_log": "/tmp/stderr.log",
+       s":["/tmp"],
+                    "filtest",
+                    "path": "test",
+              "val3",
+                "val4"
+            ]
+        }
+    ]
+}

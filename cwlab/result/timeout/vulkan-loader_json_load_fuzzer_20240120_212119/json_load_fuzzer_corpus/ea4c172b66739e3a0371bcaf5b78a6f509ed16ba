@@ -1,0 +1,11 @@
+{
+    "file_format_version": ""settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+                  ],
+            "stder "control": "auto",
+               }
+          }
+}

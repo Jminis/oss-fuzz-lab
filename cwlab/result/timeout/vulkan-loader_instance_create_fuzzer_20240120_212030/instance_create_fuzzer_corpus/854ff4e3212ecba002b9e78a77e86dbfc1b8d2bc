@@ -1,0 +1,20 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_ar "test_key": "test_value"
+            },
+            "enable_environment": {
+                "test_key": "test_value"
+            },
+              "treat_as_implicit_manifest": true
+                },
+         "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+     "val1",
+    4"
+            ]
+        }
+    ]
+}

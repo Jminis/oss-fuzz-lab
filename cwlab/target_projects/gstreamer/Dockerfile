@@ -25,7 +25,12 @@ RUN git clone --depth 1 https://gitlab.xiph.org/xiph/ogg.git ogg
 RUN git clone --depth 1 https://gitlab.xiph.org/xiph/theora.git theora
 
 # Checkout repository
-RUN git clone --depth 1 --recursive https://gitlab.freedesktop.org/gstreamer/gstreamer.git gstreamer
+RUN git clone  --recursive https://gitlab.freedesktop.org/gstreamer/gstreamer.git gstreamer
+
+WORKDIR ./gstreamer
+RUN git checkout e2d7fbe94ff077f9fde0bc44cee889095e65b4be
+
+WORKDIR ../
 
 WORKDIR gstreamer
 COPY build.sh $SRC/

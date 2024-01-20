@@ -1,0 +1,20 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/sD_EXT",
+                            "label": "GPU-Assisted",
+                            "description": "Check for API usage errors at shader execution time.",
+                            "url": "${LUNARG_SDK}/gpu_validation.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ],
+                            "settings": [
+         OWS",
+  l4"
+            ]
+        }
+    ]
+}

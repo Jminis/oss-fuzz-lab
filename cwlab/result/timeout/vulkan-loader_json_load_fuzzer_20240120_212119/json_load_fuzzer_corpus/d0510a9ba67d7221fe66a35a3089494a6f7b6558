@@ -1,0 +1,11 @@
+{
+    "file_format_vernt": {
+                "test_key": "test_value"
+            },
+            "enabt": {
+                "test_key" "file_format_version": "1.2.0",
+   "entrypoints": [                "vkGetPhysicalDeviceToolPropertiesEXT"
+                ]
+            sion": "1.231"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+     t",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+    ys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

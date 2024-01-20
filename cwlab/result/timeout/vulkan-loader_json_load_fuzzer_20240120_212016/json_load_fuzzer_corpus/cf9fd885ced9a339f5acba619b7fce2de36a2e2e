@@ -1,0 +1,26 @@
+{
+    "file_format_version": "1.2.0",  {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/setting           "ons": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                {
+                 "app_keys": [
+                "/out/settings_fu         "val2",
+                "val3",
+                "val4"
+            ]
+   tting           "ons": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layer     }
+    ]
+}

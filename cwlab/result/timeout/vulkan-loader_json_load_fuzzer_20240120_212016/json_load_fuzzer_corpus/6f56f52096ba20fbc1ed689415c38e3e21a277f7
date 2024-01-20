@@ -1,0 +1,16 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+          m "app_keys": [
+                "/oueat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unorderval2",
+                "ÿÿÿÿÿÿ        "val1",
+                "val2",
+                "val3",
+                "val4"
+   }
+    ]
+}

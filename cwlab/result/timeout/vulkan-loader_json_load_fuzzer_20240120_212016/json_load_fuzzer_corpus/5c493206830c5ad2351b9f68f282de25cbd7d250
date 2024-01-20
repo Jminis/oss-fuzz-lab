@@ -1,0 +1,25 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_           "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "th": "test2",
+                    "treat_as_implicit_manifestarray": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "th": "test2",
+                    "treat_as_implicit_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+            al4"
+            ]
+        }
+    ]
+}

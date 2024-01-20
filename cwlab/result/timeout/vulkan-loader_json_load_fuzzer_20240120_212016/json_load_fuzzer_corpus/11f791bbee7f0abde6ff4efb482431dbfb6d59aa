@@ -1,0 +1,41 @@
+{
+    "file_format_ve                            "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+                                "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Best Practices",
+                    "description": "Provides warnings on valid API usage that is potential API misuse.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Synchronization",
+                    "description": "Identify resource access conflicts due to missing or incorrect synchronization operations between actions reading or rsiotings_array": [
+        {": [
+ !            }

@@ -1,0 +1,34 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "teK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                    ]
+                },
+                {
+                    "key": "enables",
+                    "label": "Enables",
+                    "description": "Setting an option here will enable specialized areas of validation",
+                    "type": "FLAGS",
+                    "env": "VK_LAYER_ENABLES",
+                    "flags": [
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT",
+                            "label": "Synchronization",
+                            "description": "This feature reports resource access conflicts due to missing or incorrect synchronization operations between actions (Draw, Copy, Dispatch, Blit) reading or writing the same regions of memory.",
+                            "url": "${LUNARG_SDK}/synchronization_usage.html",
+                            "status" validation layers reserve a descriptor set binding slot for their own use. The layer reports              "LINUX"
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT",
+                            "label": "Best Practices",
+                            "description": "Activating this feature enables the output of warnings related to common misuse of the API, but which are not explicitly prohibited by the specification.",
+                     )      "url": "${LUNARG_SDK}/best_practices.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                            ]
+        }
+    }
+}

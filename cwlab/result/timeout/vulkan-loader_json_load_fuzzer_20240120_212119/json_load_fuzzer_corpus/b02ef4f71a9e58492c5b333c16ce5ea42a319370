@@ -1,0 +1,43 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validati{
+           "type": "INSTANCE",
+ 1",
+            "librооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооary_path": {
+    "file_format_version": "1.2.0",
+    "libVkLayer_khronos_validation.so",
+            "component_layers": ["VK_LA"settings_array": [
+        {
+            "app_keys"YER_test_layer_1: [
+ "on_version": "1",
+        "description": "Khronos Validation Layer",
+        "introduction": "The main, compre         "LINUX"
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT",
+                            "label": "Best Practices",
+                            "description": "Activating this feature enables the output of warnings related to common misuse of the API, but which are not expli            }
+                    ],
+                    "default": []
+                },
+                {
+                    "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded applications. This setting allows the optimization to be disabled for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ]
+                }
+            ]
+        }
+    }
+}

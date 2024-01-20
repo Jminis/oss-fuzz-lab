@@ -1,0 +1,10 @@
+{
+    "file_format_version": "1.2.0",
+      "status": "STABLE",
+                    "settings": [
+      {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_GPU_AEXT",
+                           }
+}

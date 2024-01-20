@@ -1,0 +1,11 @@
+{
+    "file_format_locations": [
+                {
+                    "destinations":["/tmp"],
+                       "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzze "/out/settings_fuzzer",
+            "val4"  }
+    ]
+}

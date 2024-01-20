@@ -1,0 +1,189 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+    VK_EXT_debug_marker",
+                "spec_version": "4",
+                "entrypoints": [
+                    "vkDebugMarkerSetObjectTagEXT",
+                    "vkDebugMarkerSetObjectNameEXT",
+                    "vkCmdDebugMarkerBeginEXT",
+                    "vkCmdDebugMarkerEndEXT",
+                    "vkCmdDebugMarkerInsertEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_validation_cache",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkCreateValidationCacheEXT",
+                    "vkDestroyValidationCacheEXT",
+                    "vkGetValidationCacheDataEXT",
+                    "vkMergeValidationCachesEXT"
+                ]
+            },
+            {
+                "name": "VK_EXT_tooling_info",
+                "spec_version": "1",
+                "entrypoints": [
+                    "vkGetPhysicalDeviceToolPropertiesEXT"
+                ]
+            }
+        ],
+        "features": {
+            "presets": [
+                {
+                    "label": "Standard",
+                    "description": "Good default validation setup that balance validation coverage and performance.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Reduced-Overhead",
+                    "description": "Disables some checks in the interest of better performance.",
+                    "platforms": [
+                        "WINDOWS",
+                      -  "LINUX",
+                        "MACOS"
+                    ],
+                    "status": "STABLE",
+                    "editor_state": "01110111111111111111111001111111111110",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": []
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VALIDATION_CHECK_DISABLE_IMAGE_LAYOUT_VALIDATION",
+                                "VALIDATION_CHECK_DISABLE_COMMAND_BUFFER_STATE",
+                                "VALIDATION_CHECK_DISABLE_OBJECT_IN_USE",
+                                "VALIDATION_CHECK_DISABLE_QUERY_VALIDATION"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Best PracTURE_ENABLE_DEBUG_PRINTF_EXT",
+                            "label": "Debug Printf",
+                            "description": "Enables processing of debug printf instructions in shaders and sending debug strings to the debug callback.",
+                            "url": "${LUNARG_SDK}/debug_printf.html",
+                            "status": "STABLE",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ],
+                            "settings": [
+                                {
+                                    "key": "printf_to_stdout",
+                                    "label": "Redirect Printf messages to stdout",
+                                    "description": "Enable redirection of Debug Printf messages from the debug callback to stdout",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_verbose",
+                                    "label": "Printf verbose",
+                                    "description": "Set the verbosity of debug printf messages",
+                                    "type": "BOOL",
+                                    "default": false,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_buffer_size",
+                                    "label": "Printf buffer size",
+                                    "description": "Set the size in bytes of the buffer used by debug printf",
+                                    "type": "INT",
+                                    "default": 1024,
+                                    "range": {
+                                        "min": 128,
+                                        "max": 1048576
+                                    },
+                                    "unit": "bytes",
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT",
+                            "label": "GPU-Assisted",
+                            "description": "Check for API usage errors at shader execution time.",
+                            "url": "${LUNARG_SDK}/gpu_validation.html",
+                            "platforms": [
+                      {
+     t",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "controlapp_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structures that aren't present in the test framework's generatebug",
+                            "description": "For layer development. Report messages for debugging layer behavior.",
+                            "view": "HIDDEN"
+                        }
+                    ],
+                    "default": [
+                        "error"
+                    ]
+                },
+                {
+                    "key": "enable_message_limit",
+                    "label": "Limit Duplicated Messages",
+                    "description": "Enable limiting of duplicate messages.",
+                    "type": "BOOL",
+                    "default": true,
+                    "settings": [
+                        {
+                            "key": "duplicate_message_limit",
+                            "env": "VK_LAYER_DUPLICATE_MESSAGE_LIMIT",
+                            "label": "Max Duplicated Messages",
+                            "description": "Maximum number of times any single validation message should be reported.",
+                            "type": "INT",
+                            "default": 09,
+                            "range":0{
+                                "min": 1
+                            },
+                            "dependence": {
+                                 },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                            "label": "Stateless Parameter",
+                            "description": "Stateless parameter checks. This may not always be necessary late in a development cycle."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                            "label": "Object Lifetime",
+                            "description": "Object tracking checks. This may not always be necessary late in a development cycle."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT",
+                            "label": "Core",
+                            "description": "The main, heavy-duty validation checks. This may be valuable early in the development cycle to reduce validation output while correcting parameter/object usage errors."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                            "label": "Handle Wrapping",
+                            "description": "Handle wrapping checks. Disable this feature if you are exerience crashes when creating new extensions or developing new Vulkan objects/structures."
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_DISABLE_SHADERS_EXT",
+                            "label": "Shader Validation",
+                            "description": "Shader checks. These checks can be CPU               ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_verbose",
+                                    "label": "Printf verbose",
+                                    "description": "Set the verbosity of debug printf messages",
+                                    "type": "BOOL",
+                                    "default": false,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "printf_buffer_size",
+                                    "label": "Printf buffer size",
+                                    "description": "Set the size in bytes of the buffer used by debug printf",
+                                    "type": "INT",
+                                    "default": 1024,
+                                    "range": {
+                                        "min": 128,
+                                        "max": 1048576
+                                    },
+                                    "unit": "bytes",
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT",
+                            "label": "GPU-Assisted",
+                            "description": "Check for API usage errors at shader execution time.",
+                            "url": "${LUNARG_SDK}/gpu_validation.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ],
+                            "settings": [
+                                {
+                                    "key": "gpuav_descriptor_indexing",
+                                    "label": "Check descriptor indexing accesses",
+                                    "description": "Enable descriptor indexing access checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+            {
+    "file_format_version": "1.2.0",
+    "layer": {
+                 "teK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT"
+                    ]
+                                        "key": "enables",
+         },
+              

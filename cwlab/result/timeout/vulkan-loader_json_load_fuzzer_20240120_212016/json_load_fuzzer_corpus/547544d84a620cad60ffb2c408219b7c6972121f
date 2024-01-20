@@ -1,0 +1,81 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuµzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+             T",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                     "label": "GPU-Assisted",
+                    "description": "Check for API usage errors at shader execution time.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+               
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALest to the debug callback or stdout.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT"
+                            ]
+                        },
+                        {
+                            "key": "enable_message_limit",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "settings": [
+                {
+                    "key": "debug_action",
+                    "label": "Debug Action",
+                    "description": "Specifies what action is to be taken when a layer reports information",
+                    "type": "FLAGS",
+                    "flags": [
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_LOG_MSG",
+                            "label": "Log Message",
+                            "description": "Log a txt message to stdout or to a log filename.",
+                            "settings": [
+                                {
+                                        "label": "Break",
+                            "description": "Trigger a breakpoint if a debugger is in use."
+                        }
+                    ],
+                    "default": [
+                        "VK_DBG_LAYER_ACTION_LOG_MSG"
+                    ]
+                },scription": "Khronos Validation Layer",
+  
+       "intr    oduction"  

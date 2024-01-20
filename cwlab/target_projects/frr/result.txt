@@ -2,3 +2,11 @@
 ./crash/asan/SEGV/frr--bgpd/reproduced_frr--bgpd--crash-01cd4a2aa769d515d50943e5ccc1c1c1-2023-09-03-141511,frr,2023-09-03-14,de26a013ff7c9a88648aeea50e830167572a95a3
 ./crash/asan/HeapBOF/frr--pimd/reproduced_frr--pimd--crash-ffda975a97bc0124ad9c1391d1e0866a-2023-12-05-053447,frr,2023-12-05-05,de26a013ff7c9a88648aeea50e830167572a95a3
 ./crash/asan/HeapBOF/frr--pimd/reproduced_frr--pimd--crash-db671a55e791fd6e826fcc05d9ed53f0-2023-09-05-214833,frr,2023-09-05-21,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/SEGV/frr--zebra/reproduced_frr--zebra--crash-6ae30c969634391d8f7af2adb5781748-2023-11-18-224506,frr,2023-11-18-22,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/SEGV/frr--bgpd/reproduced_frr--bgpd--crash-01cd4a2aa769d515d50943e5ccc1c1c1-2023-09-03-141511,frr,2023-09-03-14,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/HeapBOF/frr--pimd/reproduced_frr--pimd--crash-ffda975a97bc0124ad9c1391d1e0866a-2023-12-05-053447,frr,2023-12-05-05,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/HeapBOF/frr--pimd/reproduced_frr--pimd--crash-db671a55e791fd6e826fcc05d9ed53f0-2023-09-05-214833,frr,2023-09-05-21,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/SEGV/frr--zebra/reproduced_frr--zebra--crash-6ae30c969634391d8f7af2adb5781748-2023-11-18-224506,frr,2023-11-18-22,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/SEGV/frr--bgpd/reproduced_frr--bgpd--crash-01cd4a2aa769d515d50943e5ccc1c1c1-2023-09-03-141511,frr,2023-09-03-14,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/HeapBOF/frr--pimd/reproduced_frr--pimd--crash-ffda975a97bc0124ad9c1391d1e0866a-2023-12-05-053447,frr,2023-12-05-05,de26a013ff7c9a88648aeea50e830167572a95a3
+./crash/asan/HeapBOF/frr--pimd/reproduced_frr--pimd--crash-db671a55e791fd6e826fcc05d9ed53f0-2023-09-05-214833,frr,2023-09-05-21,de26a013ff7c9a88648aeea50e830167572a95a3

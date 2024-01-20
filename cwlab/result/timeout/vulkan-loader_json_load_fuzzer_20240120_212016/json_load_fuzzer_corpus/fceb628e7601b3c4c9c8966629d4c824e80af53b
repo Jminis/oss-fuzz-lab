@@ -1,0 +1,28 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/set     ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                   ,
+                    "name": "test",
+                  
+    "tings_array": [
+   t": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name":""test2",
+                    "path": "test2",
+                    "treat_as_implicit_manifest": trueval3",
+                "val4"
+            ]
+        }
+    ]
+}

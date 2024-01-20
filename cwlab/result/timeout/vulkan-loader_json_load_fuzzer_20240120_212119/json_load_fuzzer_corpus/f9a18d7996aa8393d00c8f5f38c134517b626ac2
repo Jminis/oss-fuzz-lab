@@ -1,0 +1,14 @@
+{
+    "file_format_version": "1.2.at_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+                          },
+                {
+                    "control": "unordered_layer_location",
+         "layers":               
+                {
+                 }
+    ]
+}

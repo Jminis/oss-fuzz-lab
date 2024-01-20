@@ -1,0 +1,22 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "app_keys": [
+                "/out/settings_fuzzer",
+   mplicit_manifest": true
+                },
+                {
+                    "control": "unordered_layer_location",
+                    "name": "tet": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val1",
+            control": "unordered_layer_location",
+                    "na          ]
+        }
+    ]
+}

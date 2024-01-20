@@ -1,0 +1,21 @@
+{
+    "file_format_version":,
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+              g",
+            "log_locations": [
+"/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers                   "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                 }
+    ]
+}

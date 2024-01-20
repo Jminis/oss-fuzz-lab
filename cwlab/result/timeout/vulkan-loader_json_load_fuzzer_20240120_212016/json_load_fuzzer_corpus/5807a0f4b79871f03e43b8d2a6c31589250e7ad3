@@ -1,0 +1,228 @@
+{
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of comples": [
+                {
+                    "key": "debug_action",
+                    "label": "Debug Action",
+                    "description": "Specifies what action is to be taken when a layer reports information",
+                    "type": "FLAGS",
+                    "flags": [
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_LOG_MSG",
+                            "label": "Log Message",
+                            "description": "Log a txt message to stdout or to a log filename.",
+                            "settings": [
+                                {
+                                    "key": "log_filename",
+                                    "label": "Log Filename",
+                                    "description": "Specifies the output filename",
+                                    "type": "SAVE_FILE",
+                                    "default": "stdout",
+                                    "dependence": {
+                                        "mode": "ALL",
+                                        "settings": [
+                                            {
+                                                "key": "debug_action",
+                                                "value": [
+                            -                        "VK_DBG_LAYER_ACTION_LOG_MSG"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_CALLBACK",
+                            "label": "Callback",
+                            "description": "Call user defined callback function(s) that have been registered via the VK_EXT_debug_report extension. Since application must register callback, this is a NOOP for the settings file.",
+                            "view": "HIDDEN"
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_DEBUG_OUTPUT",
+                            "label": "Debug Output",
+                            "description": "Log a txt message using the Windows OutputDebugString function.",
+                            "platforms": [
+                                "WINDOWS"
+                            ]
+                        },
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_BREAK",
+                            "label": "Break",
+                            "description": "Trigger a breakpoint if a debugger is in use."
+                        }
+                    ],
+                    "default": [
+                        "VK_DBG_LAYER_ACTION_LOG_MSG"
+                    ]
+                },
+                {
+                    "key": "report_flags",
+                    "label": "Message Severity",
+                    "description": "Comma-delineated list of options specifying the types of messages to be reported",
+                    "type": "FLAGS",
+                    "flags": onization Validation",
+                            "description": "Enable synchronization validation between submitted command buffers when Synchronization Validation is enabled.",
+                            "status": "ALPHA"
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT",
+                            "label": "Debug Printf",
+                            "description": "Enables proc [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "validate_draw_indirect",
+                                    "label": "Check Draw Indirect Count Buffers and firstInstance values",
+                                    "description": "Enable draw indirect checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "validate_dispatch_indirect",
+                                    "label": "Check Dispatch Indirect group count values",
+                                    "description": "Enable dispatch indirect checking",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "key": "vma_linear_output",
+                                    "label": "Use VMA linear memory allocations for GPU-AV output buffers",
+                                    "description": "Use linear allocation algorithm",
+                                    "type": "BOOL",
+                                    "default": true,
+                                    "platforms": [
+                                        "WINDOWS",
+                                        "LINUX"
+                                    ],
+                                    "dependence": {
+                                        "mode": "ANY",
+                                        "settings": [
+                                            {
+                                                "key": "enables",
+                                                "value": [
+                                                    "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT",
+                           evice supports the binding of only one descriptor set, the validation layer does not perform GPU-assisted validation.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX"
+                            ]
+                        },
+                        {
+                            "key": "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT",
+                            "label": "Best Practices",
+                            "description": "Activating this feature enables the output of warnings related to common misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "url": "${LUNARG_SDK}/best_practices.html",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_ARM",
+                            "label": "ARM-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to ARM-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS",
+                                "ANDROID"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_AMD",
+                            "label": "AMD-specific best practices",
+                            "description": "Adds check for spec-conforming but non-ideal code on AMD GPUs.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "MACOS"
+                            ]
+                        },
+                        {
+                            "key": "VALIDATION_CHECK_ENABLE_VENDOR_SPECIFIC_NVIDIA",
+                            "label": "NVIDIA-specific best practices",
+                            "description": "Activating this feature enables the output of warnings related to NVIDIA-specific misuse of the API, but which are not explicitly prohibited by the specification.",
+                            "platforms": [
+                                "WINDOWS",
+                                "LINUX",
+                                "ANDROID"
+                            ]
+                        }
+                    ],
+                    "default": []
+                },
+                {
+                    "key": "fine_grained_locking",
+                    "env": "VK_LAYER_FINE_GRAINED_LOCKING",
+                    "label": "Fine Grained Locking",
+                    "description": "Enable fine grained locking for Core Validation, which should improve performance in multithreaded applications. This setting allows the optimization to be disabled for debugging.",
+                    "status": "STABLE",
+                    "type": "BOOL",
+                    "default": true,
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ]
+                }
+            ]
+        }
+    }
+}

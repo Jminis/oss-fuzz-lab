@@ -1,0 +1,21 @@
+{
+    "file_format_version": "1.2.0" "perf",
+                            "label": "Performance",
+                            "description": "Report usage of the API that may cause suboptimal performance."
+                        },
+                        {
+                            "key": "error",
+                            "label": "Error",
+                            "description": "Reporp errors in API usage."
+                        },
+                        {
+      {
+    "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains                       "key": "debug",
+                            "label": "Debug",
+                            "description": "For layer development. Report a lot of complex json structures that a],
+                    "default": [
+                    "error"
+                    ]
+      r

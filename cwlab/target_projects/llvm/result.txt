@@ -3,3 +3,13 @@
 ./crash/asan/HeapBOF/llvm--llvm-special-case-list-fuzzer/reproduced_llvm--llvm-special-case-list-fuzzer--crash-853ae90f0351324bd73ea615e6487517-2023-10-03-123252,llvm,2023-10-03-12,a1509672e693c9b3e39ca276bee38b584bb4300f
 ./crash/asan/HeapBOF/llvm--llvm-special-case-list-fuzzer/reproduced_llvm--llvm-special-case-list-fuzzer--crash-fff54cf77e0060d4984f0d431c8e9cae-2023-08-16-000058,llvm,2023-08-16-00,
 ./crash/asan/UAF/llvm--clang-fuzzer/reproduced_llvm--clang-fuzzer--crash-eb1acf019988638f718d583e9ff67ca2-2023-08-04-134801,llvm,2023-08-04-13,
+./crash/asan/SEGV/llvm--clang-objc-fuzzer/reproduced_llvm--clang-objc-fuzzer--crash-b52c733167060cd573dcb7c8573ad2d1-2023-07-21-010440,llvm,2023-07-21-01,
+./crash/asan/SEGV/llvm--clang-fuzzer/reproduced_llvm--clang-fuzzer--crash-961a3c8c1c0b62745a3d227d631e52c2-2023-11-11-200531,llvm,2023-11-11-20,7e213107c2b6cc99237e1dfc2e38081b7b1533f6
+./crash/asan/HeapBOF/llvm--llvm-special-case-list-fuzzer/reproduced_llvm--llvm-special-case-list-fuzzer--crash-853ae90f0351324bd73ea615e6487517-2023-10-03-123252,llvm,2023-10-03-12,a1509672e693c9b3e39ca276bee38b584bb4300f
+./crash/asan/HeapBOF/llvm--llvm-special-case-list-fuzzer/reproduced_llvm--llvm-special-case-list-fuzzer--crash-fff54cf77e0060d4984f0d431c8e9cae-2023-08-16-000058,llvm,2023-08-16-00,
+./crash/asan/UAF/llvm--clang-fuzzer/reproduced_llvm--clang-fuzzer--crash-eb1acf019988638f718d583e9ff67ca2-2023-08-04-134801,llvm,2023-08-04-13,
+./crash/asan/SEGV/llvm--clang-objc-fuzzer/reproduced_llvm--clang-objc-fuzzer--crash-b52c733167060cd573dcb7c8573ad2d1-2023-07-21-010440,llvm,2023-07-21-01,
+./crash/asan/SEGV/llvm--clang-fuzzer/reproduced_llvm--clang-fuzzer--crash-961a3c8c1c0b62745a3d227d631e52c2-2023-11-11-200531,llvm,2023-11-11-20,7e213107c2b6cc99237e1dfc2e38081b7b1533f6
+./crash/asan/HeapBOF/llvm--llvm-special-case-list-fuzzer/reproduced_llvm--llvm-special-case-list-fuzzer--crash-853ae90f0351324bd73ea615e6487517-2023-10-03-123252,llvm,2023-10-03-12,a1509672e693c9b3e39ca276bee38b584bb4300f
+./crash/asan/HeapBOF/llvm--llvm-special-case-list-fuzzer/reproduced_llvm--llvm-special-case-list-fuzzer--crash-fff54cf77e0060d4984f0d431c8e9cae-2023-08-16-000058,llvm,2023-08-16-00,
+./crash/asan/UAF/llvm--clang-fuzzer/reproduced_llvm--clang-fuzzer--crash-eb1acf019988638f718d583e9ff67ca2-2023-08-04-134801,llvm,2023-08-04-13,

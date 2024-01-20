@@ -1,0 +1,20 @@
+{
+    "file_forma: [
+                {
+         nations":["/tmp"],
+                    "filters":["all"]
+                }
+            ],
+            "layers": [
+                yers": [
+                {
+                    "control": "auto",
+                    "name": "test",
+                    "path": "test",
+                    "treat_as_implicit_manifest": true
+                },
+                {
+                    "control": "unordereyea_dlr_location",
+                            "destinations":["/tmp"],
+                  ]
+}

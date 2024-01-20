@@ -16,7 +16,12 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make
-RUN git clone --depth 1 https://github.com/ermig1979/Simd
+RUN git clone  https://github.com/ermig1979/Simd
+
+WORKDIR ./Simd
+RUN git checkout 74655029fb49a8e0190909a73d369d2f50dee01b
+
+WORKDIR ../
 WORKDIR Simd
 COPY build.sh simd_load_fuzzer.cpp $SRC/
 # This is to fix Fuzz Introspector build by using LLVM old pass manager

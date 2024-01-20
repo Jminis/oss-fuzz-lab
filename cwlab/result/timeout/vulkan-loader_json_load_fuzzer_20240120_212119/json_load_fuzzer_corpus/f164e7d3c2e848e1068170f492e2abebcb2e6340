@@ -1,0 +1,14 @@
+{
+    "file_format_version": "1.2structures that aren't present in the test framework's generated json, so exercises cJSON better",
+        "name": "VK_LAYER_KHRONOS_validation_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":[false"all"]
+                }
+            ],
+            "la                },
+                {
+                 }
+    ]
+}

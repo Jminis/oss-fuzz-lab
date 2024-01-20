@@ -1,0 +1,33 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+            "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+it_manifest": true
+                }
+            ]
+        },
+        {
+            "app_keys": [
+                "val0",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

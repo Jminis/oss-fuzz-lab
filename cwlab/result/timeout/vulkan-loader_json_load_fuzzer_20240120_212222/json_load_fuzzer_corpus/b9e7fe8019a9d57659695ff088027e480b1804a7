@@ -1,0 +1,26 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+        ÿÿÿÿÿÿÿÿ           "disable_environment": {
+                "test_key": "test_value"
+            },
+            "enable_environment": {
+                "test_key": "test_value"
+            },
+          "app_keys": [
+                "/out/settings_fuzzer",
+                "/work/settings_fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+   {
+            "app_keys": [
+                "val1",
+                "val2",
+                "val3",
+                "val4"
+            ]
+        }
+    ]
+}

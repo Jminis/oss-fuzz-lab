@@ -1,0 +1,16 @@
+{
+    "file_format_version": "1.2.0",
+    "settings_array": [
+        {
+  fuzzer"
+            ],
+            "stderr_log": "/tmp/stderr.log",
+            "log_locations": [
+                {
+                    "destinations":["/tmp"],
+                    "filters":["all"]
+                 "log_locations": [
+                    ]
+        }
+    ]
+}

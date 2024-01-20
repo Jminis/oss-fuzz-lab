@@ -17,6 +17,11 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y autoconf libtool-bin pkg-config zlib1g-dev libavahi-client-dev libsystemd-dev
 RUN git clone --depth 1 https://github.com/OpenPrinting/cups
 RUN git clone https://github.com/0x34d/oss-fuzz-bloat
+
+WORKDIR ./oss-fuzz-bloat
+RUN git checkout f3311962ff2345da304ced497e74ec7e77ecd4db
+
+WORKDIR ../
 COPY build.sh $SRC/
 COPY fuzzer $SRC/cups/fuzzer/
 WORKDIR $SRC/cups/

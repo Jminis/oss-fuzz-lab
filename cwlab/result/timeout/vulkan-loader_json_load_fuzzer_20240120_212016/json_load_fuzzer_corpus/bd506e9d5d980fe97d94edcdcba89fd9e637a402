@@ -1,0 +1,45 @@
+{
+    "file_format_version": "1.2.0" "perf",
+                            "label": "Performance",
+                            "description": "Report usage of the API that may cause suboptimal performance."
+                        },
+                        {
+                            "key": "error",
+                            "label": "Error",
+                 "file_format_version": "1.2.0",
+    "layer": {
+        "test_code_dechronization operations between actions reading or writing the same regions of memory.",
+                    "platforms": [
+                        "WINDOWS",
+                        "LINUX",
+                        "MACOS",
+                        "ANDROID"
+                    ],
+                    "status": "STABLE",
+                    "settings": [
+                        {
+                            "key": "enables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT"
+                            ]
+                        },
+                        {
+                            "key": "disables",
+                            "value": [
+                                "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT",
+                                "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT"      "type": "FLAGS",
+                    "flags": [
+                        {
+                            "key": "VK_DBG_LAYER_ACTION_LOG_MSG",
+                            "label": "Log Message",
+                            "description": "Log a txt message to stdout or to a log filename.",
+                            "settings                   "label": "Performance",
+                            "description": "Report usage of the API that may cause suboptimal performance."
+                        },
+                        {
+                          scription": "This file is liteReport a lot of complex json structures that a],
+                    "default": [
+                    "error"
+                    ]
+      r
