@@ -1,7 +1,0 @@
-me": "VK_EXT_validation_cache",
-                "spec_version": "1",
-                "entrypoints": [
-                    "vkCreateValidationCacheEXT",
-                    "vkDestroyValidationCacheEXT",
-         ]
-}

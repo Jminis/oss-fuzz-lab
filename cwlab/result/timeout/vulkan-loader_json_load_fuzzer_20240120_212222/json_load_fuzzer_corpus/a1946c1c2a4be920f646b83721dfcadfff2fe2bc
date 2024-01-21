@@ -1,6 +1,0 @@
-{
-    "file_format_version": "1.2.0og": ["all", "info", "warn", "perf", "error", "debug", "layer",           s_fuzzer"]
-        }
-    ],
-    "ICD": {
-        "library_path": "/src/vulkan-loader/tests/framework/data/binari

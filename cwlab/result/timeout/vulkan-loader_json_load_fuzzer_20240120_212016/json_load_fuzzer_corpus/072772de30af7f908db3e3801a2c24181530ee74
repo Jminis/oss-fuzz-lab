@@ -1,9 +1,0 @@
-{
-    "file_format_version": "1.2.0" "perf",
-                            "label": "Performance",
-                            "description": "Report usage of the API that may cause suboptimal performance."
-                        },
-                 _descript                             "description": "Enable dispatch indirect chec                   "default": [
-                    "error"
-                    ]
-      r

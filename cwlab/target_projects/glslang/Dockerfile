@@ -21,7 +21,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/khronosgroup/glslang glslang
 
 WORKDIR ./glslang
-RUN git checkout 845e5d5a28561a25f85d23ef779c828e535bd56f
+RUN git checkout 854db99ff1371995e015a65dfd88556c5af01027
 
 WORKDIR ../
 COPY *_fuzzer.cc *.sh $SRC/

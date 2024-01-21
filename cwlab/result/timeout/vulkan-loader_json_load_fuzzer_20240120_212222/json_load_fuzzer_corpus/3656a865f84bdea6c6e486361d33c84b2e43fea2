@@ -1,7 +1,0 @@
-fals  "file_format_version": "1.2.0",
-    "layer": {
-        "test_code_description": "This file is literally a copy of an installed Validation layer manifestperation. Any errors in how Vulkan is used can result in a cra                                   "label": "Use VMA linear memory allocations for GPU-AV output buffers",
-                         ATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXTestperati",
-                            "label": "Reserve Descriptor Set Binding Slot"                             "LINUX"
-                            ]
-                        },

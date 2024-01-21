@@ -1,7 +1,0 @@
-{
-    "file_format_version": "2.2.0",
-    "settings_array" :[
-        {
-            "app_keys": [
-                             "/work/settings_fuzzer"
-            ],

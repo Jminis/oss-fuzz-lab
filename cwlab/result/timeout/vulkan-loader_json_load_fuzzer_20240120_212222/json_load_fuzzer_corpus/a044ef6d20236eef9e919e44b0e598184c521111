@@ -1,9 +1,0 @@
-{
-    "file_forma: [
-               s": [
-               "treat_as_implicit_manifest": true
-                },
-                {
-         "destinations":["/tmp"],
-                  ]
-}

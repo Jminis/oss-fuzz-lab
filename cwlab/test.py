@@ -8,7 +8,8 @@ import time
 import glob
 from datetime import datetime
 
-SESSION_TIME = 10
+SESSION_TIME = 60*60
+worker_id = 0
 
 def color_diff(diff):
     for line in diff:
@@ -39,30 +40,38 @@ def parse_git_clone_command(line):
 
 def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpus):
     # Initialize variables
-    timeout_occurred = False
+    timeout_flag = False
     crash_files_copied = False
 
-    # Run Fuzzer && Calc run time
-    with open('runtime_log.txt', 'w') as file:
-        start_time = datetime.now()
-        try:
-            subprocess.run(["python3", "infra/helper.py", "run_fuzzer", project_name, fuzzer_name, option],stdout=file, timeout=SESSION_TIME)
-        except subprocess.TimeoutExpired:
-            timeout_occurred = True
-        end_time = datetime.now()
+    # 프로세스 실행 및 로그 저장을 위한 임시 경로 설정
+    base_result_folder = "./cwlab/result"
+    if not os.path.exists(base_result_folder):
+        os.makedirs(base_result_folder)
 
+    current_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    temp_folder_name = f"{project_name}_{fuzzer_name}_{current_time_str}"
+    temp_folder_path = os.path.join(base_result_folder, temp_folder_name)
+    os.makedirs(temp_folder_path, exist_ok=True)
+    runtime_log_path = os.path.join(temp_folder_path, f'runtime_log.txt')
+
+
+    # Run fuzzer and Save log data
+    timeout_flag = False
+    start_time = datetime.now()
+    with open(runtime_log_path, 'w') as file:
+        try:
+            subprocess.run(["python3", "infra/helper.py", "run_fuzzer", project_name, fuzzer_name, option], stdout=file, timeout=SESSION_TIME)
+        except subprocess.TimeoutExpired:
+            timeout_flag = True
+    end_time = datetime.now()
     execution_time = end_time - start_time
 
-    # Determine result folder path
-    base_result_folder = "./cwlab/result"
-    if timeout_occurred:
-        result_folder = os.path.join(base_result_folder, "timeout")
+    # If timeout occured, Go timeout folder
+    if timeout_flag:
+        final_result_folder = os.path.join(base_result_folder, "timeout", temp_folder_name)
+        os.rename(temp_folder_path, final_result_folder)
     else:
-        result_folder = base_result_folder
-
-    # Check and create result folder
-    if not os.path.exists(result_folder):
-        os.makedirs(result_folder)
+        final_result_folder = temp_folder_path
 
     # Copy corpus dir to result
     corpus_folder = f"build/out/{project_name}/{fuzzer_name}_corpus"
@@ -92,9 +101,6 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpu
             file.write("No Seed Corpus Available\n")
         if crash_files_copied:
             file.write("Crash Files Copied\n")
-
-    shutil.copy('runtime_log.txt', f"{result_folder}/{new_folder_name}")
-
 
 def process_dockerfile(project_name, commit_hash):
     dockerfile_path = f"./target_projects/{project_name}/Dockerfile"
@@ -207,9 +213,24 @@ def main():
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
     #project_list = ['example','ibmswtpm2', 'perfetto','inchi','lzo'] #build fail
-    #project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday', 'file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc', 'bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c', 'openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp', 'swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
-    project_list = ['vulkan-loader']
-    for project_name in project_list:
+    project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday','file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc','bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c','openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp','swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
+
+    global worker_id    
+    if len(sys.argv) != 3:
+        print("Usage: python test.py [worker_id] [total_worker]")
+        sys.exit(1)
+
+    worker_id = int(sys.argv[1])
+    total_worker = int(sys.argv[2])
+
+    projects_per_part = len(project_list) // total_worker
+    start_index = projects_per_part * (worker_id - 1)
+    end_index = start_index + projects_per_part if worker_id < total_worker else len(project_list)
+
+    if worker_id == total_worker:
+        end_index = len(project_list)
+
+    for project_name in project_list[start_index:end_index]:
         #project_name = sys.argv[1]
         lines = read_result_file(project_name)
         #selected_line = handle_user_input(lines)

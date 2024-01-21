@@ -1,9 +1,0 @@
-{
-    "           "app_keys": [
- !                 "log_locations": [
-                {
-                    "destinations":["/tmp"],
-                    "filt         ]
-        }
-    ]
-}

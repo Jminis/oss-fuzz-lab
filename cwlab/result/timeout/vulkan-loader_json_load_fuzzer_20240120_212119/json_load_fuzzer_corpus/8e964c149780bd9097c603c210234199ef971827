@@ -1,9 +1,0 @@
-{
-    "file_format_version": "1.2.0",
-    "layer": {
-        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. Ittion Layer",
-        "introduction": "The main, comprehensive Khronos validation layer.\n\nVulkan is an Explicit API, enabling direct control over how GPUs actually work. By design, minimal error checking is done inside a Vulkan driver. AppectTagEXT                    {
-    "file_format_version"@: "1.2.0",
-    "layer": {
-        "test_code_description": "This file is literally a copy of an installed Validation layer manifest file for linux. It was chosen because it contains a lot of complex json structure               "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT"
-                                

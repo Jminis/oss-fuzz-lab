@@ -21,6 +21,7 @@ RUN git clone --depth=1 https://github.com/seladb/PcapPlusPlus PcapPlusPlus
 
 # Get tcpdump's test pcaps as seed corpus
 RUN git clone --depth=1 https://github.com/the-tcpdump-group/tcpdump.git tcpdump
+RUN git clone --depth=1 https://github.com/the-tcpdump-group/libpcap.git libpcap
 
 WORKDIR PcapPlusPlus
 

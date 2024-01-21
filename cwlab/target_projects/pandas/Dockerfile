@@ -22,6 +22,7 @@ RUN apt-get install -y python3.9 python3.9-dev && \
     apt-get install -y python3-pip && \
     python3 -m pip install cython "atheris>=2.1.1" "pyinstaller==5.0.1" "coverage==6.3.2"
 RUN python3 -m pip install --upgrade pip Cython numpy versioneer
+RUN git clone --depth 1 https://github.com/pandas-dev/pandas pandas && \
     cd pandas && \
     python3 -m pip install -r requirements-dev.txt
 WORKDIR pandas

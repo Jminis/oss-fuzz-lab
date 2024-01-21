@@ -1,2 +1,0 @@
-Execution Time: 0:00:10.000924
-Number of Files: 2241

@@ -18,6 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder-python
 RUN apt-get update && apt-get install -y flex bison python3-setuptools
 RUN pip3 install Cython
 RUN pip3 install --upgrade Cython
+RUN git clone https://github.com/alculquicondor/psqlparse && \
     cd psqlparse && \
     git submodule update --init
 COPY build.sh *.py $SRC/
