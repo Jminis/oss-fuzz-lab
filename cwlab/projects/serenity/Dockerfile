@@ -17,10 +17,5 @@
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y build-essential cmake curl ninja-build
 RUN git clone https://github.com/SerenityOS/serenity
-
-WORKDIR ./serenity
-RUN git checkout eca9874e567b4475f88800d682620a59959281e2
-
-WORKDIR ../
 COPY build.sh $SRC/
 WORKDIR $SRC/serenity/Meta/Lagom

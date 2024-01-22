@@ -16,11 +16,6 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y cmake make
-RUN git clone  https://github.com/Blosc/c-blosc2.git c-blosc2
-
-WORKDIR ./c-blosc2
-RUN git checkout 61c00e186e9259f8d8f056288b6f7384c1951066
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/Blosc/c-blosc2.git c-blosc2
 WORKDIR c-blosc2
 COPY build.sh $SRC/

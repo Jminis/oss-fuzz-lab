@@ -1,4 +1,1 @@
 ./crash/asan/SEGV/ossf-scorecard--fuzz_parse_from_yaml/reproduced_ossf-scorecard--fuzz_parse_from_yaml--crash-c6e706b44a1cfc9c8d311031acc2b0e1-2023-08-02-222457,ossf-scorecard,2023-08-02-22,2df78d99869656771d592c6f646958c4187b7559
-./crash/asan/SEGV/ossf-scorecard--fuzz_parse_from_yaml/reproduced_ossf-scorecard--fuzz_parse_from_yaml--crash-c6e706b44a1cfc9c8d311031acc2b0e1-2023-08-02-222457,ossf-scorecard,2023-08-02-22,2df78d99869656771d592c6f646958c4187b7559
-./crash/asan/SEGV/ossf-scorecard--fuzz_parse_from_yaml/reproduced_ossf-scorecard--fuzz_parse_from_yaml--crash-c6e706b44a1cfc9c8d311031acc2b0e1-2023-08-02-222457,ossf-scorecard,2023-08-02-22,2df78d99869656771d592c6f646958c4187b7559
-./crash/asan/SEGV/ossf-scorecard--fuzz_parse_from_yaml/reproduced_ossf-scorecard--fuzz_parse_from_yaml--crash-c6e706b44a1cfc9c8d311031acc2b0e1-2023-08-02-222457,ossf-scorecard,2023-08-02-22,2df78d99869656771d592c6f646958c4187b7559

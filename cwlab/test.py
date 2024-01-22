@@ -45,6 +45,7 @@ def create_directory(path):
 
 def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpus):
     # Initialize variables
+    global workder_id
     timeout_flag = False
     crash_files_copied = False
 
@@ -59,7 +60,7 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpu
     temp_folder_name = f"{project_name}_{fuzzer_name}_{current_time_str}"
     temp_folder_path = os.path.join(base_result_folder, temp_folder_name)
     create_directory(temp_folder_path)
-    runtime_log_path = os.path.join(temp_folder_path, 'runtime_log.txt')
+    runtime_log_path = os.path.join(temp_folder_path, f'runtime_log.txt')
 
     # Run fuzzer and Save log data
     timeout_flag = False
@@ -85,7 +86,7 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpu
         pass
     
     # Copy crash files if any
-    crash_file_pattern = f"/build/out/{project_name}/crash-*"
+    crash_file_pattern = f"build/out/{project_name}/crash-*"
     for crash_file in glob.glob(crash_file_pattern):
         shutil.move(crash_file, final_result_folder)
         crash_files_copied = True
@@ -124,7 +125,7 @@ def process_dockerfile(project_name, commit_hash):
                 repo_name = parse_git_clone_command(line)
                 if repo_name:
                     new_dockerfile_contents.append(line)
-                    new_dockerfile_contents.append(f"\nWORKDIR ./{repo_name}")
+                    new_dockerfile_contents.append(f"\nWORKDIR {repo_name}")
                     new_dockerfile_contents.append(f"\nRUN git checkout {commit_hash}")
                     new_dockerfile_contents.append("\nWORKDIR ../\n")
                     dockerfile_changed = True
@@ -197,13 +198,15 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
         if unzip_result != 0:  # Non-zero exit code indicates failure
             seed_corpus_flag = True
             os.makedirs(corpus_path, exist_ok=True)  # Create corpus folder if unzip fails
+    
+        # Run Fuzzer command
+        option = f"-detect_leaks=0 -max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
+        run_fuzzer_and_save_results(project_name, fuzzer_name, option, seed_corpus_flag)
 
     except Exception as e:
-        print(f"Run Fuzzer Error: {e}")
+        with open("errorlog.txt","a") as fp:
+            fp.write(f"[Check Run Fuzzer] {project_name} - {e}\n")
 
-    # Run Fuzzer command
-    option = f"-detect_leaks=0 -max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
-    run_fuzzer_and_save_results(project_name, fuzzer_name, option, seed_corpus_flag)
 
 
 
@@ -236,11 +239,8 @@ def main():
         #selected_line = handle_user_input(lines)
         for selected_line in lines:
             time.sleep(2)
-            print(f"count: {selected_line}")
-            os.system("pwd;ls -al")
             file_path = selected_line.split(',')[0]
-            display_file_content(file_path)
-    
+
             dockerfile_changed = process_dockerfile(project_name, selected_line.split(',')[-1])
         
             if dockerfile_changed:
@@ -250,8 +250,7 @@ def main():
             else:
                 print("No changes were made to the Dockerfile.")
                 with open("errorlog.txt","a") as fp:
-                    fp.write(f"{project_name}:{file_path}\n")
-                
+                    fp.write(f"[Check Dockerfile] {project_name}\n")
 
 
 if __name__ == "__main__":

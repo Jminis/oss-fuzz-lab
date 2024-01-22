@@ -17,12 +17,7 @@
 FROM gcr.io/oss-fuzz-base/base-builder-go
 MAINTAINER s@sevki.org
 
-RUN git clone  https://github.com/hugelgupf/p9
-
-WORKDIR ./p9
-RUN git checkout c78dc449a9c9defcd665857062d98e1ab2be5f9b
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/hugelgupf/p9
 
 WORKDIR $SRC/p9
 

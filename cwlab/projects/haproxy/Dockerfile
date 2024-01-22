@@ -17,11 +17,6 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make
 RUN git clone https://github.com/haproxy/haproxy
 
-WORKDIR ./haproxy
-RUN git checkout b12613f0acc9e542baa4cb9626ef7f6693b984a7
-
-WORKDIR ../
-
 WORKDIR $SRC
 
 COPY build.sh $SRC

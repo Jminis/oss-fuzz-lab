@@ -16,12 +16,7 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make cmake
-RUN git clone  https://github.com/keystone-engine/keystone.git
-
-WORKDIR ./keystone
-RUN git checkout fb92f32391c6cced868252167509590319eeb58b
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/keystone-engine/keystone.git
 WORKDIR $SRC
 COPY build.sh $SRC/
 # This is to fix Fuzz Introspector build by using LLVM old pass manager

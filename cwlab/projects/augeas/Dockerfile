@@ -18,12 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y libreadline-dev libselinux1-dev \
     libxml2-dev make autoconf automake libtool pkg-config bison flex
 
-RUN git clone  https://github.com/hercules-team/augeas
-
-WORKDIR ./augeas
-RUN git checkout f0a0586d5fa3cd302e6a073f6081c1626471f7dc
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/hercules-team/augeas
 WORKDIR augeas
 
 COPY build.sh $SRC/

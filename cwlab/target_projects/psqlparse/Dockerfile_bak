@@ -1,4 +1,4 @@
-# Copyright 2023 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,7 +14,12 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder-go
-RUN git clone --depth 1 https://github.com/shirou/gopsutil
-WORKDIR $SRC/gopsutil
-COPY build.sh fuzz_test.go $SRC/
+FROM gcr.io/oss-fuzz-base/base-builder-python
+RUN apt-get update && apt-get install -y flex bison python3-setuptools
+RUN pip3 install Cython
+RUN pip3 install --upgrade Cython
+RUN git clone https://github.com/alculquicondor/psqlparse && \
+    cd psqlparse && \
+    git submodule update --init
+COPY build.sh *.py $SRC/
+WORKDIR psqlparse

@@ -1,4 +1,1 @@
 ./crash/asan/SEGV/assimp--assimp_fuzzer/reproduced_assimp--assimp_fuzzer--crash-5efd4f9b0f0c11a1e526ce2648cc4a57-2023-08-24-004913,assimp,2023-08-24-00,e50233b2c1e0eccaad8ace908c66dc7425d5d500
-./crash/asan/SEGV/assimp--assimp_fuzzer/reproduced_assimp--assimp_fuzzer--crash-5efd4f9b0f0c11a1e526ce2648cc4a57-2023-08-24-004913,assimp,2023-08-24-00,e50233b2c1e0eccaad8ace908c66dc7425d5d500
-./crash/asan/SEGV/assimp--assimp_fuzzer/reproduced_assimp--assimp_fuzzer--crash-5efd4f9b0f0c11a1e526ce2648cc4a57-2023-08-24-004913,assimp,2023-08-24-00,e50233b2c1e0eccaad8ace908c66dc7425d5d500
-./crash/asan/SEGV/assimp--assimp_fuzzer/reproduced_assimp--assimp_fuzzer--crash-5efd4f9b0f0c11a1e526ce2648cc4a57-2023-08-24-004913,assimp,2023-08-24-00,e50233b2c1e0eccaad8ace908c66dc7425d5d500

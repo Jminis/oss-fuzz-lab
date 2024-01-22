@@ -25,7 +25,7 @@ RUN sed -i -e '/^#\s*deb-src.*\smain\s\+restricted/s/^#//' /etc/apt/sources.list
 RUN git clone  https://github.com/libbpf/libbpf
 
 WORKDIR ./libbpf
-RUN git checkout 5fc0677111c66a98d76736a1850b8aca1a16a049
+RUN git checkout 0c54691bae75cdf50c43be3ff5ac3b201fc94ba2
 
 WORKDIR ../
 WORKDIR libbpf

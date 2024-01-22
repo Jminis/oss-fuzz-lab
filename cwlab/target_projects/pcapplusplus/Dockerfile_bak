@@ -1,4 +1,4 @@
-# Copyright 2023 Google LLC
+# Copyright 2020 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,19 +15,14 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder
-RUN apt-get update && \
-    apt-get install -y \
-    build-essential \
-    autoconf \
-    automake \
-    libtool \
-    pkg-config \
-    libx11-xcb-dev \
-    libxkbcommon-dev \
-    libxrandr-dev
 
-# Vulkan-Loader depends on the header file in Vulkan-Headers
-RUN git clone https://github.com/khronosgroup/Vulkan-Headers vulkan-headers
-RUN git clone https://github.com/khronosgroup/Vulkan-Loader vulkan-loader
-COPY fuzzers/*_fuzzer.c *.sh $SRC/
-WORKDIR $SRC/vulkan-loader
+RUN apt-get update && apt-get install -y cmake autoconf flex bison
+RUN git clone --depth=1 https://github.com/seladb/PcapPlusPlus PcapPlusPlus
+
+# Get tcpdump's test pcaps as seed corpus
+RUN git clone --depth=1 https://github.com/the-tcpdump-group/tcpdump.git tcpdump
+RUN git clone --depth=1 https://github.com/the-tcpdump-group/libpcap.git libpcap
+
+WORKDIR PcapPlusPlus
+
+COPY build.sh $SRC

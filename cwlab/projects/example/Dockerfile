@@ -19,10 +19,5 @@ RUN apt-get update && apt-get install -y make
 
 # Get *your* source code here.
 RUN git clone https://github.com/google/oss-fuzz.git my-git-repo
-
-WORKDIR ./my-git-repo
-RUN git checkout c8ed5bbad9a067ad094bf0395b2983273c068ff0
-
-WORKDIR ../
 WORKDIR my-git-repo
 COPY build.sh $SRC/

@@ -94,7 +94,7 @@ def process_dockerfile(project_name, commit_hash):
                 repo_name = parse_git_clone_command(line)
                 if repo_name:
                     new_dockerfile_contents.append(line)
-                    new_dockerfile_contents.append(f"\nWORKDIR ./{repo_name}")
+                    new_dockerfile_contents.append(f"\nWORKDIR {repo_name}")
                     new_dockerfile_contents.append(f"\nRUN git checkout {commit_hash}")
                     new_dockerfile_contents.append("\nWORKDIR ../\n")
                     dockerfile_changed = True

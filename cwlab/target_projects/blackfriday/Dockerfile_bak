@@ -1,4 +1,4 @@
-# Copyright 2020 Google Inc.
+# Copyright 2021 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,7 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder
-RUN apt-get update && apt-get install -y build-essential cmake curl ninja-build
-RUN git clone https://github.com/SerenityOS/serenity
-COPY build.sh $SRC/
-WORKDIR $SRC/serenity/Meta/Lagom
+FROM gcr.io/oss-fuzz-base/base-builder-go
+RUN git clone --depth 1 --branch v2 https://github.com/russross/blackfriday
+COPY build.sh render_fuzzer.go $SRC/
+WORKDIR $SRC/blackfriday

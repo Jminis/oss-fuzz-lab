@@ -19,10 +19,5 @@ RUN apt-get update && \
     apt-get install -y python-is-python3 build-essential \
     autoconf automake libtool pkg-config
 RUN git clone https://github.com/khronosgroup/glslang glslang
-
-WORKDIR ./glslang
-RUN git checkout 854db99ff1371995e015a65dfd88556c5af01027
-
-WORKDIR ../
 COPY *_fuzzer.cc *.sh $SRC/
 WORKDIR $SRC/glslang

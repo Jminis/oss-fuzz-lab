@@ -19,12 +19,7 @@ RUN apt-get update && apt-get install -y make autoconf automake libtool cmake
 RUN git clone https://github.com/upx/upx-testsuite.git testsuite
 RUN git clone https://github.com/upx/upx-testsuite-v2.git testsuite2
 RUN git clone https://github.com/MykolaMykhno/upx-testsuite-v3.git testsuite3
-RUN git clone  https://github.com/upx/upx.git upx
-
-WORKDIR ./upx
-RUN git checkout 250c656b9eb24b0fb54fe8c015d38b0eba5ee80c
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/upx/upx.git upx
 
 WORKDIR /src/upx
 RUN git submodule update --init

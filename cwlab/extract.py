@@ -78,16 +78,18 @@ def main():
 
     for file_path in find_files(root_directory, pattern):
         repo_name, date = extract_info(file_path)
+        
         if repo_name and date:
             copy_repo_to_target_project(repo_name, projects_directory, target_project_directory)
-
             repo_url = parse_dockerfile_for_repo_url(repo_name, projects_directory)
-            print(repo_url)
+
             if repo_url:
                 repo_path = clone_repo(repo_url, temp_dir, repo_name)
+
                 if repo_path:
                     commit = get_commit_before_date(date, repo_path)
                     result_line = f"{file_path},{repo_name},{date},{commit}\n"
+
                     with open(os.path.join(target_project_directory, repo_name, "result.txt"), "a") as file:
                         file.write(result_line)
                         print(result_line, end='')
