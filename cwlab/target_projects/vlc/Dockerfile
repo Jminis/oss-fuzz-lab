@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y make autoconf automake libtool \
   pkg-config cmake flex bison gettext libglu1-mesa-dev 
 RUN git clone  https://github.com/videolan/vlc vlc
 
-WORKDIR ./vlc
+WORKDIR vlc
 RUN git checkout f7bb59d9f51cc10b25ff86d34a3eff744e60c46e
 
 WORKDIR ../

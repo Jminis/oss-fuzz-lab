@@ -20,7 +20,7 @@ RUN apt-get update && \
     autoconf automake libtool pkg-config
 RUN git clone https://github.com/khronosgroup/glslang glslang
 
-WORKDIR ./glslang
+WORKDIR glslang
 RUN git checkout 845e5d5a28561a25f85d23ef779c828e535bd56f
 
 WORKDIR ../

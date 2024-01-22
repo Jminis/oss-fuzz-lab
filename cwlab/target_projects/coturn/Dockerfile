@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y cmake libssl-dev libevent-dev
 RUN git clone https://github.com/coturn/coturn
 
-WORKDIR ./coturn
+WORKDIR coturn
 RUN git checkout e7c1551de1a153d6a0c16291c7cd4fc601e84982
 
 WORKDIR ../

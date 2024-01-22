@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y make autoconf automake libtool
 
 RUN git clone --depth=1 https://github.com/yaml/libyaml
 
-WORKDIR ./https://github.com/yaml/libyaml
+WORKDIR https://github.com/yaml/libyaml
 RUN git checkout f8f760f7387d2cc56a2fc7b1be313a3bf3f7f58c
 
 WORKDIR ../

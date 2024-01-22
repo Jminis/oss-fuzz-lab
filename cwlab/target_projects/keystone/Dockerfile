@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make cmake
 RUN git clone  https://github.com/keystone-engine/keystone.git
 
-WORKDIR ./keystone
+WORKDIR keystone
 RUN git checkout fb92f32391c6cced868252167509590319eeb58b
 
 WORKDIR ../

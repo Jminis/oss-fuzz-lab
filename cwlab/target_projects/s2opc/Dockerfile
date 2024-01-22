@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y make cmake git curl
 RUN git clone --depth 1 https://gitlab.com/systerel/S2OPC
 RUN git clone  https://gitlab.com/systerel/S2OPC-fuzzing-data
 
-WORKDIR ./S2OPC-fuzzing-data
+WORKDIR S2OPC-fuzzing-data
 RUN git checkout 1643f9b7f454d0dc0033063939c0632e4f0004ae
 
 WORKDIR ../

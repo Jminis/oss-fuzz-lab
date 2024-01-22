@@ -17,7 +17,7 @@
 FROM gcr.io/oss-fuzz-base/base-builder-go
 RUN git clone  https://github.com/ossf/scorecard
 
-WORKDIR ./scorecard
+WORKDIR scorecard
 RUN git checkout 2df78d99869656771d592c6f646958c4187b7559
 
 WORKDIR ../

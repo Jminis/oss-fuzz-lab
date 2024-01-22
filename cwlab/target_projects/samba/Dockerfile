@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 
 RUN git clone https://gitlab.com/samba-team/samba samba
 
-WORKDIR ./samba
+WORKDIR samba
 RUN git checkout 3fbc514a2c350daa358a3a172df63b6ca9056c2e
 
 WORKDIR ../

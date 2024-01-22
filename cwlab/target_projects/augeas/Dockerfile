@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y libreadline-dev libselinux1-dev \
 
 RUN git clone  https://github.com/hercules-team/augeas
 
-WORKDIR ./augeas
+WORKDIR augeas
 RUN git checkout f0a0586d5fa3cd302e6a073f6081c1626471f7dc
 
 WORKDIR ../

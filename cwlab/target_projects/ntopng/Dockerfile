@@ -48,7 +48,8 @@ RUN tar -xvzf libmaxminddb-1.7.1.tar.gz;
 RUN git clone  https://github.com/ntop/nDPI.git nDPI
 
 WORKDIR nDPI
-RUN git checkout 77e5daf03e1ee7a8377a5a8906fe2c089c94ecf0
+RUN git checkout e8e4b9e8fff7a71e2770ff5a38e92506b508c72f
+
 WORKDIR ../
 ENV NDPI_HOME=$SRC/nDPI
 

@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y autoconf automake build-essential bison
 RUN git clone https://gitlab.com/NTPsec/ntpsec
 RUN git clone https://github.com/0x34d/oss-fuzz-bloat
 
-WORKDIR ./oss-fuzz-bloat
+WORKDIR oss-fuzz-bloat
 RUN git checkout f3311962ff2345da304ced497e74ec7e77ecd4db
 
 WORKDIR ../

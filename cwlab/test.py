@@ -185,7 +185,11 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
         oss_fuzz_dir = "../"  # Replace with the actual path to your 'oss-fuzz' directory
         os.chdir(oss_fuzz_dir)
         subprocess.run(["cp", "-r", f"./cwlab/target_projects/{project_name}", "./projects/"])
-        subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name])
+        build_result = subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name])
+        if build_result.returncode != 0:
+            with open("./cwlab/errorlog.txt","a") as fp:
+                fp.write(f"[Fail build_fuzzers] {project_name}\n")
+            return
         
         # Remove existing corpus directory
         corpus_path = f"build/out/{project_name}/{fuzzer_name}_corpus"
@@ -206,8 +210,6 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
     except Exception as e:
         with open("errorlog.txt","a") as fp:
             fp.write(f"[Check Run Fuzzer] {project_name} - {e}\n")
-
-
 
 
 def main():

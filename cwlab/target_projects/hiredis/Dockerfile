@@ -17,7 +17,7 @@
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN git clone  https://github.com/redis/hiredis
 
-WORKDIR ./hiredis
+WORKDIR hiredis
 RUN git checkout dedc6208b15738d7765eff35a61dd09d5830e732
 
 WORKDIR ../

@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make autoconf automake autogen pkg-config libtool flex bison cmake libnuma-dev libpcre2-dev
 RUN git clone  https://github.com/ntop/nDPI.git ndpi
 
-WORKDIR ./ndpi
+WORKDIR ndpi
 RUN git checkout 1a797d7b74b9845f9e60bd89a3044425003d1a2b
 
 WORKDIR ../
