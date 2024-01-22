@@ -212,8 +212,8 @@ def main():
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
     #project_list = ['example','ibmswtpm2', 'perfetto','inchi','lzo'] #build fail
-    #project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday','file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc','bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c','openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp','swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
-    project_list = ['example']
+    project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday','file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc','bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c','openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp','swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
+
 
     global worker_id    
     if len(sys.argv) != 3:
