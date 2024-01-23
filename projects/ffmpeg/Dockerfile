@@ -40,7 +40,7 @@ RUN git clone --depth 1 https://gitlab.xiph.org/xiph/theora.git
 RUN git clone --depth 1 https://gitlab.xiph.org/xiph/vorbis.git
 RUN git clone  https://gitlab.gnome.org/GNOME/libxml2.git
 
-WORKDIR ./libxml2
+WORKDIR libxml2
 RUN git checkout 75693281389aab047b424d46df944b35ab4a3263
 
 WORKDIR ../

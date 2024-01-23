@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y make
 RUN git clone  https://github.com/ermig1979/Simd
 
 WORKDIR Simd
-RUN git checkout 1bec93c2c472fa3e9dd3c413a04c6e752ccb55d3
+RUN git checkout 74655029fb49a8e0190909a73d369d2f50dee01b
 
 WORKDIR ../
 WORKDIR Simd

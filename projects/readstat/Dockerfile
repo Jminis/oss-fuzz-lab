@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y make autoconf automake gettext libtool 
 
 RUN git clone  https://github.com/WizardMac/ReadStat readstat
 
-WORKDIR ./readstat
+WORKDIR readstat
 RUN git checkout f6a54c24db613e81d7fd06e049a7ef4f21176fda
 
 WORKDIR ../

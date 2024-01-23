@@ -9,7 +9,7 @@ import glob
 import zipfile
 from datetime import datetime
 
-SESSION_TIME = 10
+SESSION_TIME = 60*60
 worker_id = 0
 
 def color_diff(diff):

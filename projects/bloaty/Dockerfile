@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y cmake ninja-build g++ libz-dev
 RUN git clone  https://github.com/google/bloaty.git bloaty
 
-WORKDIR ./bloaty
+WORKDIR bloaty
 RUN git checkout 427ab3dc234cdce78cb524a2fd19f0d7a132999f
 
 WORKDIR ../

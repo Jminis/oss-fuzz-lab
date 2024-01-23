@@ -21,7 +21,7 @@ RUN git clone https://github.com/upx/upx-testsuite-v2.git testsuite2
 RUN git clone https://github.com/MykolaMykhno/upx-testsuite-v3.git testsuite3
 RUN git clone  https://github.com/upx/upx.git upx
 
-WORKDIR ./upx
+WORKDIR upx
 RUN git checkout 250c656b9eb24b0fb54fe8c015d38b0eba5ee80c
 
 WORKDIR ../

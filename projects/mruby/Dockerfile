@@ -21,7 +21,7 @@ RUN git clone --depth 1 https://github.com/mruby/mruby mruby
 RUN git clone --depth 1 https://github.com/bshastry/mruby_seeds.git mruby_seeds
 RUN git clone  https://github.com/google/libprotobuf-mutator.git
 
-WORKDIR ./libprotobuf-mutator
+WORKDIR libprotobuf-mutator
 RUN git checkout 3b28530531b154a748fe9884bc9219b4966f0754
 
 WORKDIR ../

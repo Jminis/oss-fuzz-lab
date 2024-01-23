@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make autoconf automake libtool
 RUN git clone  https://github.com/oatpp/oatpp.git oatpp 
 
-WORKDIR ./oatpp
+WORKDIR oatpp
 RUN git checkout 5ccad57d7822c2239e8aeca9175dc943230601a8
 
 WORKDIR ../

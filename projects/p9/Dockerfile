@@ -19,8 +19,8 @@ MAINTAINER s@sevki.org
 
 RUN git clone  https://github.com/hugelgupf/p9
 
-WORKDIR ./p9
-RUN git checkout c78dc449a9c9defcd665857062d98e1ab2be5f9b
+WORKDIR p9
+RUN git checkout 660eb2337e3c1878298fe550ad03248f329eeb72
 
 WORKDIR ../
 

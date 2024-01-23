@@ -25,7 +25,7 @@ RUN git clone https://gitlab.com/libeigen/eigen && \
 
 RUN git clone  https://github.com/rdkit/rdkit.git $SRC/rdkit
 
-WORKDIR ./$SRC/rdkit
+WORKDIR $SRC/rdkit
 RUN git checkout 3720c2ceaf5193e88ecd4096eac87d2653495b77
 
 WORKDIR ../

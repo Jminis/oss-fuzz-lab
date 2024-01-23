@@ -28,7 +28,7 @@ RUN git clone --depth 1 --branch fuzz https://github.com/FRRouting/frr
 
 RUN git clone  https://github.com/qlyoung/corpi
 
-WORKDIR ./corpi
+WORKDIR corpi
 RUN git checkout de26a013ff7c9a88648aeea50e830167572a95a3
 
 WORKDIR ../

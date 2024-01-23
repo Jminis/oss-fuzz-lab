@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2019 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,12 +15,14 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder
-RUN apt-get update && apt-get install -y cmake libssl-dev libevent-dev
-RUN git clone https://github.com/coturn/coturn
+RUN apt-get update && apt-get install -y build-essential ruby bison ninja-build \
+    cmake zlib1g-dev libbz2-dev liblzma-dev
+RUN git clone --depth 1 https://github.com/mruby/mruby mruby
+RUN git clone --depth 1 https://github.com/bshastry/mruby_seeds.git mruby_seeds
+RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+RUN mkdir LPM; \
+  cd LPM; \
+  cmake $SRC/libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release; \
+  ninja;
 
-WORKDIR coturn
-RUN git checkout e7c1551de1a153d6a0c16291c7cd4fc601e84982
-
-WORKDIR ../
-COPY build.sh $SRC/
-WORKDIR $SRC/coturn/
+COPY build.sh $SRC

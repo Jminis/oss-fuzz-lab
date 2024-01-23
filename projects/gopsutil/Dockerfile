@@ -17,7 +17,7 @@
 FROM gcr.io/oss-fuzz-base/base-builder-go
 RUN git clone  https://github.com/shirou/gopsutil
 
-WORKDIR ./gopsutil
+WORKDIR gopsutil
 RUN git checkout 6084c1e2a442d7a0cac6466977d15c50dfe508ce
 
 WORKDIR ../

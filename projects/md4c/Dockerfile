@@ -18,7 +18,7 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make cmake
 RUN git clone https://github.com/mity/md4c
 
-WORKDIR ./md4c
+WORKDIR md4c
 RUN git checkout e9ff661ff818ee94a4a231958d9b6768dc6882c9
 
 WORKDIR ../

@@ -30,7 +30,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/khronosgroup/Vulkan-Headers vulkan-headers
 RUN git clone https://github.com/khronosgroup/Vulkan-Loader vulkan-loader
 
-WORKDIR ./vulkan-loader
+WORKDIR vulkan-loader
 RUN git checkout 979242bdd724e0018c20bb75837a393a08408e77
 
 WORKDIR ../

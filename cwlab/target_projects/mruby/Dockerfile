@@ -19,7 +19,12 @@ RUN apt-get update && apt-get install -y build-essential ruby bison ninja-build 
     cmake zlib1g-dev libbz2-dev liblzma-dev
 RUN git clone --depth 1 https://github.com/mruby/mruby mruby
 RUN git clone --depth 1 https://github.com/bshastry/mruby_seeds.git mruby_seeds
-RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+RUN git clone  https://github.com/google/libprotobuf-mutator.git
+
+WORKDIR libprotobuf-mutator
+RUN git checkout 3b28530531b154a748fe9884bc9219b4966f0754
+
+WORKDIR ../
 RUN mkdir LPM; \
   cd LPM; \
   cmake $SRC/libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release; \
