@@ -166,7 +166,7 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
             os.system(cmd)
 
             # Run Fuzzer command
-            option = f"-max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
+            option = f"-print_final_stats=1 -max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
             if sys.argv[2] == "run_fuzzer":
                 #subprocess.run(["python", "infra/helper.py", "run_fuzzer", project_name, fuzzer_name, option])
                 run_fuzzer_and_save_results(project_name, fuzzer_name, option)

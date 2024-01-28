@@ -31,7 +31,7 @@ RUN git clone https://github.com/khronosgroup/Vulkan-Headers vulkan-headers
 RUN git clone https://github.com/khronosgroup/Vulkan-Loader vulkan-loader
 
 WORKDIR vulkan-loader
-RUN git checkout 979242bdd724e0018c20bb75837a393a08408e77
+RUN git checkout 0b31098e538f79780ab14e4fc6b77c18b13694a9
 
 WORKDIR ../
 COPY fuzzers/*_fuzzer.c *.sh $SRC/

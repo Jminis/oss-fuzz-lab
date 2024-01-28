@@ -16,12 +16,7 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 
-RUN git clone  https://github.com/google/glog
-
-WORKDIR glog
-RUN git checkout 64827572c0612e6eb15ed324d8c4fa020a0c5a41
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/google/glog
 
 COPY build.sh $SRC/
 WORKDIR $SRC/glog

@@ -1,1 +1,0 @@
-./crash/asan/SEGV/s2opc--sub_fuzzer/reproduced_s2opc--sub_fuzzer--crash-a24daf5707992887ddf598e536dc7561-2023-07-09-213255,s2opc,2023-07-09-21,1643f9b7f454d0dc0033063939c0632e4f0004ae

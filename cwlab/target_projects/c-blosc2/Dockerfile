@@ -19,8 +19,7 @@ RUN apt-get update && apt-get install -y cmake make
 RUN git clone  https://github.com/Blosc/c-blosc2.git c-blosc2
 
 WORKDIR c-blosc2
-RUN git checkout 61c00e186e9259f8d8f056288b6f7384c1951066
-
+RUN git checkout e11cb2d2168f71fb8f9c44de2c4f6666ac9a3cf3
 WORKDIR ../
 WORKDIR c-blosc2
 COPY build.sh $SRC/

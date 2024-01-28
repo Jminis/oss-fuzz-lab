@@ -15,12 +15,7 @@
 ################################################################################
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make cmake flex bison libssl-dev libyaml-dev
-RUN git clone  https://github.com/fluent/fluent-bit/ fluent-bit
-
-WORKDIR fluent-bit
-RUN git checkout fe0ccc70e3fcf194a19862296e7391795d785b05
-
-WORKDIR ../
+RUN git clone --depth 1 https://github.com/fluent/fluent-bit/ fluent-bit
 
 # Update the libs in fluent-bit to use the latest patches for optimizing fuzzing workflow
 RUN cd $SRC/fluent-bit/lib && \
