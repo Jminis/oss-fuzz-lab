@@ -11,6 +11,7 @@ from datetime import datetime
 
 SESSION_TIME = 60*60
 worker_id = 0
+factory_id = 0
 
 def color_diff(diff):
     for line in diff:
@@ -46,14 +47,15 @@ def create_directory(path):
 def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpus):
     # Initialize variables
     global workder_id
+    global factory_id
     timeout_flag = False
     crash_files_copied = False
 
     # Base result path
-    base_result_folder = "./cwlab/result"
+    base_result_folder = f"./cwlab/result_{factory_id}"
     create_directory(base_result_folder)
     
-    base_timeout_folder = "./cwlab/result/timeout"
+    base_timeout_folder = f"./cwlab/result_{factory_id}/timeout"
     create_directory(base_timeout_folder)
 
     current_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -72,16 +74,30 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpu
         timeout_flag = True
     execution_time = datetime.now() - start_time
 
-    # Handle timeout
+
+    # Handle timeout & final stat
     final_result_folder = os.path.join(base_timeout_folder if timeout_flag else base_result_folder, temp_folder_name)
     if timeout_flag:
         shutil.move(temp_folder_path, final_result_folder)
+    else:
+        number_of_executed_units = 0
+        new_units_added = 0
+        if not timeout_flag:
+            with open(runtime_log_path, 'r') as file:
+                log_contents = file.read()
+                match_executed_units = re.search(r"stat::number_of_executed_units:\s+(\d+)", log_contents)
+                match_new_units = re.search(r"stat::new_units_added:\s+(\d+)", log_contents)
+                if match_executed_units:
+                    number_of_executed_units = match_executed_units.group(1)
+                if match_new_units:
+                    new_units_added = match_new_units.group(1)
 
     # Count corpus file
-    corpus_path = f"build/out/{project_name}/{fuzzer_name}_corpus"
+    corpus_path = f"build/out/{project_name}/{fuzzer_name}_corpus_{factory_id}"
     file_count = len(os.listdir(corpus_path)) if os.path.exists(corpus_path) else 0
     try:
-        shutil.move(corpus_path, final_result_folder)
+        #shutil.move(corpus_path, final_result_folder)
+        shutil.rmtree(corpus_path)
     except Exception as e:
         pass
     
@@ -100,6 +116,8 @@ def run_fuzzer_and_save_results(project_name, fuzzer_name, option, no_seed_corpu
             file.write("No Seed Corpus Available\n")
         if crash_files_copied:
             file.write("Crash Files Copied\n")
+        file.write(f"Number of Executed Units: {number_of_executed_units}\n")
+        file.write(f"New Units Added: {new_units_added}\n")
 
 def process_dockerfile(project_name, commit_hash):
     dockerfile_path = f"./target_projects/{project_name}/Dockerfile"
@@ -192,7 +210,7 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
             return
         
         # Remove existing corpus directory
-        corpus_path = f"build/out/{project_name}/{fuzzer_name}_corpus"
+        corpus_path = f"build/out/{project_name}/{fuzzer_name}_corpus_{factory_id}"
         shutil.rmtree(corpus_path, ignore_errors=True)
 
         # Try to unzip the seed corpus
@@ -204,7 +222,7 @@ def update_dockerfile_run_fuzzer(project_name, file_path):
             os.makedirs(corpus_path, exist_ok=True)  # Create corpus folder if unzip fails
     
         # Run Fuzzer command
-        option = f"-detect_leaks=0 -max_total_time={SESSION_TIME} {fuzzer_name}_corpus/"
+        option = f"-print_final_stats=1 -detect_leaks=0 -max_total_time={SESSION_TIME} {fuzzer_name}_corpus_{factory_id}/"
         run_fuzzer_and_save_results(project_name, fuzzer_name, option, seed_corpus_flag)
 
     except Exception as e:
@@ -216,13 +234,14 @@ def main():
     #if len(sys.argv) != 3:
     #    print("Usage: python test.py [project_name] [run_fuzzer/reproduce]")
     #    sys.exit(1)
-    #project_list = ['example','ibmswtpm2', 'perfetto','inchi','lzo'] #build fail
-    project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday','file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc','bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c','openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp','swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
+    project_list = ['example',]#'ibmswtpm2', 'perfetto','inchi','lzo'] #build fail
+    #project_list = ['assimp','gstreamer','augeas','libical', 'ndpi', 'p9', 'rdkit', 'unit','ffmpeg', 'netcdf', 'pandas', 'readstat', 'vlc', 'blackfriday','file', 'hiredis', 'ntopng', 'pcapplusplus', 'vulkan-loader', 'bloaty', 'fluent-bit','libyaml','ntpsec','perfetto', 's2opc','bluez', 'frr','llvm', 'php', 'samba', 'glog','open62541', 'plan9port', 'serenity', 'coturn', 'glslang', 'keystone', 'md4c','openbabel', 'psqlparse', 'simd', 'cups', 'gopsutil', 'libbpf', 'mruby', 'ossf-scorecard', 'pupnp','swift-protobuf','c-blosc2','haproxy','librdkafka','libredwg','oatpp','ruby','wabt','upx']
 
 
     global worker_id    
-    if len(sys.argv) != 3:
-        print("Usage: python test.py [worker_id] [total_worker]")
+    global factory_id
+    if len(sys.argv) != 4:
+        print("Usage: python test.py [worker_id] [total_worker] [factory_id]")
         sys.exit(1)
 
     worker_id = int(sys.argv[1])
