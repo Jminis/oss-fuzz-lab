@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y git autoconf automake libtool make \
 RUN pip3 install pytest
 RUN git clone https://github.com/CESNET/libyang.git
 
-RUN git clone --depth 1 --branch fuzz https://github.com/FRRouting/frr
+RUN git clone  --branch fuzz https://github.com/FRRouting/frr
 
 RUN git clone --depth 1 https://github.com/qlyoung/corpi
 COPY build.sh $SRC

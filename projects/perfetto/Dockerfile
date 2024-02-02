@@ -19,7 +19,11 @@ FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update
 RUN apt-get -y install python curl
 
-RUN git clone --depth=1 https://android.googlesource.com/platform/external/perfetto/ $SRC/perfetto
+RUN git clone  https://android.googlesource.com/platform/external/perfetto/ $SRC/perfetto
+
+WORKDIR $SRC/perfetto
+RUN git checkout 9c2f7a5e849255a2b50b31e2151ad6e2f756836e
+WORKDIR ../
 
 RUN $SRC/perfetto/infra/oss-fuzz/init_container
 

@@ -1,1 +1,0 @@
-./crash/asan/SEGV/samba--fuzz_ndr_spoolss_TYPE_OUT/reproduced_samba--fuzz_ndr_spoolss_TYPE_OUT--crash-306bcfb1e94078f1287ee580cdc6df68-2023-09-02-013956,samba,2023-09-02-01,3fbc514a2c350daa358a3a172df63b6ca9056c2e
