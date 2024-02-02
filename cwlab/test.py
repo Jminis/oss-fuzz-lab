@@ -30,7 +30,7 @@ def check_build(container_path, project_name):
 
     if not any(project_name in image for image in image_list):
         shutil.copy(container_dockerfile_path, projects_dockerfile_path)
-        for i in range(0,10):
+        for i in range(0,3):
             if subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name], cwd="../") == 0:
                 return True
         error(os.path.basename(container_path),"build_fuzzers")
@@ -41,7 +41,7 @@ def check_build(container_path, project_name):
         with open(projects_dockerfile_path, 'r') as file1, open(container_dockerfile_path, 'r') as file2:
             if file1.read() != file2.read():
                 shutil.copy(container_dockerfile_path, projects_dockerfile_path)
-                for i in range(0,10):
+                for i in range(0,3):
                     if subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name], cwd="../") == 0:
                         return True
                 error(os.path.basename(container_path),"build_fuzzers")
