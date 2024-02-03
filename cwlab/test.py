@@ -27,11 +27,11 @@ def check_build(container_path, project_name):
     # 이전에 생성한 적이 없는 이미지라면 빌드
     result = subprocess.run(["docker", "images", "--format", "{{.Repository}}"], capture_output=True, text=True)
     image_list = result.stdout.strip().split('\n')
-
     if not any(project_name in image for image in image_list):
         shutil.copy(container_dockerfile_path, projects_dockerfile_path)
         for i in range(0,3):
-            if subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name], cwd="../") == 0:
+            if subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name], cwd="../").returncode == 0:
+                time.sleep(3)
                 return True
         error(os.path.basename(container_path),"build_fuzzers")
         return False
@@ -42,8 +42,9 @@ def check_build(container_path, project_name):
             if file1.read() != file2.read():
                 shutil.copy(container_dockerfile_path, projects_dockerfile_path)
                 for i in range(0,3):
-                    if subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name], cwd="../") == 0:
+                    if subprocess.run(["python", "infra/helper.py", "build_fuzzers", project_name], cwd="../").returncode == 0:
                         return True
+                    time.sleep(3)
                 error(os.path.basename(container_path),"build_fuzzers")
                 return False
             
@@ -160,7 +161,7 @@ def main():
 
     # 유효성 검사 후 n번째 조각 실행
     for container in containers:
-        time.sleep(1)
+        time.sleep(3)
         run_fuzzer(container)
 
 if __name__ == "__main__":
