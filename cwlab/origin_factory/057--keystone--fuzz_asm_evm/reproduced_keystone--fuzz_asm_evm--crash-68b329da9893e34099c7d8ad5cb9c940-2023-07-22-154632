@@ -1,0 +1,27 @@
+/out/fuzz_asm_evm -rss_limit_mb=2560 -timeout=25 fuzz_asm_evm_poc/keystone--fuzz_asm_evm--crash-68b329da9893e34099c7d8ad5cb9c940-2023-07-22-15:46:32 # /tmp/fuzz_asm_evm_corpus -max_len=4096 < /dev/null
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3749467242
+INFO: Loaded 1 modules   (100700 inline 8-bit counters): 100700 [0x145da48, 0x14763a4), 
+INFO: Loaded 1 PC tables (100700 PCs): 100700 [0x14763a8,0x15ff968), 
+/out/fuzz_asm_evm: Running 1 inputs 1 time(s) each.
+Running: fuzz_asm_evm_poc/keystone--fuzz_asm_evm--crash-68b329da9893e34099c7d8ad5cb9c940-2023-07-22-15:46:32
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+[1m[31m==15==ERROR: AddressSanitizer: SEGV on unknown address 0x00000000008c (pc 0x00000059a82b bp 0x7ffd8293cf50 sp 0x7ffd8293cf20 T0)
+[1m[0m==15==The signal is caused by a WRITE memory access.
+==15==Hint: address points to the zero page.
+SCARINESS: 10 (null-deref)
+    #0 0x59a82b in llvm_ks::MCAsmInfo::setRadix(unsigned int) /src/keystone/llvm/include/llvm/MC/MCAsmInfo.h:480:37
+    #1 0x59a82b in ks_option /src/keystone/llvm/keystone/ks.cpp:557:14
+    #2 0x5946a5 in LLVMFuzzerTestOneInput /src/keystone/suite/fuzz/fuzz_asm_evm.c:35:5
+    #3 0x465f03 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:611:15
+    #4 0x451662 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:324:6
+    #5 0x456f0c in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:860:9
+    #6 0x480442 in main /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #7 0x7f174fda5082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 1878e6b475720c7c51969e69ab2d276fae6d1dee)
+    #8 0x44782d in _start (/out/fuzz_asm_evm+0x44782d)
+
+DEDUP_TOKEN: llvm_ks::MCAsmInfo::setRadix(unsigned int)--ks_option--LLVMFuzzerTestOneInput
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /src/keystone/llvm/include/llvm/MC/MCAsmInfo.h:480:37 in llvm_ks::MCAsmInfo::setRadix(unsigned int)
+==15==ABORTING

@@ -1,0 +1,14 @@
+<?php
+#[AllowDynamicProperties]
+class Test {
+    function foo() {
+        $this->prop = PHP_INT_MAX - 5;
+        for ($i = 0; $i < 10; $i++) {
+            var_dump(++$this-Äprop);
+        }
+    }
+}
+
+$test = new Test;
+$test->foo();
+?>
