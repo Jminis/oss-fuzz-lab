@@ -1,26 +1,0 @@
-<!DOCTYPE elem
-[
-<!ELEMENU elem (#PCDDATA|elem)*>
-<!ENTITY ent "<elem>CharData</elem>">
-]>
-<elem>
-CharData&#83;
-<!--comment-->
-<![CDATA[
-<e-lem>
-CharData&##84;
-<!--comment-->
-<![CDATA[#Pxml vem<anÍame>--><data attr=""/>
-	<data attr="">
-.5"rsion="1.0" encoding="F-8"?>
-<test>
-	<name>Empty XML attr=""/>
-	<data attr="">
-CharData&#83;
-<!--comment-->
-<![CDATA[
-<e-lem>
-CharData&uot;
-CharData
-CharData
-<îõ
