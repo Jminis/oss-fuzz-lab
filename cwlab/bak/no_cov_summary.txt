@@ -1,0 +1,24 @@
+001--glog--fuzz_demangle--no_seed 18567.20
+003--c-blosc2--decompress_chunk_fuzzer 328095.00 TIMEOUT-4
+004--coturn--FuzzStun 37.40
+005--cups--FuzzCUPS TIMEOUT-5
+006--example--do_stuff_fuzzer 7680.00
+007--ffmpeg--ffmpeg_BSF_EVC_FRAME_MERGE_fuzzer--no_seed TIMEOUT-5
+008--file--magic_fuzzer_loaddb--no_seed TIMEOUT-5
+010--hiredis--format_command_fuzzer--no_seed 6617.60
+012--librdkafka--fuzz_regex--no_seed TIMEOUT-5
+013--libredwg--llvmfuzz--no_seed TIMEOUT-5
+014--libyaml--libyaml_dumper_fuzzer TIMEOUT-5
+015--llvm--llvm-special-case-list-fuzzer--no_seed TIMEOUT-5
+016--lzo--lzo_decompress_target 206858.20
+017--md4c--fuzz-mdhtml--no_seed TIMEOUT-5
+018--netcdf--fuzz_open--no_seed 32870.80
+021--ntpsec--FuzzServer 3708.00
+022--open62541--fuzz_mdns_message 21552.00
+023--openbabel--fuzz_obconversion_smiles--no_seed 300.40
+024--pandas--fuzz_textreader_parser--no_seed 15140.20
+028--plan9port--fuzz_libsec--no_seed 66.20
+029--pupnp--FuzzIxml 7883.20
+030--rdkit--smiles_string_to_mol_fuzzer 27968.60
+031--readstat--fuzz_format_sas7bcat 160654.00 TIMEOUT-1
+032--readstat--fuzz_format_sav TIMEOUT-5
