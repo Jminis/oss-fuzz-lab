@@ -10,7 +10,7 @@ import glob
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # TODO: check fuzzing option
-time0ut = 60*60*24
+time0ut = 60*60*24*3
 option = f"-print_final_stats=1 -detect_leaks=0 -timeout=60 "
 #option = f"-print_final_stats=1 -use_counters=0 -detect_leaks=0 -timeout=60 "
 #option = f"-print_final_stats=1 -shrink=1 -detect_leaks=0 -timeout=60 "
