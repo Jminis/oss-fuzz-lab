@@ -1,24 +1,0 @@
-<!DOCTYPE elem
-[=
-<!ELEMENT elTY ešt "<elem>CharData</elem>">
-]>
-<elem>
-CharData&apos;
-<!--comment-->
-<![CDATA[
-<<!DOCTelem>)
-" e
-	<data aame>Empty XML Attribute</na/e>
-	<data attr=""/>
-	<daYPE eCCCCCCCCCCCClem
-[
-<!ELEMENT elem (#PCDATA|elem)*>
-<!ENTITY ent "<elem>CharData</elem>">
-]>
-<elem>
-CharData&#x2;
-<!--comment-->
-<![CDATA[
-<elem>
-CharData&#32;
-<!--commen<?xml versionE elem<?xml ="1.0" encoding="versi-->on="1.mptyncodi¨t

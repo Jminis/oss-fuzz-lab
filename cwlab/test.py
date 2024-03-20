@@ -64,6 +64,7 @@ def build_fuzzer(container_dir):
     if os.system(f"unzip ../build/out/{project_name}/{fuzzer_name}_seed_corpus.zip -d {corpus_path}") != 0:
         container_path = re_container(container_path,"no_seed")
         create_directory(corpus_path)
+        os.system(f"echo '' > {corpus_path}/seed ")
     print(f"../build/out/{project_name} to {container_path}")
     shutil.move(f"../build/out/{project_name}",container_path)
 
@@ -99,8 +100,8 @@ def run_fuzzer(args):
 
         # -- Set corpus directory
         corpus_path = f"../build/out/{project_name}/{fuzzer_name}_corpus_{worker}"
-        #if os.path.exists(corpus_path):
-        #    shutil.rmtree(corpus_path)
+        if os.path.exists(corpus_path):
+            shutil.rmtree(corpus_path)
         shutil.copytree(f"../build/out/{project_name}/{fuzzer_name}_corpus",corpus_path)
     
 
@@ -134,7 +135,7 @@ def run_fuzzer(args):
                 result = subprocess.run(["python3", "infra/helper.py", "run_fuzzer", 
                                          project_name, fuzzer_name, custom_option+f"{fuzzer_name}_corpus_{worker}/"],
                                          cwd='../', 
-                                         stdout=file)
+                                         stdout=file,
                                          timeout=time0ut)
         except subprocess.TimeoutExpired:
             timeout_flag = True
@@ -163,7 +164,7 @@ def run_fuzzer(args):
                         if match_new_units:
                             new_units_added = int(match_new_units.group(1))
         
-                if number_of_executed_units == int(executed_units_value):
+                if executed_units_value != None and number_of_executed_units == int(executed_units_value):
                     desc_file.write("Exceed executed units \n")
                 desc_file.write(f"Execution time: {execution_time}\n")
                 desc_file.write(f"Number of Files: {file_count}\n")
@@ -172,12 +173,12 @@ def run_fuzzer(args):
     
             try:
                 time.sleep(3)
-                shutil.rmtree(corpus_path,ignore_errors=True)
+                #shutil.rmtree(corpus_path,ignore_errors=True)
             except Exception:
                 pass
             
     except Exception as e:
-        logging(f"[{worker}]:{e}")
+        logging(f"[{worker}][{project_name}]:{e}")
 
 
 def logging(message):

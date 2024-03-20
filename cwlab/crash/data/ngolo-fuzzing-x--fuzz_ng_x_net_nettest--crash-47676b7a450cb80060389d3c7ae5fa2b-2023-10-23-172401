@@ -1,9 +1,0 @@
-list {
-  TestableAddress {
-    network: "unix"
-  }
-}
-list {
-  SupportsRawSocket {
-  }
-}

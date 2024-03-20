@@ -1,28 +1,0 @@
->>>
-GET /?p=%20 HT>>>
-GET / HTTP/1.0
-TP/1.1
-User-Ag!nt Mozilla
-
-G
->>>
-ET /?p=%21 HTTP/1.1ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
-Us
-
-<<<
-HTTP/1.0 2002 OK
-Date: Mon, 31 Aug 2009 20:25:50 GMT
-Server: Apache
-Connection: close
-Co/1.0 2002 OK
-Date:er-Agent: Mon, 31 Aug 200th: 10
-Transfer-Encoding: chunked
-
-9 Mo
-01234567
-19
-8
-0
-zilla
-
-

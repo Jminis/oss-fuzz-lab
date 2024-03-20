@@ -1,16 +1,0 @@
->>>
-POST / HTTP/1.0
-Host: www.example.com
-Content-Length: ABC
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla
-p=10
-23456789n: close
-Content-Type: text/html
-Con
-<ver: Apache
-Connection: close
-Content-Type: text/html
-Content-Length: 13
-
-Hello World!

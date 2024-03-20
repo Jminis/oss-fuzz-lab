@@ -1,16 +1,0 @@
-<!DOCTYPE elem
-[
-<!ELEMENT elem (#PCDATA|elem)*>
-<!ENTITY ent "<elem>CharData</elem>">
-]>
-<elem>
-CharD<??>	
-<test>
-	<name>Empty XMsion="1.0" encoding="UTF-8"?>encodid distribute granted under MPL -->
-<!-- Emai ricko@gate.sinica.neata&#32;t.tw -->
-<test xmlns='http://www.ascc.ne#32;w.ascc.nemt/xml/tis file is thest/schema' type="io0">
-	<name>Chinese Tzst #5: utf-8
-<!--comment-->
-<![CDATA[
-<elem></name>t
-¸harData&#32;w.ascc.netoxml/te'type="io0harData&#3
